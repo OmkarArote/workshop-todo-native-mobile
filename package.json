@@ -8,12 +8,23 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@astrajs/collections": "0.0.14",
+    "@astrajs/rest": "^0.0.14",
+    "classnames": "^2.2.6",
+    "css-to-react-native-transform": "^1.9.0",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
+    "fetch-with-proxy": "^3.0.1",
+    "node-uuid": "^1.4.8",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-elements": "^3.4.2",
+    "react-native-safe-area-context": "^3.1.9",
+    "react-native-uuid": "^1.4.9",
+    "react-native-vector-icons": "8.1.0",
+    "react-native-web": "~0.13.12",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
