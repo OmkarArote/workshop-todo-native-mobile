@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, SafeAreaView, View, Button, FlatList, StatusBar } from 'react-native';
 import Todo from "./Todo.js";
 import Footer from "./Footer.js";
-import { ListItem, Avatar } from 'react-native-elements'
 
 const TODO_FILTERS = {
   SHOW_ALL: () => true,
@@ -17,7 +16,6 @@ function TodoList (props) {
   const handleShow = (filter) => {
     setFilter(filter);
   };
-
 
   const handleClearCompletedDoc = () => {
     actions.clearCompletedDoc();
@@ -45,23 +43,21 @@ const renderFooter = (completedCount) => {
     return todo.completed ? count + 1 : count;
   }, 0);
 
-  // if (!todos.length) {
-  //   return (
-  //         <ListItem style={styles.todolist}></ListItem>
-  //   )
-  // }
+  if (!todos.length) {
+    return (
+      <FlatList style={styles.todolist}></FlatList>
+    )
+  }
+
   const renderItems = ({item}) => (
-    <Todo  todo={item}  deleteRestTodo={actions.deleteRestTodo}/>
+    <Todo todo={item}  deleteRestTodo={actions.deleteRestTodo} completeRestTodo={actions.completeRestTodo}/>
   )
 
   return (
     <View style={styles.main}>
         <FlatList data={filteredTodos} keyExtractor={item => item.id} renderItem={renderItems} style={styles.todolist}>
-          
         </FlatList>
-
-      {renderFooter(completedCount)}
-   
+        {renderFooter(completedCount)}
     </View>
   );
 }
@@ -69,10 +65,13 @@ const renderFooter = (completedCount) => {
 const styles = StyleSheet.create({
   main: {
 	  borderTopWidth: 1,
-    borderStyle: 'solid', 
+    //borderStyle: 'solid', 
     borderColor: '#e6e6e6',
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0 
+    //marginTop: StatusBar.currentHeight || 0 
+    alignContent: "center",
+    paddingLeft: 15,
+    paddingRight: 15,
   },  
 });
 

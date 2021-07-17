@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 //import React from 'react';
-import { StyleSheet, Text, Button, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import Header from './src/Header.js';
 import TodoList from './src/TodoList.js';
 import api from './src/utils/api.js';
-import { SafeAreaView } from 'react-native';
+import 'react-native-get-random-values';
 import uuid from 'node-uuid';
 
-export default function App() {
+function App() {
 
   const [restTodos, setRestTodos] = React.useState([]);
 
@@ -19,7 +19,7 @@ export default function App() {
 				completed: false,
 				text: text,
 				key: 'rest',
-			})
+			});
 			getRestTodos();
 		} catch (error) {
 			console.log(error) 
@@ -29,7 +29,6 @@ export default function App() {
 	const deleteRestTodo = async (id) => {
 		try {
 			await api.deleteRestTodo(id);
-			console.log("todos", restTodos)
 			getRestTodos();
 		} catch (error) {
 			console.log(error) 
@@ -78,15 +77,13 @@ export default function App() {
 		deleteRestTodo: deleteRestTodo,
 	};
 
-
   return (
 	<SafeAreaView style={{flex: 1}}>
 		<View style={styles.todos}>
-				<Header title="REST todos" addTodo={actions.addRestTodo}  type="rest"/>
+				<Header title="To-Do List" addTodo={actions.addRestTodo}  type="rest"/>
 				<TodoList type="rest" todos={restTodos} actions={actions} />
 		</View>
 	</SafeAreaView>
-
   );
 }
 
@@ -94,9 +91,8 @@ const styles = StyleSheet.create({
   todos: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-    //alignItems: 'center',
-    justifyContent: 'center',
   },
-
 });
+
+export default App;
 

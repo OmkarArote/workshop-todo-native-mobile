@@ -31,8 +31,9 @@ function Header (props) {
 const styles = StyleSheet.create({
   h1: {
 	  fontSize: 40,
-	  fontWeight: '200',
-	  textAlign: 'left',
+	  fontWeight: '500',
+	  textAlign: 'center',
+    fontFamily: ,
   },
 
   page: {

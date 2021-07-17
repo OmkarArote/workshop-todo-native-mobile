@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, FlatList, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 import classnames from "classnames";
 
 const FILTER_TITLES = {
@@ -15,7 +15,7 @@ function Footer (props) {
     const itemWord = activeCount === 1 ? "item" : "items";
 
     return (
-      <Text style={styles.todocount}>
+      <Text>
        {activeCount || "No"} {itemWord} left
       </Text>
     );
@@ -26,62 +26,57 @@ function Footer (props) {
     const { filter: selectedFilter, onShow } = props;
 
     return (
-      <Button title={selectedFilter} className={classnames({ selected: filter === selectedFilter })}
-      onClick={() => onShow(filter)} style={{ cursor: "pointer" }}>{title}</Button>
+      <Button title={title} className={classnames({ selected: filter === selectedFilter })}
+       onPress={() => onShow(filter)} />
     );
   }
 
   const renderFilterList = () => {
     return ["SHOW_ALL", "SHOW_ACTIVE", "SHOW_COMPLETED"].map((filter) => (
-      <Text style={styles.filters} key={filter}>{renderFilterLink(filter)}</Text>
+      <View style={styles.filters} key={filter}>{renderFilterLink(filter)}</View>
     ));
   }
 
   useEffect(() => {
-		//console.log("PROP Change: Active items is %d", activeCount);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [activeCount]);
 
   return (
     <View style={styles.footer}>
-      {renderTodoCount()}
-      <View style={styles.filters}>{renderFilterList()}</View>
+      <Text> {renderTodoCount()} </Text>
+      <Text> {renderFilterList()} </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   footer: {
+    alignItems: 'center',
     padding: 10,
-	  height: 50,
+	  height: 80,
 	  textAlign: 'center',
-	  fontSize: 12,
+	  fontSize: 1,
 	  borderTopWidth: 1,
     borderStyle: 'solid', 
     borderColor: '#e6e6e6',
-    //overflow: 'hidden',
+    backgroundColor: "#fff",
     shadowColor: 'rgba(0, 0, 0, 0.2)',
   },
 
   filters: {
-    fontSize: 5,
-	  margin: 3,
-	  paddingTop: 3,
+    fontSize: 1,
+    color:'red'
+	  //margin: 3,
+	  /* paddingTop: 3,
     paddingBottom: 3,
-    paddingLeft: 7,
+    paddingLeft: 7, */
 	  //borderWidth: 1,
     //borderStyle: 'solid', 
     //transparent;
-    display: 'flex',
-    borderBottomWidth: 3,
-    textAlign: 'right',
-    flexDirection: 'column',
-  },
-  
-  todocount: {
-    //float: 'left',
-	  textAlign: 'left',
-    fontWeight: '300',
+    //display: 'flex',
+    //borderBottomWidth: 3,
+    //textAlign: 'right',
+    //flexDirection: 'column',
   },
 
 });

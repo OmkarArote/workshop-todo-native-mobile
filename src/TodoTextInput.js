@@ -33,12 +33,12 @@ function TodoTextInput(props) {
       })}
       type="text"
       placeholder={placeholder}
-      autoFocus={true}
+      //autoFocus={true}
       value={text}
       multiline={true}
       onBlur={handleBlur}
       onChangeText={text => handleChange(text)}
-      onKeyPress={handleSubmit} // which should this be?
+      onKeyPress={handleSubmit}
     />
   );
 }
