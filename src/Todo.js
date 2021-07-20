@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Button, Text, FlatList } from 'react-native';
-import classnames from "classnames";
+import { StyleSheet, View, Button, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 //import CheckBox from '@react-native-community/checkbox';
 
@@ -50,9 +49,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor:  '#ccc',
     display: 'flex',
-    //flex: 1,
     flexDirection: 'row',
-    //justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fff',
   },

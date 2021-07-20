@@ -26,14 +26,13 @@ function Footer (props) {
     const { filter: selectedFilter, onShow } = props;
 
     return (
-      <Button title={title} className={classnames({ selected: filter === selectedFilter })}
-       onPress={() => onShow(filter)} />
+      <Button title={title} onPress={() => onShow(filter)} />
     );
   }
 
   const renderFilterList = () => {
     return ["SHOW_ALL", "SHOW_ACTIVE", "SHOW_COMPLETED"].map((filter) => (
-      <View style={styles.filters} key={filter}>{renderFilterLink(filter)}</View>
+      <View key={filter}>{renderFilterLink(filter)}</View>
     ));
   }
 
@@ -54,31 +53,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
 	  height: 80,
-	  textAlign: 'center',
-	  fontSize: 1,
 	  borderTopWidth: 1,
     borderStyle: 'solid', 
     borderColor: '#e6e6e6',
     backgroundColor: "#fff",
     shadowColor: 'rgba(0, 0, 0, 0.2)',
   },
-
-  filters: {
-    fontSize: 1,
-    color:'red'
-	  //margin: 3,
-	  /* paddingTop: 3,
-    paddingBottom: 3,
-    paddingLeft: 7, */
-	  //borderWidth: 1,
-    //borderStyle: 'solid', 
-    //transparent;
-    //display: 'flex',
-    //borderBottomWidth: 3,
-    //textAlign: 'right',
-    //flexDirection: 'column',
-  },
-
+  
 });
 
 export default Footer;

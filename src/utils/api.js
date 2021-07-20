@@ -1,25 +1,33 @@
+import {HOST, PORT, IP} from '@env'
 
-const host = 'http://localhost:8888/.netlify/functions/';
+//const host = 'http://localhost:8888/.netlify/functions';
+//const ipAddress = '192.168.86.35';
+//const host = 'http://192.168.86.35:8888';
 
-// CREATE
+const ipAddress = HOST;
+const port = PORT;
+
+const host = `http://${ipAddress}:${port}`;
+//console.log("host: ", host);
+
+// CREATE 
 const addRestTodo = (todo) => {
   const stringifiedBody = JSON.stringify(todo);
-  return fetch(`${host}/createRestTodo`, {
-  //return fetch("createRestTodo", {
+
+  return fetch(`${host}/.netlify/functions/createRestTodo`, {
     body: stringifiedBody,
     method: "POST",
   }).then((response) => {
     return response.json();
-  }).catch((err) => {
-    throw err;
+  }).catch((error) => {
+    throw error;
   });
-  
 };
 
 // READ
 const getRestTodos = async () => {
-  const response = await fetch(`${host}/getRestTodos`);
-  //const response = await fetch(`/.netlify/functions/getRestTodos`);
+  //console.log("host: ", host);
+  const response = await fetch(`${host}/.netlify/functions/getRestTodos`);
   let todos = await response.json();
 
   return todos.length ? todos : [];
@@ -28,7 +36,7 @@ const getRestTodos = async () => {
 // UPDATE
 const updateRestTodo = async (todo) => {
   const stringifiedBody = JSON.stringify(todo);
-  const response = await fetch(`${host}/updateRestTodo`, {
+  const response = await fetch(`${host}/.netlify/functions/updateRestTodo`, {
     body: stringifiedBody,
     method: "PUT",
   });
@@ -39,9 +47,8 @@ const updateRestTodo = async (todo) => {
 
 // DELETE
 const deleteRestTodo = async (id) => {
-  console.log("id", id)
   const stringifiedBody = JSON.stringify({ id });
-  const response = await fetch(`${host}/deleteRestTodo`, {
+  const response = await fetch(`${host}/.netlify/functions/deleteRestTodo`, {
     body: stringifiedBody,
     method: "DELETE",
   });  

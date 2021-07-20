@@ -1,17 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import TodoTextInput from "./TodoTextInput.js";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 function Header (props) {
 
   const { title, addTodo } = props;
 
   const handleSave = (text) => {
-    
     if (text.length !== 0) {
       addTodo(text);
     }
   };
+
   const label = title;
 
   return (
@@ -30,10 +31,11 @@ function Header (props) {
 
 const styles = StyleSheet.create({
   h1: {
-	  fontSize: 40,
+	  //fontSize: 40,
+    fontSize: RFPercentage(5),
 	  fontWeight: '500',
 	  textAlign: 'center',
-    fontFamily: ,
+    //fontFamily: 'Avenir',
   },
 
   page: {
@@ -42,12 +44,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
+    //fontFamily: 'Avenir',
   }
 
 });
 
 export default Header;
-
-
-
-

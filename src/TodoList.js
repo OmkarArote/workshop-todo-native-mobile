@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Button, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import Todo from "./Todo.js";
 import Footer from "./Footer.js";
 
@@ -65,10 +65,8 @@ const renderFooter = (completedCount) => {
 const styles = StyleSheet.create({
   main: {
 	  borderTopWidth: 1,
-    //borderStyle: 'solid', 
     borderColor: '#e6e6e6',
     flex: 1,
-    //marginTop: StatusBar.currentHeight || 0 
     alignContent: "center",
     paddingLeft: 15,
     paddingRight: 15,

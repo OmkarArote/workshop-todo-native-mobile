@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, StyleSheet } from "react-native";
+import { TextInput, StyleSheet } from "react-native";
 import classnames from "classnames";
 
 function TodoTextInput(props) {
@@ -33,7 +33,7 @@ function TodoTextInput(props) {
       })}
       type="text"
       placeholder={placeholder}
-      //autoFocus={true}
+      autoFocus={true}
       value={text}
       multiline={true}
       onBlur={handleBlur}
