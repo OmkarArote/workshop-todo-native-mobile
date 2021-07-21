@@ -252,9 +252,30 @@ Finally, now that we created a table and inserted a row of data let's **GET** th
 ## 6. Launch GitPod IDE
 - Click the button to launch the GitPod IDE.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastaxdevs/appdev-week1-todolist/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/soniaisiganporia/todonativemobileapp/)
 
-## 7. Install Watchman, Git, and Node.js
+## 7. Check Node & NPM versions in GitPod
+You will need node 15 and npm 7 or later.
+
+```bash
+npm -v
+```
+
+```bash
+node -v
+```
+
+If either are not updated, run the following commands respectively.
+
+```bash
+npm install
+```
+
+```bash
+nvm install node
+```
+
+## 7. Install Watchman, Git, and Node.js in GitPod
 ... if you don't have them already:
 
 ```bash
@@ -273,36 +294,44 @@ brew update
 brew install watchman
 ```
 
-## 7. Install Expo CLI
+## 8. Install Expo CLI in GitPod
 
+```bash
 sudo npm install --global expo-cli
+```
+
+```bash
 expo whoami 
+```
+
+If you don't have an account:
+
+```bash
 expo register
+```
 
-## 7. Install Netlify CLI
+If you already have an account"
+
+```bash
+expo login
+```
 
 
+## 9. Install Expo mobile application on your phone
+Download the Expo App from the Android Play Store or iOS App Store.
 
-# Need a refresher on React Basics?
-<details><summary>Take me to the React stuff</summary>
-  We've created a separate repo going over the Basics of React. To get there, click the link below.
-  
-  [GOTO React-Basics](https://github.com/datastaxdevs/react-basics)
-  
-  When you're done, just click on the "Back to Main" breadcrumb to come back here.
-</details>
+## 10. Launch the TODO app
 
-## 7. Launch the TODO app
-
-✅  **Step 7a:** Retrieve application token to securely connect to the database
+✅  **Step 10a:** Retrieve application token to securely connect to the database
 
 Use the token you previously generated. If you no longer have the token and did not download a .csv, you can generate a new token using [the instructions above](#2-create-a-security-token)
 
-✅  **Step 7b:** Configure Environment Variables and Install Dependencies
+✅  **Step 10b:** Configure Environment Variables and Install Dependencies
 
 1. Create an empty `.env` file
 
 In the repository directory run the following command  to set up your Astra environment.  Note that this does require Node 15 and NPM 7 to work.  You can install a node version manager like `nvm` or `n` to use multiple versions on your system.
+
 ```bash
 npm exec astra-setup todos_workshop_db todos
 ```
@@ -313,13 +342,30 @@ npm exec astra-setup todos_workshop_db todos
 npm install -g netlify-cli
 ```
 
-✅  **Step 7c:** Launch your app
+✅  **Step 10c:** Launch your app
   * Run the application 
+ 
   ```
   netlify dev
   ```
+  
+  ```
+  expo start
+  ```
+  
   * The application should automatically launch in the GitPod preview pane
 
+Scan the QR code with your phone camera to open your application in the Expo App.
+
+
+# Need a refresher on React Basics?
+<details><summary>Take me to the React stuff</summary>
+  We've created a separate repo going over the Basics of React. To get there, click the link below.
+  
+  [GOTO React-Basics](https://github.com/datastaxdevs/react-basics)
+  
+  When you're done, just click on the "Back to Main" breadcrumb to come back here.
+</details>
 
 ### Things to Note:
  - The contents of this repo are based on [Jake's port](https://github.com/tjake/todo-astra-react-serverless/) of the [TodoMVC code](https://github.com/tastejs/todomvc/tree/master/examples/react) originally written by [Pete Hunt](https://github.com/petehunt).
