@@ -3,6 +3,7 @@ import {HOST, PORT, IP} from '@env'
 //const host = 'http://localhost:8888/.netlify/functions';
 //const ipAddress = '192.168.86.35';
 //const host = 'http://192.168.86.35:8888';
+//coonst androidIP = '10.0.2.2';
 
 const ipAddress = HOST;
 const port = PORT;
