@@ -1,0 +1,38 @@
+tasks:
+  - name: todonativemobileapp
+    init: |
+      cd /workspace/todonativemobileapp
+      nvm install node
+      npm install
+    command: |
+      cd /workspace/todonativemobileapp
+      nvm install node
+      npm install
+      npm install --global expo-cli
+      npm install -g netlify-cli
+      gp open README.md
+      echo "todonativemobileapp gitpod ready - LET'S DO THIS!"
+     
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: false
+
+ports:
+  - port: 8888
+    onOpen: open-browser
+    visibility: public
+  - port: 19000
+    onOpen: open-browser
+    visibility: public
+  - port: 19003
+    onOpen: open-browser
+    visibility: public
+  - port: 3000
+    onOpen: ignore  
