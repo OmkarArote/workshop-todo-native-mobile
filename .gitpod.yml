@@ -6,9 +6,15 @@ tasks:
       npm install
       npm install --global expo-cli
       npm install -g netlify-cli
+      brew install watchman
+      npm install astra-setup
+      npm i whatwg-fetch
+      npm install -g @expo/ngrok
     command: |
       gp open README.md
       echo "todonativemobileapp gitpod ready - LET'S DO THIS!"    
+      node -v
+      npm -v
 github:
   prebuilds:
     master: true
@@ -26,8 +32,18 @@ ports:
   - port: 19000
     onOpen: open-browser
     visibility: public
-  - port: 19003
+  - port: 19001
+    onOpen: open-browser
+    visibility: public
+  - port: 19002
     onOpen: open-browser
     visibility: public
   - port: 3000
     onOpen: ignore  
+  - port: 4040
+    onOpen: open-browser
+    visibility: public
+  - port: 5555
+    onOpen: open-browser
+    visibility: public
+
