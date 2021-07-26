@@ -12,9 +12,7 @@ tasks:
       npm install -g @expo/ngrok
     command: |
       gp open README.md
-      echo "todonativemobileapp gitpod ready - LET'S DO THIS!"    
-      node -v
-      npm -v
+      echo "todonativemobileapp gitpod ready - LET'S DO THIS!"
 github:
   prebuilds:
     master: true
