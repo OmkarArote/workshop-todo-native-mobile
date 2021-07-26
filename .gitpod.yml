@@ -4,9 +4,9 @@ tasks:
       cd /workspace/todonativemobileapp
       nvm install node
       npm install
+      
       npm install --global expo-cli
       npm install -g netlify-cli
-      brew install watchman
       npm install astra-setup
       npm i whatwg-fetch
       npm install -g @expo/ngrok
@@ -28,7 +28,7 @@ ports:
     onOpen: open-browser
     visibility: public
   - port: 19000
-    onOpen: open-browser
+    onOpen: ignore
     visibility: public
   - port: 19001
     onOpen: open-browser
