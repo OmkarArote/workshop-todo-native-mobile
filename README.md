@@ -275,34 +275,7 @@ npm install
 nvm install node
 ```
 
-## 7. Install Watchman, Git, and Node.js in GitPod
-... if you don't have them already:
-
-```bash
-/bin/bash -c ""$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
-```
-
-```bash
-brew install git
-```
-
-```bash
-brew update
-```
-
-```bash
-brew install watchman
-```
-
 ## 8. Install Expo CLI in GitPod
-
-```bash
-sudo npm install --global expo-cli
-```
-
-```bash
-expo whoami 
-```
 
 If you don't have an account:
 
@@ -310,12 +283,17 @@ If you don't have an account:
 expo register
 ```
 
-If you already have an account"
+If you already have an account:
 
 ```bash
 expo login
 ```
 
+Double check that you are logged in.
+
+```bash
+expo whoami 
+```
 
 ## 9. Install Expo mobile application on your phone
 Download the Expo App from the Android Play Store or iOS App Store.
@@ -336,12 +314,6 @@ In the repository directory run the following command  to set up your Astra envi
 npm exec astra-setup todos_workshop_db todos
 ```
 
-2. 👩‍💻  Install all the packages
-
-```bash
-npm install -g netlify-cli
-```
-
 ✅  **Step 10c:** Launch your app
   * Run the application 
  
@@ -350,7 +322,7 @@ npm install -g netlify-cli
   ```
   
   ```
-  expo start
+  expo start --tunnel
   ```
   
   * The application should automatically launch in the GitPod preview pane
