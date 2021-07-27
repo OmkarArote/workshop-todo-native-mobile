@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 0,
     shadowColor: 'rgba(0, 0, 0, 0.2)',
+  },
 
 });
 
