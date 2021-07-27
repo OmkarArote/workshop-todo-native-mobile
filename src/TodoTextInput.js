@@ -6,11 +6,13 @@ function TodoTextInput(props) {
   const { newTodo, placeholder, onSave } = props;
   const [text, setText] = React.useState("");
 
+  const [multiline, setMultiline] = React.useState(false);
 
-  const handleSubmit = ({ nativeEvent: { key: keyValue } }) => {
+  const handleSubmit = ({ nativeEvent: {key:keyValue} }) => {
     if (keyValue == 'Enter') {
       onSave(text.trim());
       if (newTodo) {
+        setMultiline(false);
         setText("");
       }
     }
@@ -18,27 +20,27 @@ function TodoTextInput(props) {
 
   const handleChange = (text) => {
     setText(text);
+    if(multiline == false) {
+      setMultiline(true);
+    }
   }
 
-  const handleBlur = (e) => {
+  const handleBlur = (text) => {
     if (!newTodo) {
-      onSave(e.target.value);
+      onSave(text);
     }
   };
 
   return (
     <TextInput style={[styles.newtodo, styles.newtodoedit]}
-      className={classnames({
-        "new-todo": newTodo,
-      })}
       type="text"
       placeholder={placeholder}
       autoFocus={true}
       value={text}
-      multiline={true}
-      onBlur={handleBlur}
+      multiline={multiline}
+      onBlur={text => handleBlur(text)}
       onChangeText={text => handleChange(text)}
-      onKeyPress={handleSubmit}
+      onKeyPress={text => handleSubmit(text)}
     />
   );
 }
@@ -67,10 +69,6 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff',
     fontSize: 20,
-    //fontFamily: 'inherit',
-    //fontWeight: 'inherit',
-    //lineHeight: 1.4,
-    //textColor: 'inherit',
     padding: 6,
     borderWidth: 1,
     borderStyle: 'solid',
