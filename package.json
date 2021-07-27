@@ -10,6 +10,7 @@
   "dependencies": {
     "@astrajs/collections": "0.0.14",
     "@astrajs/rest": "^0.0.14",
+    "@expo/ngrok": "^2.5.0",
     "anonymous-files": "^1.0.1",
     "classnames": "^2.2.6",
     "css-to-react-native-transform": "^1.9.0",
@@ -30,7 +31,8 @@
     "react-native-uuid": "^1.4.9",
     "react-native-vector-icons": "8.1.0",
     "react-native-web": "~0.13.12",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

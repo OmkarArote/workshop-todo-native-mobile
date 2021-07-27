@@ -1,26 +1,29 @@
-import {HOST, PORT, IP} from '@env'
+import {HOST, PORT} from '@env'
 
 //const host = 'http://localhost:8888/.netlify/functions';
 //const ipAddress = '192.168.86.35';
 //const host = 'http://192.168.86.35:8888';
-//coonst androidIP = '10.0.2.2';
+//const androidIP = '10.0.2.2';
+//return fetch(`${host}/.netlify/functions/createRestTodo`, {
 
-const ipAddress = HOST;
-const port = PORT;
+const host = "https://8888-beige-pig-vdeak5ht.ws-us11.gitpod.io";
 
-const host = `http://${ipAddress}:${port}`;
+//const ipAddress = HOST;
+//const port = PORT;
+
+//const host = `https://${ipAddress}:${port}`;
 //console.log("host: ", host);
 
 // CREATE 
 const addRestTodo = (todo) => {
   const stringifiedBody = JSON.stringify(todo);
-
   return fetch(`${host}/.netlify/functions/createRestTodo`, {
     body: stringifiedBody,
     method: "POST",
   }).then((response) => {
     return response.json();
   }).catch((error) => {
+    console.log(error)
     throw error;
   });
 };
