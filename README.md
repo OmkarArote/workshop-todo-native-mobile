@@ -249,10 +249,14 @@ Finally, now that we created a table and inserted a row of data let's **GET** th
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
+**Part 2: Launch the Native Application**
+
 ## 6. Launch GitPod IDE
 - Click the button to launch the GitPod IDE.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/soniaisiganporia/todonativemobileapp/)
+
+- Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
 ## 7. Check Node & NPM versions in GitPod
 You will need node 15 and npm 7 or later.
@@ -275,7 +279,7 @@ npm install
 nvm install node
 ```
 
-## 8. Install Expo CLI in GitPod
+## 8. Register for an Expo Account in GitPod
 
 If you don't have an account:
 
@@ -296,6 +300,7 @@ expo whoami
 ```
 
 ## 9. Install Expo mobile application on your phone
+
 Download the Expo App from the Android Play Store or iOS App Store.
 
 ## 10. Launch the TODO app
@@ -314,20 +319,34 @@ In the repository directory run the following command  to set up your Astra envi
 npm exec astra-setup todos_workshop_db todos
 ```
 
-✅  **Step 10c:** Launch your app
+✅  **Step 10c:** Add Host URL to .env
+
+Get workspace URL:
+
+```bash
+gp url 8888
+```
+
+Take the output of the previous command and add new line to .env file:
+
+HOST: 
+
+
+✅  **Step 10d:** Launch your app
   * Run the application 
  
   ```
   netlify dev
   ```
+  The web app will launch in
   
   ```
   expo start --tunnel
   ```
   
-  * The application should automatically launch in the GitPod preview pane
+  * The web application should automatically launch in the GitPod preview pane
 
-Scan the QR code with your phone camera to open your application in the Expo App.
+**Scan the QR code** with your phone camera to open your application in the Expo App.
 
 
 # Need a refresher on React Basics?
