@@ -32,7 +32,9 @@ function Footer (props) {
 
   const renderFilterList = () => {
     return ["SHOW_ALL", "SHOW_ACTIVE", "SHOW_COMPLETED"].map((filter) => (
-      <View key={filter}>{renderFilterLink(filter)}</View>
+      <View key={filter}>
+        {renderFilterLink(filter)}
+      </View>
     ));
   }
 
@@ -44,22 +46,46 @@ function Footer (props) {
     <View style={styles.footer}>
       <Text> {renderTodoCount()} </Text>
       <Text> {renderFilterList()} </Text>
+
+     
     </View>
   );
 }
+
+//<View style={styles.bottom_line1}/>
+//<View style={styles.bottom_line2}/>
+//<View style={styles.bottom_line3}/>
 
 const styles = StyleSheet.create({
   footer: {
     alignItems: 'center',
     padding: 10,
-	  height: 80,
+	  // height: 80,
 	  borderTopWidth: 1,
     borderStyle: 'solid', 
     borderColor: '#e6e6e6',
     backgroundColor: "#fff",
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // borderBottomWidth: 3,
   },
-  
+  bottom_line1: {
+    height: 1,
+    width: '100%',
+    marginBottom: 2,
+    backgroundColor: 'grey'
+  },
+  bottom_line2: {
+    height: 1,
+    width: '90%',
+    marginBottom: 2,
+    backgroundColor: 'grey'
+  },
+  bottom_line3: {
+    height: 1,
+    width: '80%',
+    // paddingBottom: 2,
+    backgroundColor: 'grey'
+  },
 });
 
 export default Footer;

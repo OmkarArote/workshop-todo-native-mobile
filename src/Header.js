@@ -35,15 +35,16 @@ const styles = StyleSheet.create({
     fontSize: RFPercentage(5),
 	  fontWeight: '500',
 	  textAlign: 'center',
+    paddingBottom: 10,
     //fontFamily: 'Avenir',
   },
 
   page: {
     display: 'flex',
     paddingTop: 10,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
+    //paddingBottom: 10,
+    //paddingLeft: 10,
+    //paddingRight: 10,
     //fontFamily: 'Avenir',
   }
 

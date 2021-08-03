@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Button, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
-//import CheckBox from '@react-native-community/checkbox';
 
 function Todo (props) {
   const { todo, completeRestTodo, deleteRestTodo } = props;

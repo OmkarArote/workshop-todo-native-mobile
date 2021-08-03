@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import Header from './src/Header.js';
@@ -75,20 +76,27 @@ function App() {
 	};
 
   return (
-	<SafeAreaView style={{flex: 1}}>
+	<SafeAreaView style={styles.container}>
 		<View style={styles.todos}>
 			<Header title="To-Do List" addTodo={actions.addRestTodo}  type="rest" />
 			<TodoList type="rest" todos={restTodos} actions={actions} />
 		</View>
+		<StatusBar style={styles.statusBar}/>
 	</SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+	flex: 1,
+  },
+  statusBar: {
+	backgroundColor: '#F5F5F5',
+  },
   todos: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-	//fontFamily: 'Avenir',
+	fontFamily: 'Avenir',
   },
 });
 

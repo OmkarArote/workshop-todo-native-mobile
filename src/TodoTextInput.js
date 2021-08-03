@@ -48,9 +48,9 @@ function TodoTextInput(props) {
 const styles = StyleSheet.create({
   newtodo: {
     paddingTop: 16,
-    paddingRight: 16,
+    // paddingRight: 16,
     paddingBottom: 16,
-    paddingLeft: 60,
+    paddingLeft: 23,
     //border: 'none',
     backgroundColor: 'rgba(0, 0, 0, 0.003)',
     //box-shadow: inset, 
@@ -61,18 +61,18 @@ const styles = StyleSheet.create({
   },
 
   newtodoedit: {
-    fontStyle: 'italic',
+    //fontStyle: 'italic',
     fontWeight: '300',
     color: 'rgba(0, 0, 0, 0.4)',
     position: 'relative',
     margin: 0,
-    width: '100%',
+    // width: '100%',
     backgroundColor: '#fff',
     fontSize: 20,
     padding: 6,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: '#999',
+    borderColor: '#ccc',
     //box-shadow: inset 0 -1px 5px 0, 
     shadowOffset: { width: 0, height: -1 },
     shadowRadius: 5,

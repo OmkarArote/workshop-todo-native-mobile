@@ -6,13 +6,14 @@ import {HOST, PORT} from '@env'
 //const androidIP = '10.0.2.2';
 //return fetch(`${host}/.netlify/functions/createRestTodo`, {
 
-const host = "https://8888-beige-pig-vdeak5ht.ws-us11.gitpod.io";
+// For GitPod
+//const host = "https://8888-beige-pig-vdeak5ht.ws-us11.gitpod.io";
 
-//const ipAddress = HOST;
-//const port = PORT;
+const ipAddress = HOST;
+const port = PORT;
 
-//const host = `https://${ipAddress}:${port}`;
-//console.log("host: ", host);
+const host = `http://${ipAddress}:${port}`;
+console.log("host: ", host);
 
 // CREATE 
 const addRestTodo = (todo) => {

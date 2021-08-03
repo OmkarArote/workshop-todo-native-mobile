@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     borderColor: '#e6e6e6',
     flex: 1,
     alignContent: "center",
-    paddingLeft: 15,
-    paddingRight: 15,
+    //paddingLeft: 5,
+    //paddingRight: 5,
   },  
 });
 
