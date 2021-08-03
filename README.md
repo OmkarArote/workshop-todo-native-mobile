@@ -327,10 +327,10 @@ Get workspace URL:
 gp url 8888
 ```
 
-Take the output of the previous command and add new line to .env file:
+Take the output of the previous command and add new line to your .env file:
 
-HOST: 
-
+Example:
+HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
 
 ✅  **Step 10d:** Launch your app
   * Run the application 
@@ -338,7 +338,6 @@ HOST:
   ```
   netlify dev
   ```
-  The web app will launch in
   
   ```
   expo start --tunnel
@@ -346,8 +345,11 @@ HOST:
   
   * The web application should automatically launch in the GitPod preview pane
 
-**Scan the QR code** with your phone camera to open your application in the Expo App.
+**Scan the QR code** with your phone camera to open your application in the Expo App!
 
+The QR code in the terminal will look like this:
+
+<img width="542" alt="QRImage" src="https://user-images.githubusercontent.com/82838476/127718324-1f7b5f78-8048-4d55-8fe8-5d1141eea26e.png">
 
 # Need a refresher on React Basics?
 <details><summary>Take me to the React stuff</summary>
