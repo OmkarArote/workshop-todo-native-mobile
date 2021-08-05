@@ -9,7 +9,7 @@ const TODO_FILTERS = {
   SHOW_COMPLETED: (todo) => todo.completed,
 };
 
-function TodoList (props) {
+function TodoList(props) {
   const { actions, todos } = props;
   const [filter, setFilter] = React.useState("SHOW_ALL");
 
@@ -21,7 +21,7 @@ function TodoList (props) {
     actions.clearCompletedDoc();
   };
 
-const renderFooter = (completedCount) => {
+  const renderFooter = (completedCount) => {
     const activeCount = todos.length - completedCount;
 
     if (todos.length) {
@@ -49,28 +49,26 @@ const renderFooter = (completedCount) => {
     )
   }
 
-  const renderItems = ({item}) => (
-    <Todo todo={item}  deleteRestTodo={actions.deleteRestTodo} completeRestTodo={actions.completeRestTodo}/>
+  const renderItems = ({ item }) => (
+    <Todo todo={item} deleteRestTodo={actions.deleteRestTodo} completeRestTodo={actions.completeRestTodo} />
   )
 
   return (
     <View style={styles.main}>
-        <FlatList data={filteredTodos} keyExtractor={item => item.id} renderItem={renderItems} style={styles.todolist}>
-        </FlatList>
-        {renderFooter(completedCount)}
+      <FlatList data={filteredTodos} keyExtractor={item => item.id} renderItem={renderItems} style={styles.todolist}>
+      </FlatList>
+      {renderFooter(completedCount)}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   main: {
-	  borderTopWidth: 1,
+    borderTopWidth: 1,
     borderColor: '#e6e6e6',
     flex: 1,
     alignContent: "center",
-    //paddingLeft: 5,
-    //paddingRight: 5,
-  },  
+  },
 });
 
 export default TodoList;

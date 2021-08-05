@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from 'react-native-ui-lib/card';
 import { TextInput, StyleSheet } from "react-native";
 import classnames from "classnames";
 
@@ -8,7 +9,7 @@ function TodoTextInput(props) {
 
   const [multiline, setMultiline] = React.useState(false);
 
-  const handleSubmit = ({ nativeEvent: {key:keyValue} }) => {
+  const handleSubmit = ({ nativeEvent: { key: keyValue } }) => {
     if (keyValue == 'Enter') {
       onSave(text.trim());
       if (newTodo) {
@@ -20,7 +21,7 @@ function TodoTextInput(props) {
 
   const handleChange = (text) => {
     setText(text);
-    if(multiline == false) {
+    if (multiline == false) {
       setMultiline(true);
     }
   }
@@ -51,13 +52,12 @@ const styles = StyleSheet.create({
     // paddingRight: 16,
     paddingBottom: 16,
     paddingLeft: 23,
-    //border: 'none',
     backgroundColor: 'rgba(0, 0, 0, 0.003)',
-    //box-shadow: inset, 
     shadowOffset: { width: 0, height: -2 },
-    shadowRadius: 1,
+    //shadowRadius: 1,
     shadowColor: 'rgba(0,0,0,0.03)',
     elevation: 1, // for Android
+    fontFamily: 'Inter_300Light',
   },
 
   newtodoedit: {
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: '#ccc',
-    //box-shadow: inset 0 -1px 5px 0, 
     shadowOffset: { width: 0, height: -1 },
     shadowRadius: 5,
     shadowOpacity: 0,

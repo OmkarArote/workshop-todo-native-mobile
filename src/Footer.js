@@ -8,7 +8,7 @@ const FILTER_TITLES = {
   SHOW_COMPLETED: "Completed",
 };
 
-function Footer (props) {
+function Footer(props) {
   const { activeCount } = props;
 
   const renderTodoCount = () => {
@@ -16,7 +16,7 @@ function Footer (props) {
 
     return (
       <Text>
-       {activeCount || "No"} {itemWord} left
+        {activeCount || "No"} {itemWord} left
       </Text>
     );
   }
@@ -39,15 +39,13 @@ function Footer (props) {
   }
 
   useEffect(() => {
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeCount]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCount]);
 
   return (
     <View style={styles.footer}>
       <Text> {renderTodoCount()} </Text>
       <Text> {renderFilterList()} </Text>
-
-     
     </View>
   );
 }
@@ -60,9 +58,9 @@ const styles = StyleSheet.create({
   footer: {
     alignItems: 'center',
     padding: 10,
-	  // height: 80,
-	  borderTopWidth: 1,
-    borderStyle: 'solid', 
+    // height: 80,
+    borderTopWidth: 1,
+    borderStyle: 'solid',
     borderColor: '#e6e6e6',
     backgroundColor: "#fff",
     // shadowColor: 'rgba(0, 0, 0, 0.2)',

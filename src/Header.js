@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import TodoTextInput from "./TodoTextInput.js";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
-function Header (props) {
+function Header(props) {
 
   const { title, addTodo } = props;
 
@@ -26,17 +26,17 @@ function Header (props) {
     </View>
   );
 
-  
+
 }
 
 const styles = StyleSheet.create({
   h1: {
-	  //fontSize: 40,
+    //fontSize: 40,
     fontSize: RFPercentage(5),
-	  fontWeight: '500',
-	  textAlign: 'center',
+    fontWeight: '500',
+    textAlign: 'center',
     paddingBottom: 10,
-    //fontFamily: 'Avenir',
+    fontFamily: 'Inter_500Medium',
   },
 
   page: {
@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     //paddingBottom: 10,
     //paddingLeft: 10,
     //paddingRight: 10,
-    //fontFamily: 'Avenir',
   }
 
 });

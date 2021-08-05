@@ -1,4 +1,4 @@
-import {HOST, PORT} from '@env'
+import { HOST, PORT } from '@env'
 
 //const host = 'http://localhost:8888/.netlify/functions';
 //const ipAddress = '192.168.86.35';
@@ -56,7 +56,7 @@ const deleteRestTodo = async (id) => {
   const response = await fetch(`${host}/.netlify/functions/deleteRestTodo`, {
     body: stringifiedBody,
     method: "DELETE",
-  });  
+  });
   return response;
 };
 

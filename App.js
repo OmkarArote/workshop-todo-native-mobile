@@ -1,4 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
+import AppLoading from 'expo-app-loading';
+import {
+	useFonts,
+	Inter_100Thin,
+	Inter_200ExtraLight,
+	Inter_300Light,
+	Inter_400Regular,
+	Inter_500Medium,
+	Inter_600SemiBold,
+	Inter_700Bold,
+	Inter_800ExtraBold,
+	Inter_900Black,
+} from '@expo-google-fonts/inter';
+import { setCustomText } from 'react-native-global-props';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import Header from './src/Header.js';
@@ -9,7 +23,27 @@ import uuid from 'node-uuid';
 
 function App() {
 
-  const [restTodos, setRestTodos] = React.useState([]);
+	let [fontsLoaded] = useFonts({
+		Inter_100Thin,
+		Inter_200ExtraLight,
+		Inter_300Light,
+		Inter_400Regular,
+		Inter_500Medium,
+		Inter_600SemiBold,
+		Inter_700Bold,
+		Inter_800ExtraBold,
+		Inter_900Black,
+	});
+
+	const customTextProps = {
+		style: {
+			fontFamily: 'Inter_300Light'
+		}
+	};
+
+	setCustomText(customTextProps);
+
+	const [restTodos, setRestTodos] = React.useState([]);
 
 	const addRestTodo = async (text) => {
 		try {
@@ -21,7 +55,7 @@ function App() {
 			});
 			getRestTodos();
 		} catch (error) {
-			console.log(error) 
+			console.log(error)
 		}
 	};
 
@@ -30,7 +64,7 @@ function App() {
 			await api.deleteRestTodo(id);
 			getRestTodos();
 		} catch (error) {
-			console.log(error) 
+			console.log(error)
 		}
 	};
 
@@ -43,7 +77,7 @@ function App() {
 			});
 			getRestTodos();
 		} catch (error) {
-			console.log(error) 
+			console.log(error)
 		}
 	};
 
@@ -57,7 +91,7 @@ function App() {
 
 	const getRestTodos = async () => {
 		// Reload the todo list from the database to see the latest changes
-		api.getRestTodos().then((restTodos) => setRestTodos( restTodos ));
+		api.getRestTodos().then((restTodos) => setRestTodos(restTodos));
 	};
 
 	const clearRestCompleted = async () => {
@@ -75,29 +109,32 @@ function App() {
 		deleteRestTodo: deleteRestTodo,
 	};
 
-  return (
-	<SafeAreaView style={styles.container}>
-		<View style={styles.todos}>
-			<Header title="To-Do List" addTodo={actions.addRestTodo}  type="rest" />
-			<TodoList type="rest" todos={restTodos} actions={actions} />
-		</View>
-		<StatusBar style={styles.statusBar}/>
-	</SafeAreaView>
-  );
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	} else {
+		return (
+			<SafeAreaView style={styles.container}>
+				<View style={styles.todos}>
+					<Header title="To-Do List" addTodo={actions.addRestTodo} type="rest" />
+					<TodoList type="rest" todos={restTodos} actions={actions} />
+				</View>
+				<StatusBar style={styles.statusBar} />
+			</SafeAreaView>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-	flex: 1,
-  },
-  statusBar: {
-	backgroundColor: '#F5F5F5',
-  },
-  todos: {
-    flex: 1,
-    backgroundColor: '#F5F5F5',
-	fontFamily: 'Avenir',
-  },
+	container: {
+		flex: 1,
+	},
+	statusBar: {
+		backgroundColor: '#F5F5F5',
+	},
+	todos: {
+		flex: 1,
+		backgroundColor: '#F5F5F5',
+	},
 });
 
 export default App;
