@@ -26,24 +26,23 @@ function Header(props) {
     </View>
   );
 
-
 }
 
 const styles = StyleSheet.create({
   h1: {
     //fontSize: 40,
-    fontSize: RFPercentage(5),
-    fontWeight: '500',
+    fontSize: RFPercentage(4),
     textAlign: 'center',
-    paddingBottom: 10,
+    paddingTop: 8,
+    paddingBottom: 15,
     fontFamily: 'Inter_500Medium',
   },
 
   page: {
     display: 'flex',
     paddingTop: 10,
-    //paddingBottom: 10,
-    //paddingLeft: 10,
+    paddingBottom: 20,
+    paddingHorizontal: 8
     //paddingRight: 10,
   }
 

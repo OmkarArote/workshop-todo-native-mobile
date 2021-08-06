@@ -1,4 +1,5 @@
 import React from "react";
+import Card from 'react-native-ui-lib/card';
 import { StyleSheet, View, Button, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
@@ -6,7 +7,11 @@ function Todo(props) {
   const { todo, completeRestTodo, deleteRestTodo } = props;
 
   return (
-    <View style={styles.item}>
+    <Card
+      style={styles.item}
+      row={true}
+      enableShadow={true}
+    >
       <View style={styles.todos}>
         <CheckBox
           style={styles.toggle}
@@ -15,25 +20,23 @@ function Todo(props) {
           checked={todo.completed}
           onIconPress={() => completeRestTodo(todo.id, todo.text, todo.completed)}
         />
-        <Text style={todo.completed ? styles.completed : styles.incompleted}>{todo.text}</Text>
+        <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
       </View>
-      <Button title="x" style={styles.destroy} onPress={() => deleteRestTodo(todo.id)} />
-    </View>
+      <Button title="x" style={styles.destroy} color='#af5b5e' onPress={() => deleteRestTodo(todo.id)} />
+    </Card>
   );
 }
 
 export default Todo;
 
 const styles = StyleSheet.create({
-  completed: {
+  complete: {
     textDecorationLine: 'line-through',
     fontSize: 18,
-    textAlign: 'left',
     fontFamily: 'Inter_300Light',
   },
-  incompleted: {
+  incomplete: {
     fontSize: 18,
-    textAlign: 'left',
     fontFamily: 'Inter_300Light',
   },
   destroy: {
@@ -45,13 +48,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   item: {
-    width: '100%',
-    padding: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    display: 'flex',
-    flexDirection: 'row',
+    marginBottom: 4,
     alignItems: 'center',
-    backgroundColor: '#fff',
+    paddingRight: 10,
   },
 });

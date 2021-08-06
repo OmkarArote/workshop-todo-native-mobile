@@ -1,7 +1,6 @@
 import React from "react";
-import { Card } from 'react-native-ui-lib/card';
+import Card from 'react-native-ui-lib/card';
 import { TextInput, StyleSheet } from "react-native";
-import classnames from "classnames";
 
 function TodoTextInput(props) {
   const { newTodo, placeholder, onSave } = props;
@@ -33,16 +32,23 @@ function TodoTextInput(props) {
   };
 
   return (
-    <TextInput style={[styles.newtodo, styles.newtodoedit]}
-      type="text"
-      placeholder={placeholder}
-      autoFocus={true}
-      value={text}
-      multiline={multiline}
-      onBlur={text => handleBlur(text)}
-      onChangeText={text => handleChange(text)}
-      onKeyPress={text => handleSubmit(text)}
-    />
+    <Card
+      row={true}
+      enableShadow={true}
+      //useNative
+    >
+      <TextInput style={styles.newtodo}
+        type="text"
+        placeholder={placeholder}
+        autoFocus={true}
+        value={text}
+        multiline={multiline}
+        onBlur={text => handleBlur(text)}
+        onChangeText={text => handleChange(text)}
+        onKeyPress={text => handleSubmit(text)}
+      />
+    </Card>
+    
   );
 }
 
@@ -52,31 +58,9 @@ const styles = StyleSheet.create({
     // paddingRight: 16,
     paddingBottom: 16,
     paddingLeft: 23,
-    backgroundColor: 'rgba(0, 0, 0, 0.003)',
-    shadowOffset: { width: 0, height: -2 },
-    //shadowRadius: 1,
-    shadowColor: 'rgba(0,0,0,0.03)',
-    elevation: 1, // for Android
     fontFamily: 'Inter_300Light',
-  },
-
-  newtodoedit: {
-    //fontStyle: 'italic',
-    fontWeight: '300',
-    color: 'rgba(0, 0, 0, 0.4)',
-    position: 'relative',
-    margin: 0,
-    // width: '100%',
-    backgroundColor: '#fff',
+    width: '100%',
     fontSize: 20,
-    padding: 6,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#ccc',
-    shadowOffset: { width: 0, height: -1 },
-    shadowRadius: 5,
-    shadowOpacity: 0,
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
   },
 
 });

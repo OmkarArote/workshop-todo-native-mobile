@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import AppLoading from 'expo-app-loading';
 import {
 	useFonts,
@@ -20,6 +19,7 @@ import TodoList from './src/TodoList.js';
 import api from './src/utils/api.js';
 import 'react-native-get-random-values';
 import uuid from 'node-uuid';
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 function App() {
 
@@ -118,7 +118,6 @@ function App() {
 					<Header title="To-Do List" addTodo={actions.addRestTodo} type="rest" />
 					<TodoList type="rest" todos={restTodos} actions={actions} />
 				</View>
-				<StatusBar style={styles.statusBar} />
 			</SafeAreaView>
 		);
 	}
@@ -129,11 +128,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	statusBar: {
-		backgroundColor: '#F5F5F5',
+		backgroundColor: '#e8f4f8',
+		//backgroundColor: '#F5F5F5',
 	},
 	todos: {
 		flex: 1,
-		backgroundColor: '#F5F5F5',
+		backgroundColor: '#e8f4f8',
+		//backgroundColor: '#F5F5F5',
 	},
 });
 

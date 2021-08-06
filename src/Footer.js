@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from "react-native";
-import classnames from "classnames";
+import Card from 'react-native-ui-lib/card';
 
 const FILTER_TITLES = {
   SHOW_ALL: "All",
@@ -43,46 +43,25 @@ function Footer(props) {
   }, [activeCount]);
 
   return (
-    <View style={styles.footer}>
-      <Text> {renderTodoCount()} </Text>
-      <Text> {renderFilterList()} </Text>
-    </View>
+    <Card
+      row={true}
+      enableShadow={true}
+    >
+      <View style={styles.footer}>
+        <Text> {renderTodoCount()} </Text>
+        <Text> {renderFilterList()} </Text>
+      </View>
+    </Card>
   );
 }
 
-//<View style={styles.bottom_line1}/>
-//<View style={styles.bottom_line2}/>
-//<View style={styles.bottom_line3}/>
-
 const styles = StyleSheet.create({
   footer: {
-    alignItems: 'center',
-    padding: 10,
-    // height: 80,
-    borderTopWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#e6e6e6',
-    backgroundColor: "#fff",
-    // shadowColor: 'rgba(0, 0, 0, 0.2)',
-    // borderBottomWidth: 3,
-  },
-  bottom_line1: {
-    height: 1,
     width: '100%',
-    marginBottom: 2,
-    backgroundColor: 'grey'
-  },
-  bottom_line2: {
-    height: 1,
-    width: '90%',
-    marginBottom: 2,
-    backgroundColor: 'grey'
-  },
-  bottom_line3: {
-    height: 1,
-    width: '80%',
-    // paddingBottom: 2,
-    backgroundColor: 'grey'
+    paddingTop: 15,
+    paddingBottom: 5,
+    alignItems: 'center',
+    paddingHorizontal: 8,
   },
 });
 

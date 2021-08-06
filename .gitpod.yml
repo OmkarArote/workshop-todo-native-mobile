@@ -10,6 +10,7 @@ tasks:
       npm i whatwg-fetch
       npm install -g @expo/ngrok
       npm install react-native-ui-lib
+      npm install @react-native-segmented-control/segmented-control
     command: |
       gp open README.md
       echo "todonativemobileapp gitpod ready - LET'S DO THIS!"

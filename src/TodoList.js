@@ -64,10 +64,9 @@ function TodoList(props) {
 
 const styles = StyleSheet.create({
   main: {
-    borderTopWidth: 1,
-    borderColor: '#e6e6e6',
     flex: 1,
     alignContent: "center",
+    paddingHorizontal: 8,
   },
 });
 
