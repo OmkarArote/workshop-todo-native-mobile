@@ -11,6 +11,8 @@ tasks:
       npm install -g @expo/ngrok
       npm install react-native-ui-lib
       npm install @react-native-segmented-control/segmented-control
+      npm install react-native-gesture-handler react-native-reanimated
+      npm i @expo-google-fonts/inter --legacy-peer-deps
     command: |
       gp open README.md
       echo "todonativemobileapp gitpod ready - LET'S DO THIS!"
