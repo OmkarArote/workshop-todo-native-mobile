@@ -7,10 +7,11 @@ function Todo(props) {
   const { todo, completeRestTodo, deleteRestTodo } = props;
 
   return (
+    <View>
     <Card
       style={styles.item}
       row={true}
-      enableShadow={true}
+      enableShadow={false}
     >
       <View style={styles.todos}>
         <CheckBox
@@ -24,6 +25,7 @@ function Todo(props) {
       </View>
       <Button title="x" style={styles.destroy} color='#af5b5e' onPress={() => deleteRestTodo(todo.id)} />
     </Card>
+    </View>
   );
 }
 
@@ -41,14 +43,16 @@ const styles = StyleSheet.create({
   },
   destroy: {
     alignSelf: "flex-end",
+    //backgroundColor: '#e8f4f8',
   },
   todos: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    //backgroundColor: '#e8f4f8',
   },
   item: {
-    marginBottom: 4,
+    marginBottom: 5,
     alignItems: 'center',
     paddingRight: 10,
   },

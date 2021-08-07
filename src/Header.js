@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
   page: {
     display: 'flex',
     paddingTop: 10,
-    paddingBottom: 20,
-    paddingHorizontal: 8
+    paddingBottom: 10,
+    paddingHorizontal: 10,
     //paddingRight: 10,
   }
 

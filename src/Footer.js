@@ -45,20 +45,22 @@ function Footer(props) {
   return (
     <Card
       row={true}
-      enableShadow={true}
+      enableShadow={false}
     >
       <View style={styles.footer}>
         <Text> {renderTodoCount()} </Text>
-        <Text> {renderFilterList()} </Text>
       </View>
     </Card>
   );
 }
 
+// Adding Segment Control in TodoList component
+//<Text> {renderFilterList()} </Text>
+
 const styles = StyleSheet.create({
   footer: {
     width: '100%',
-    paddingTop: 15,
+    paddingTop: 8,
     paddingBottom: 5,
     alignItems: 'center',
     paddingHorizontal: 8,

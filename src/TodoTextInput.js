@@ -34,8 +34,7 @@ function TodoTextInput(props) {
   return (
     <Card
       row={true}
-      enableShadow={true}
-      //useNative
+      enableShadow={false}
     >
       <TextInput style={styles.newtodo}
         type="text"
@@ -54,13 +53,13 @@ function TodoTextInput(props) {
 
 const styles = StyleSheet.create({
   newtodo: {
-    paddingTop: 16,
+    paddingTop: 10,
     // paddingRight: 16,
-    paddingBottom: 16,
+    paddingBottom: 10,
     paddingLeft: 23,
     fontFamily: 'Inter_300Light',
     width: '100%',
-    fontSize: 20,
+    fontSize: 18,
   },
 
 });

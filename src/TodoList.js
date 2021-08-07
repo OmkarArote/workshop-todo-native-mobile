@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, FlatList } from 'react-native';
 import Todo from "./Todo.js";
 import Footer from "./Footer.js";
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 const TODO_FILTERS = {
   SHOW_ALL: () => true,
@@ -10,11 +11,35 @@ const TODO_FILTERS = {
 };
 
 function TodoList(props) {
+
   const { actions, todos } = props;
   const [filter, setFilter] = React.useState("SHOW_ALL");
+  const [index, setIndex] = React.useState(0);
 
   const handleShow = (filter) => {
     setFilter(filter);
+
+    if (filter == "SHOW_ALL") {
+      setIndex(0);
+    } else if (filter == "SHOW_ACTIVE") {
+      setIndex(1);
+    } else if (filter == "SHOW_COMPLETED") {
+      setIndex(2);
+    }
+  };
+
+  const segmentFilter = (event) => {
+    let val = '';
+
+    if (event == 'All') {
+      val = 'SHOW_ALL';
+    } else if (event == 'Active') {
+      val = 'SHOW_ACTIVE';
+    } else if (event == 'Completed') {
+      val = 'SHOW_COMPLETED';
+    }
+
+    handleShow(val);
   };
 
   const handleClearCompletedDoc = () => {
@@ -54,11 +79,22 @@ function TodoList(props) {
   )
 
   return (
-    <View style={styles.main}>
-      <FlatList data={filteredTodos} keyExtractor={item => item.id} renderItem={renderItems} style={styles.todolist}>
-      </FlatList>
+    <>
+      <View style={styles.filter}>
+        <SegmentedControl
+          paddingVertical={10}
+          values={['All', 'Active', 'Completed']}
+          selectedIndex={index}
+          onValueChange={(event) => segmentFilter(event)}
+        />
+      </View>
+      <View style={styles.main}>
+        <FlatList style={styles.todolist}
+          data={filteredTodos} keyExtractor={item => item.id} renderItem={renderItems} >
+        </FlatList>
+      </View>
       {renderFooter(completedCount)}
-    </View>
+    </>
   );
 }
 
@@ -66,7 +102,12 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     alignContent: "center",
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
+  },
+  filter: {
+    paddingHorizontal: 10,
+    paddingBottom: 10,
+    //fontFamily: 'Inter_300Light',
   },
 });
 

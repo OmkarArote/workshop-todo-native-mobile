@@ -19,7 +19,6 @@ import TodoList from './src/TodoList.js';
 import api from './src/utils/api.js';
 import 'react-native-get-random-values';
 import uuid from 'node-uuid';
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
 
 function App() {
 
