@@ -35,6 +35,8 @@ function TodoTextInput(props) {
     <Card
       row={true}
       enableShadow={false}
+      style={{borderColor: '#d0dde2',
+      borderWidth: 0.5}}
     >
       <TextInput style={styles.newtodo}
         type="text"

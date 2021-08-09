@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from "react-native";
-import Card from 'react-native-ui-lib/card';
 
 const FILTER_TITLES = {
   SHOW_ALL: "All",
@@ -43,18 +42,13 @@ function Footer(props) {
   }, [activeCount]);
 
   return (
-    <Card
-      row={true}
-      enableShadow={false}
-    >
       <View style={styles.footer}>
-        <Text> {renderTodoCount()} </Text>
+        {renderTodoCount()}
       </View>
-    </Card>
   );
 }
 
-// Adding Segment Control in TodoList component
+// Adding Segment Control in TodoList component instead
 //<Text> {renderFilterList()} </Text>
 
 const styles = StyleSheet.create({
@@ -64,6 +58,9 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     alignItems: 'center',
     paddingHorizontal: 8,
+    backgroundColor: '#fff',
+    borderColor: '#d0dde2',
+    borderTopWidth: 0.5,
   },
 });
 
