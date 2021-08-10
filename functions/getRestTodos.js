@@ -1,6 +1,7 @@
 const { getRestClient, requestWithRetry, wait } = require("./utils/astraRestClient");
 
 exports.handler = async (event, context) => {
+  console.log("Getting REST Todos");
   const client = await getClient();
   let res;
   try {
@@ -18,7 +19,6 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 400,
       body: JSON.stringify(e),
-      //throw(e);
     };
   }
 };

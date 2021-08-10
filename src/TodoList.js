@@ -70,7 +70,15 @@ function TodoList(props) {
 
   if (!todos.length) {
     return (
-      <FlatList style={styles.todolist}></FlatList>
+      <View style={styles.filter}>
+        <SegmentedControl 
+          paddingVertical={10}
+          values={['All', 'Active', 'Completed']}
+          selectedIndex={index}
+          onValueChange={(event) => segmentFilter(event)}
+        />
+        <FlatList style={styles.todolist}></FlatList>
+      </View>
     )
   }
 

@@ -35,8 +35,7 @@ function TodoTextInput(props) {
     <Card
       row={true}
       enableShadow={false}
-      style={{borderColor: '#d0dde2',
-      borderWidth: 0.5}}
+      style={styles.card}
     >
       <TextInput style={styles.newtodo}
         type="text"
@@ -49,21 +48,22 @@ function TodoTextInput(props) {
         onKeyPress={text => handleSubmit(text)}
       />
     </Card>
-    
   );
 }
 
 const styles = StyleSheet.create({
   newtodo: {
     paddingTop: 10,
-    // paddingRight: 16,
     paddingBottom: 10,
     paddingLeft: 23,
     fontFamily: 'Inter_300Light',
     width: '100%',
     fontSize: 18,
   },
-
+  card: {
+    borderColor: '#d0dde2',
+    borderWidth: 0.5,
+  },
 });
 
 export default TodoTextInput;

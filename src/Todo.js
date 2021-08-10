@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import Card from 'react-native-ui-lib/card';
 //import Checkbox from 'react-native-ui-lib/checkbox';
-//import Button from 'react-native-ui-lib/button';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { EvilIcons } from '@expo/vector-icons';
@@ -39,13 +38,21 @@ function Todo(props) {
     }
   }
 
+  const swipeRef = useRef();
+
+  const closeSwipable = () => {
+    swipeRef?.current?.close();
+  }
+
   return (
     <Swipeable
+      ref={swipeRef}
+      onSwipeableOpen={closeSwipable}
       renderLeftActions={leftAction}
       renderRightActions={rightAction}
       onSwipeableRightOpen={() => deleteRestTodo(todo.id)}
       onSwipeableLeftOpen={() => completeRestTodo(todo.id, todo.text, todo.completed)}
-      overshootFriction={5}
+      overshootFriction={0.01}
     >
       <Card
         style={styles.item}
@@ -56,13 +63,15 @@ function Todo(props) {
           <CheckBox
             style={styles.toggle}
             checkedIcon='check-circle'
-            uncheckedIcon='circle-o'
+            uncheckedIcon='radio-button-unchecked'
             checked={todo.completed}
             onIconPress={() => completeRestTodo(todo.id, todo.text, todo.completed)}
+            color={'#3293b3'}
+            iconType={'material'}
           />
           <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
         </View>
-        <Button title="x" style={styles.destroy} color='#af5b5e' onPress={() => deleteRestTodo(todo.id)} />
+        <TouchableOpacity onPress={() => deleteRestTodo(todo.id)}><EvilIcons name='trash' size={28} color='#af5b5e' /></TouchableOpacity>
       </Card>
     </Swipeable>
   );
@@ -83,6 +92,10 @@ const styles = StyleSheet.create({
   destroy: {
     alignSelf: "flex-end",
   },
+  toggle: {
+    flexDirection: 'row',
+    marginHorizontal: 15,
+  },
   todos: {
     flex: 1,
     flexDirection: 'row',
@@ -94,6 +107,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     borderColor: '#d0dde2',
     borderWidth: 0.5,
+    height: 55,
   },
   rightSwipe: {
     flex: 1,
@@ -104,11 +118,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     paddingRight: 15,
     fontFamily: 'Inter_300Light',
-
   },
   leftSwipeC: {
     flex: 1,
-    backgroundColor: '#20b286',
+    backgroundColor: '#3293b3',
     borderRadius: 12,
     justifyContent: 'center',
     height: 55,
@@ -117,7 +130,7 @@ const styles = StyleSheet.create({
   },
   leftSwipeI: {
     flex: 1,
-    backgroundColor: '#ffbf00',
+    backgroundColor: '#20b286',
     borderRadius: 12,
     justifyContent: 'center',
     height: 55,

@@ -1,24 +1,33 @@
-import { HOST, PORT } from '@env'
-
-//const host = 'http://localhost:8888/.netlify/functions';
-//const ipAddress = '192.168.86.35';
-//const host = 'http://192.168.86.35:8888';
-//const androidIP = '10.0.2.2';
-//return fetch(`${host}/.netlify/functions/createRestTodo`, {
+import { HOST, PORT, IS_PROD, GITPOD} from '@env'
 
 // For GitPod
 //const host = "https://8888-beige-pig-vdeak5ht.ws-us11.gitpod.io";
 
-const ipAddress = HOST;
-const port = PORT;
+// GENERATE
+const generateEndpoint = () => {
+  const ipAddress = HOST;
+  const port = PORT;
 
-const host = `http://${ipAddress}:${port}`;
-console.log("host: ", host);
+  // Netlify deploy
+  if (IS_PROD === true) {
+    return ``;
+  }
+  // Running on GitPod
+  else if (GITPOD === true) {
+    return ipAddress;
+  }
+  // Local configuration
+  else { 
+    return `http://${ipAddress}:${port}`;
+  }
+}
 
 // CREATE 
 const addRestTodo = (todo) => {
+  const endpoint = generateEndpoint();
+  //console.log("endpoint: ", endpoint);
   const stringifiedBody = JSON.stringify(todo);
-  return fetch(`${host}/.netlify/functions/createRestTodo`, {
+  return fetch(`${endpoint}/.netlify/functions/createRestTodo`, {
     body: stringifiedBody,
     method: "POST",
   }).then((response) => {
@@ -31,8 +40,9 @@ const addRestTodo = (todo) => {
 
 // READ
 const getRestTodos = async () => {
-  //console.log("host: ", host);
-  const response = await fetch(`${host}/.netlify/functions/getRestTodos`);
+  const endpoint = generateEndpoint();
+  //console.log("endpoint: ", endpoint);
+  const response = await fetch(`${endpoint}/.netlify/functions/getRestTodos`);
   let todos = await response.json();
 
   return todos.length ? todos : [];
@@ -40,8 +50,10 @@ const getRestTodos = async () => {
 
 // UPDATE
 const updateRestTodo = async (todo) => {
+  const endpoint = generateEndpoint();
+  //console.log("endpoint: ", endpoint);
   const stringifiedBody = JSON.stringify(todo);
-  const response = await fetch(`${host}/.netlify/functions/updateRestTodo`, {
+  const response = await fetch(`${endpoint}/.netlify/functions/updateRestTodo`, {
     body: stringifiedBody,
     method: "PUT",
   });
@@ -52,8 +64,10 @@ const updateRestTodo = async (todo) => {
 
 // DELETE
 const deleteRestTodo = async (id) => {
+  const endpoint = generateEndpoint();
+  //console.log("endpoint: ", endpoint);
   const stringifiedBody = JSON.stringify({ id });
-  const response = await fetch(`${host}/.netlify/functions/deleteRestTodo`, {
+  const response = await fetch(`${endpoint}/.netlify/functions/deleteRestTodo`, {
     body: stringifiedBody,
     method: "DELETE",
   });
