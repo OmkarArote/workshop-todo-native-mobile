@@ -1,19 +1,19 @@
-import { HOST, PORT, IS_PROD, GITPOD} from '@env'
+//import { HOST, PORT, IS_PROD, GITPOD} from '@env'
 
 // For GitPod
 //const host = "https://8888-beige-pig-vdeak5ht.ws-us11.gitpod.io";
 
 // GENERATE
 const generateEndpoint = () => {
-  const ipAddress = HOST;
-  const port = PORT;
+  const ipAddress = process.env.HOST;
+  const port = process.env.PORT;
 
   // Netlify deploy
-  if (IS_PROD === true) {
+  if (process.env.IS_PROD === "true") {
     return ``;
   }
   // Running on GitPod
-  else if (GITPOD === true) {
+  else if (process.env.GITPOD === "true") {
     return ipAddress;
   }
   // Local configuration

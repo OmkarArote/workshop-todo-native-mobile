@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Card from 'react-native-ui-lib/card';
 //import Checkbox from 'react-native-ui-lib/checkbox';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
@@ -9,6 +9,20 @@ import { Ionicons } from '@expo/vector-icons';
 
 function Todo(props) {
   const { todo, completeRestTodo, deleteRestTodo } = props;
+
+  const [isChecked, setIsChecked] = React.useState(todo.completed);
+
+  const [isVisible, setIsVisible] = React.useState(true);
+
+  const handleCheck = () => {
+    setIsChecked(!isChecked);
+    completeRestTodo(todo.id, todo.text, todo.completed);
+  }
+
+  const handleVisible = () => {
+    setIsVisible(!isVisible);
+    deleteRestTodo(todo.id);
+  }
 
   const rightAction = () => {
     return (
@@ -44,14 +58,20 @@ function Todo(props) {
     swipeRef?.current?.close();
   }
 
+  if (isVisible === false) {
+    return (
+      <View></View>
+    );
+  }
+
   return (
     <Swipeable
       ref={swipeRef}
       onSwipeableOpen={closeSwipable}
       renderLeftActions={leftAction}
       renderRightActions={rightAction}
-      onSwipeableRightOpen={() => deleteRestTodo(todo.id)}
-      onSwipeableLeftOpen={() => completeRestTodo(todo.id, todo.text, todo.completed)}
+      onSwipeableRightOpen={handleVisible}
+      onSwipeableLeftOpen={handleCheck}
       overshootFriction={0.01}
     >
       <Card
@@ -64,14 +84,14 @@ function Todo(props) {
             style={styles.toggle}
             checkedIcon='check-circle'
             uncheckedIcon='radio-button-unchecked'
-            checked={todo.completed}
-            onIconPress={() => completeRestTodo(todo.id, todo.text, todo.completed)}
+            checked={isChecked}
+            onIconPress={handleCheck}
             color={'#3293b3'}
             iconType={'material'}
           />
           <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
         </View>
-        <TouchableOpacity onPress={() => deleteRestTodo(todo.id)}><EvilIcons name='trash' size={28} color='#af5b5e' /></TouchableOpacity>
+        <TouchableOpacity onPress={handleVisible}><EvilIcons name='trash' size={28} color='#af5b5e' /></TouchableOpacity>
       </Card>
     </Swipeable>
   );

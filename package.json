@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "expo build:web"
+    "build": "expo build:web",
+    "build-netlify": "IS_PROD=true expo build:web"
   },
   "dependencies": {
     "@astrajs/collections": "0.0.14",
@@ -15,6 +16,7 @@
     "@expo/ngrok": "^2.5.0",
     "@react-native-segmented-control/segmented-control": "2.3.0",
     "anonymous-files": "^1.0.1",
+    "babel-plugin-inline-dotenv": "^1.6.0",
     "css-to-react-native-transform": "^1.9.0",
     "dotenv": "^10.0.0",
     "expo": "~42.0.1",
@@ -44,7 +46,8 @@
     "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3"
   },
   "private": true
 }
