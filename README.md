@@ -1,37 +1,48 @@
 # todonativemobileapp
-Adaptation of To-Do List Native App created for a DataStax workshop
+Build a To-Do List Native App, created for a DataStax workshop, using React Native, JavaScript, Node.js, and DataStax AstraDB.
 
 **Part 1: Create the Database**
 
 <!--- STARTEXCLUDE --->
-# TODO + AstraDB + Cassandra 📒
+# TO-Do List + AstraDB + Cassandra 📒
 *10 minutes, Beginner, [Start Building](https://github.com/DataStax-Examples/todo-astra-jamstack-netlify#prerequisites)*
 
 This is an example React Native To-Do application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
 <!--- ENDEXCLUDE --->
 
-![image](https://monosnap.com/image/Fv0yPAznbeNJD3vYlQfztME6yogzFT)
+Mobile App on Android:
+
+<img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+
+Mobile App on iOS:
+
+<img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+
+Web Application in Chrome: 
+
+<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ## 🎯 Objectives
-* Create a "from scratch" **React Native ** app using NPX
+* Create a "from scratch" **React Native ** app using Expo
 * Learn about **React Native** components and how they are used to dynamically update the DOM with new information
 * Learn how **state** and **props** changes are used
 * Learn how to use Swagger to interact with the database using a **REST** API 
 * Leverage Netlify and DataStax Astra DB
+* Learn how to convert a React web app to a React Native mobile and web app
 
 ## ℹ️ Frequently asked questions ℹ️ 
 
 - *Can I run the workshop on my computer?*
-
 > There is nothing preventing you from running the workshop on your own machine.
 > If you do so, you will need
 > * git installed on your local system
 > * [node 15 and npm 7 or later](https://www.whitesourcesoftware.com/free-developer-tools/blog/update-node-js/)
+> * [Expo CLI, Watchman, Xcode, Android Studio, and an iPhone or Android](https://docs.expo.dev/get-started/installation/)
 >
 > You will have to adapt commands and paths based on your environment and install the dependencies by yourself. **We won't provide support** to keep on track with schedule. However, we will do our best to give you the info you need to be successful.
 
 - *What other prerequisites are there?*
-> * You will need a github account
+> * You will need a GitHub account and an Expo account
 > * You will also need an Astra DB account, but we'll work through that in the exercises
 > * Use **Chrome** or **Firefox** for the best experience. Other browsers are great, but don't work well with the GitPod integration we use a bit later.
 
@@ -60,7 +71,11 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 4. [Insert data in the Table with the REST API using Swagger](#4-insert-data-in-the-table-with-the-rest-api-using-swagger)
 5. [Retrieving values](#5-retrieving-values)
 6. [Launch GitPod IDE](#6-launch-gitpod-ide)
-7. [Launch the TODO app](#7-launch-the-todo-app)
+7. [Check Node & NPM versions in GitPod](#7-check-node-&-NPM-versions-in-GitPod)
+8. [Register for an Expo Account](#8-register-for-an-expo-account)
+9. [Install Expo mobile application on your phone](#9-install-expo-mobile-application-on-your-phone)
+10. [Launch the To-Do app](#10-launch-the-to-do-app)
+11. [View Finished Products](#11-view-finished-product)
 
 ## An introduction to web development
 ### Demo
@@ -188,7 +203,6 @@ Again, take a note of the Request URL that was used to create the table. This co
 
 ![image](https://user-images.githubusercontent.com/23346205/124663337-f05c7e00-de77-11eb-8daa-856d15f0d223.png?raw=true)
 
-
 [🏠 Back to Table of Contents](#table-of-contents)
 
 ## 4. Insert data in the Table with the REST API using Swagger
@@ -303,7 +317,7 @@ expo whoami
 
 Download the Expo App from the Android Play Store or iOS App Store.
 
-## 10. Launch the TODO app
+## 10. Launch the To-Do app
 
 ✅  **Step 10a:** Retrieve application token to securely connect to the database
 
@@ -327,12 +341,19 @@ Get workspace URL:
 gp url 8888
 ```
 
-Take the output of the previous command and add new line to your .env file:
+Take the output of the previous command and replace line 6 in your .env file:
 
 Example:
-HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
 
-✅  **Step 10d:** Launch your app
+```
+HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
+```
+
+Final output should look like the below:
+
+<img width="494" alt="Screen Shot 2021-08-11 at 11 40 00 AM" src="https://user-images.githubusercontent.com/82838476/129084846-a623d530-c97f-4e29-b55a-07394c090369.png">
+
+✅  **Step 10d:** Start Netlify and Expo
   * Run the application 
  
   ```
@@ -343,13 +364,43 @@ HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
   expo start --tunnel
   ```
   
-  * The web application should automatically launch in the GitPod preview pane
+  Enter 'y' for yes when asked too use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you start do netlify dev.)
+  
+  <img width="495" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
+  
+  Note: if you get a message saying that Tunnel is reverting to LAN because of ngrok -   Press y to continue.
+  
+  <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
+ 
+✅  **Step 10e:** Launch your app in the web browser
+  
+Open your web application at the URL specified in the HOST line above in a new tab in your browser.
+
+✅  **Step 10f:** Launch your app on your mobile device
 
 **Scan the QR code** with your phone camera to open your application in the Expo App!
 
 The QR code in the terminal will look like this:
 
 <img width="542" alt="QRImage" src="https://user-images.githubusercontent.com/82838476/127718324-1f7b5f78-8048-4d55-8fe8-5d1141eea26e.png">
+
+## 11. View Mobile App
+
+See examples of what your finished product should look like:
+
+**Mobile App on Android:**
+
+<img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+
+**Mobile App on iOS:**
+
+<img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+
+**Web Application in Chrome: **
+
+<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+
+[🏠 Back to Table of Contents](#table-of-contents)
 
 # Need a refresher on React Basics?
 <details><summary>Take me to the React stuff</summary>
