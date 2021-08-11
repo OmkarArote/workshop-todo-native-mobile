@@ -1,24 +1,24 @@
-# todonativemobileapp
+# To-Do List Native Application
 Build a To-Do List Native App, created for a DataStax workshop, using React Native, JavaScript, Node.js, and DataStax AstraDB.
 
 **Part 1: Create the Database**
 
 <!--- STARTEXCLUDE --->
 # TO-Do List + AstraDB + Cassandra 📒
-*10 minutes, Beginner, [Start Building](https://github.com/DataStax-Examples/todo-astra-jamstack-netlify#prerequisites)*
+*20 minutes, Beginner, [Start Building](https://github.com/DataStax-Examples/todo-astra-jamstack-netlify#prerequisites)*
 
 This is an example React Native To-Do application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
 <!--- ENDEXCLUDE --->
 
-Mobile App on Android:
+**Mobile App on Android:**
 
 <img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
 
-Mobile App on iOS:
+**Mobile App on iOS:**
 
 <img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
-Web Application in Chrome: 
+**Web Application in Chrome: **
 
 <img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
@@ -27,7 +27,7 @@ Web Application in Chrome:
 * Learn about **React Native** components and how they are used to dynamically update the DOM with new information
 * Learn how **state** and **props** changes are used
 * Learn how to use Swagger to interact with the database using a **REST** API 
-* Leverage Netlify and DataStax Astra DB
+* Leverage Netlify and DataStax AstraDB
 * Learn how to convert a React web app to a React Native mobile and web app
 
 ## ℹ️ Frequently asked questions ℹ️ 
@@ -376,6 +376,10 @@ Final output should look like the below:
   
 Open your web application at the URL specified in the HOST line above in a new tab in your browser.
 
+**Web Application in Chrome: **
+
+<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+
 ✅  **Step 10f:** Launch your app on your mobile device
 
 **Scan the QR code** with your phone camera to open your application in the Expo App!
@@ -395,10 +399,6 @@ See examples of what your finished product should look like:
 **Mobile App on iOS:**
 
 <img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
-
-**Web Application in Chrome: **
-
-<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
