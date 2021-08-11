@@ -18,7 +18,7 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 
 <img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
-**Web Application in Chrome: **
+**Web Application in Chrome:**
 
 <img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
@@ -370,7 +370,7 @@ Final output should look like the below:
   
 Open your web application at the URL specified in the HOST line above in a new tab in your browser.
 
-**Web Application in Chrome: **
+**Web Application in Chrome:**
 
 <img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
