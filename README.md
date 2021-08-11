@@ -50,7 +50,6 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 > * **No.** All tools and services we provide here are FREE.
 
 - *Will I get a certificate if I attend this workshop?*
-
 > Attending the session is not enough. You need to complete the homework detailed below and you will get a nice badge.
 
 ## Materials for the Session
@@ -61,7 +60,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 - [Discord chat](https://bit.ly/cassandra-workshop)
 - [Questions and Answers](https://community.datastax.com/)
   
-# Let's start
+# Let's start!
 
 ## Table of contents
 
@@ -77,11 +76,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 10. [Launch the To-Do app](#10-launch-the-to-do-app)
 11. [View Finished Products](#11-view-finished-product)
 
-## An introduction to web development
-### Demo
-- [Step1](https://codepen.io/DatastaxDevs/pen/WNjrXXp)
-- [Step2](https://codepen.io/DatastaxDevs/pen/QWvyOOv)
-- [Step3](https://codepen.io/DatastaxDevs/pen/mdmVRwy)
+**Part 1: Create the Database**
 
 ## 1. Login or Register to AstraDB and create database
 **`ASTRADB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 5M writes, 30M reads, 40GB storage monthly - sufficient to run small production workloads.  
@@ -131,20 +126,20 @@ The status will change to `Active` when the database is ready, this will only ta
 1. Click on your active database
 2. Click `Connect` TAB
 3. Click `REST API`
-4. Clik link to your swagger endpoint.
+4. Click link to your Swagger endpoint.
 
 *As shown on the picture below.*
 ![image](https://user-images.githubusercontent.com/23346205/124656913-d28b1b00-de6f-11eb-9712-e7629f5b8867.png?raw=true)
 
-✅  **Step 3b:** Navigate to **create a table** section
+✅  **Step 3b:** Navigate to the **create a table** section
 
 1. Once **Swagger** is launched, scroll down and navigate to the **schemas** section
 
 ![image](https://user-images.githubusercontent.com/23346205/124658644-ffd8c880-de71-11eb-8064-c26a2979b66f.png?raw=true)
 
-2. Then, within the **schemas** section navigate to **Create a table** and click on it to open the section. 
+2. Then, within the **schemas** section, navigate to **Create a table** and click on it to open the section. 
 - Take particular note of the REST URI **/api/rest/v2/schemas/keyspaces/{keyspaceName}/tables**. 
-- Also take note this is using a **POST** command.
+- Also, take note that this is using a **POST** command.
 
 ![image](https://user-images.githubusercontent.com/23346205/124658990-71187b80-de72-11eb-8d25-01e6c6216aa5.png?raw=true)
 
@@ -232,7 +227,6 @@ Now that we have a table to use, let's insert a row of data into the table, agai
 ```
 
 5. Click **Execute**. You should see code **201** in the response telling you it was a success and displaying the id of the row you just created.
-
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
