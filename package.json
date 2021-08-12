@@ -6,8 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "expo build:web",
-    "build-netlify": "IS_PROD=true expo build:web"
+    "build": "expo build:web"
   },
   "dependencies": {
     "@astrajs/collections": "0.0.14",
