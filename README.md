@@ -212,7 +212,7 @@ Now that we have a table to use, let's insert a row of data into the table, agai
 
 ![image](https://user-images.githubusercontent.com/23346205/124664268-2fd79a00-de79-11eb-8902-1d6636e986fb.png?raw=true)
 
-✅  **Step 4b:** FIll in values and add a row
+✅  **Step 4b:** Fill in values and add a row
 
 1. Add your Astra token
 2. Add the keyspaceName `todos`
@@ -319,7 +319,7 @@ Use the token you previously generated. If you no longer have the token and did 
 
 ✅  **Step 10b:** Configure Environment Variables and Install Dependencies
 
-1. Create an empty `.env` file
+1. Set up your Astra Environment
 
 In the repository directory run the following command  to set up your Astra environment.  Note that this does require Node 15 and NPM 7 to work.  You can install a node version manager like `nvm` or `n` to use multiple versions on your system.
 
@@ -343,16 +343,26 @@ Example:
 HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
 ```
 
+✅  **Step 10d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
+
+```
+PORT="8888"
+IS_PROD="false"
+GITPOD="true"
+```
+
 Final output should look like the below:
 
 <img width="494" alt="Screen Shot 2021-08-11 at 11 40 00 AM" src="https://user-images.githubusercontent.com/82838476/129084846-a623d530-c97f-4e29-b55a-07394c090369.png">
 
 ✅  **Step 10d:** Start Netlify and Expo
-  * Run the application 
+  * Run the application (Ignore the QR code generated here)
  
   ```
   netlify dev
   ```
+  
+  In a new terminal window: (or have a split terminal)
   
   ```
   expo start --tunnel
@@ -362,7 +372,7 @@ Final output should look like the below:
   
   <img width="495" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
   
-  Note: if you get a message saying that Tunnel is reverting to LAN because of ngrok -   Press y to continue.
+  **Note:** if you get a message saying that Tunnel is reverting to LAN because of ngrok - Press **y** to continue.
   
   <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
  
