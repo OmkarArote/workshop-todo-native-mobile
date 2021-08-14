@@ -9,8 +9,7 @@ tasks:
       npm install astra-setup
       npm install whatwg-fetch
       npm install -g @expo/ngrok
-      npm install react-native-ui-lib
-      npm install react-native-gesture-handler react-native-reanimated
+      npm install react-native-gesture-handler
       npm install @react-native-segmented-control/segmented-control
       npm install @expo-google-fonts/inter --legacy-peer-deps
       npm install babel-plugin-inline-dotenv --legacy-peer-deps

@@ -22,10 +22,24 @@ const generateEndpoint = () => {
   }
 }
 
-// CREATE 
+// Original CREATE
+const addRestTodo = async (todo) => {
+  const endpoint = generateEndpoint();
+  const stringifiedBody = JSON.stringify(todo);
+  const response = await fetch(`${endpoint}/.netlify/functions/createRestTodo`, {
+    body: stringifiedBody,
+    method: "POST",
+  });
+
+  return response;
+};
+
+/*
+// New CREATE 
 const addRestTodo = (todo) => {
   const endpoint = generateEndpoint();
   //console.log("endpoint: ", endpoint);
+  sleep(2);
   const stringifiedBody = JSON.stringify(todo);
   return fetch(`${endpoint}/.netlify/functions/createRestTodo`, {
     body: stringifiedBody,
@@ -37,6 +51,7 @@ const addRestTodo = (todo) => {
     throw error;
   });
 };
+*/
 
 // READ
 const getRestTodos = async () => {

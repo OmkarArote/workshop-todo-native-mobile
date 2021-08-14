@@ -1,6 +1,4 @@
 import React, { useRef, useState } from "react";
-import Card from 'react-native-ui-lib/card';
-//import Checkbox from 'react-native-ui-lib/checkbox';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -26,28 +24,28 @@ function Todo(props) {
 
   const rightAction = () => {
     return (
-      <Card style={styles.rightSwipe}>
+      <View style={styles.rightSwipe}>
         <EvilIcons name='trash' size={32} color='white' style={{ paddingRight: 5 }} />
         <Text style={{ color: "#fff" }}>Delete</Text>
-      </Card>
+      </View>
     );
   }
 
   const leftAction = () => {
     if (todo.completed) {
       return (
-        <Card style={styles.leftSwipeI}>
+        <View style={styles.leftSwipeIncomplete}>
           <Ionicons name="md-radio-button-off-outline" size={26} color='white' style={{ paddingLeft: 20 }} />
           <Text style={{ color: '#fff' }}>Incomplete</Text>
-        </Card>
+        </View>
       );
     }
     else {
       return (
-        <Card style={styles.leftSwipeC}>
+        <View style={styles.leftSwipeComplete}>
           <Ionicons name="md-checkmark-circle" size={26} color='#fff' style={{ paddingLeft: 16 }} />
           <Text style={{ color: "#fff" }}>Complete</Text>
-        </Card>
+        </View>
       );
     }
   }
@@ -74,11 +72,7 @@ function Todo(props) {
       onSwipeableLeftOpen={handleCheck}
       overshootFriction={0.01}
     >
-      <Card
-        style={styles.item}
-        row={true}
-        enableShadow={false}
-      >
+      <View style={styles.item}>
         <View style={styles.todos}>
           <CheckBox
             style={styles.toggle}
@@ -91,8 +85,8 @@ function Todo(props) {
           />
           <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
         </View>
-        <TouchableOpacity onPress={handleVisible}><EvilIcons name='trash' size={28} color='#af5b5e' /></TouchableOpacity>
-      </Card>
+        <TouchableOpacity onPress={handleVisible}><EvilIcons name='trash' size={28} color='#af5b5e'/></TouchableOpacity>
+      </View>
     </Swipeable>
   );
 }
@@ -104,17 +98,17 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
     fontSize: 18,
     fontFamily: 'Inter_300Light',
+    flexWrap: 'wrap'
   },
   incomplete: {
     fontSize: 18,
     fontFamily: 'Inter_300Light',
-  },
-  destroy: {
-    alignSelf: "flex-end",
+    flex: 0.97,
+    flexWrap: 'wrap'
   },
   toggle: {
     flexDirection: 'row',
-    marginHorizontal: 15,
+    //marginHorizontal: 15,
   },
   todos: {
     flex: 1,
@@ -122,38 +116,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   item: {
+    flex: 1,
+    flexDirection: 'row',
     marginBottom: 5,
     alignItems: 'center',
     paddingRight: 10,
     borderColor: '#d0dde2',
     borderWidth: 0.5,
-    height: 55,
+    height: 53,
+    borderRadius: 12,
+    backgroundColor: '#fff',
   },
   rightSwipe: {
     flex: 1,
     backgroundColor: '#af5b5e',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 55,
+    height: 53,
     alignItems: 'flex-end',
     paddingRight: 15,
     fontFamily: 'Inter_300Light',
   },
-  leftSwipeC: {
+  leftSwipeComplete: {
     flex: 1,
     backgroundColor: '#3293b3',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 55,
+    height: 53,
     paddingLeft: 15,
     fontFamily: 'Inter_300Light',
   },
-  leftSwipeI: {
+  leftSwipeIncomplete: {
     flex: 1,
     backgroundColor: '#20b286',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 55,
+    height: 53,
     paddingLeft: 15,
     fontFamily: 'Inter_300Light',
   },

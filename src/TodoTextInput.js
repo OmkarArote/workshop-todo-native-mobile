@@ -1,11 +1,11 @@
 import React from "react";
-import Card from 'react-native-ui-lib/card';
-import { TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, Platform } from "react-native";
 
 function TodoTextInput(props) {
-  const { newTodo, placeholder, onSave } = props;
-  const [text, setText] = React.useState("");
 
+  const { newTodo, placeholder, onSave } = props;
+
+  const [text, setText] = React.useState("");
   const [multiline, setMultiline] = React.useState(false);
 
   const handleSubmit = ({ nativeEvent: { key: keyValue } }) => {
@@ -32,12 +32,12 @@ function TodoTextInput(props) {
   };
 
   return (
-    <Card
-      row={true}
-      enableShadow={false}
-      style={styles.card}
-    >
-      <TextInput style={styles.newtodo}
+    <View style={styles.card}>
+      <TextInput style={[Platform.select({
+        web: {
+          outlineStyle: 'none',
+        },
+      }), styles.newtodo]}
         type="text"
         placeholder={placeholder}
         autoFocus={true}
@@ -47,11 +47,16 @@ function TodoTextInput(props) {
         onChangeText={text => handleChange(text)}
         onKeyPress={text => handleSubmit(text)}
       />
-    </Card>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  card: {
+    borderColor: '#d0dde2',
+    borderWidth: 0.5,
+    borderRadius: 12,
+  },
   newtodo: {
     paddingTop: 10,
     paddingBottom: 10,
@@ -59,10 +64,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter_300Light',
     width: '100%',
     fontSize: 18,
-  },
-  card: {
-    borderColor: '#d0dde2',
-    borderWidth: 0.5,
+    backgroundColor: '#fff',
+    borderWidth: 0,
+    borderRadius: 12,
+    height: 45,
   },
 });
 
