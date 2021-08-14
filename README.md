@@ -52,6 +52,7 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 - *Will I get a certificate if I attend this workshop?*
 > Attending the session is not enough. You need to complete the homework detailed below and you will get a nice badge.
 
+**NEED TO UPDATE THE BELOW LINKS**
 ## Materials for the Session
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
