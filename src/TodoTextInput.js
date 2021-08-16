@@ -6,26 +6,19 @@ function TodoTextInput(props) {
   const { newTodo, placeholder, onSave } = props;
 
   const [text, setText] = React.useState("");
-  const [multiline, setMultiline] = React.useState(false);
 
-  const handleSubmit = ({ nativeEvent: { key: keyValue } }) => {
-    if (keyValue == 'Enter') {
-      onSave(text.trim());
+  const handleSubmit = () => {
+    onSave(text.trim());
       if (newTodo) {
-        setMultiline(false);
         setText("");
       }
-    }
   };
 
   const handleChange = (text) => {
     setText(text);
-    if (multiline == false) {
-      setMultiline(true);
-    }
   }
 
-  const handleBlur = (text) => {
+  const handleBlur = () => {
     if (!newTodo) {
       onSave(text);
     }
@@ -40,12 +33,11 @@ function TodoTextInput(props) {
       }), styles.newtodo]}
         type="text"
         placeholder={placeholder}
-        autoFocus={true}
+        //autoFocus={true}
         value={text}
-        multiline={multiline}
-        onBlur={text => handleBlur(text)}
+        onBlur={() => handleBlur()}
         onChangeText={text => handleChange(text)}
-        onKeyPress={text => handleSubmit(text)}
+        onSubmitEditing={() => handleSubmit()}
       />
     </View>
   );
