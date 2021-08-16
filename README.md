@@ -1,10 +1,10 @@
-# To-Do List Native Application
+# Todo List Native Application
 Build a To-Do List Native App, created for a DataStax workshop, using React Native, JavaScript, Node.js, and DataStax AstraDB.
 
 **Part 1: Create the Database**
 
 <!--- STARTEXCLUDE --->
-# TO-Do List + AstraDB + Cassandra 📒
+# Todo List + AstraDB + Cassandra 📒
 *20 minutes, Beginner, [Start Building](https://github.com/DataStax-Examples/todo-astra-jamstack-netlify#prerequisites)*
 
 This is an example React Native To-Do application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
@@ -12,15 +12,15 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 
 **Mobile App on Android:**
 
-<img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+<img width="422" alt="AndroidTodoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
 
 **Mobile App on iOS:**
 
-<img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+<img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
 **Web Application in Chrome:**
 
-<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+<img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ## 🎯 Objectives
 * Create a "from scratch" **React Native ** app using Expo
@@ -383,7 +383,7 @@ Open your web application at the URL specified in the HOST line above in a new t
 
 **Web Application in Chrome:**
 
-<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+<img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ✅  **Step 10f:** Launch your app on your mobile device
 
@@ -399,11 +399,11 @@ See examples of what your finished product should look like:
 
 **Mobile App on Android:**
 
-<img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+<img width="422" alt="AndroidTodoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
 
 **Mobile App on iOS:**
 
-<img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+<img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
