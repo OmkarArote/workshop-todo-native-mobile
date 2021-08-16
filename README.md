@@ -263,7 +263,7 @@ Finally, now that we created a table and inserted a row of data let's **GET** th
 ## 6. Launch GitPod IDE
 - Click the button to launch the GitPod IDE.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/soniaisiganporia/todonativemobileapp/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
