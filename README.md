@@ -261,11 +261,22 @@ Finally, now that we created a table and inserted a row of data let's **GET** th
 **Part 2: Launch the Native Application**
 
 ## 6. Launch GitPod IDE
+
+✅  **Step 6a:**
 - Click the button to launch the GitPod IDE.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
+
+✅  **Step 6b:**
+- Create split terminals
+
+**Click on the double-panel icon:**
+<img width="1137" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
+
+**End Result:**
+<img width="1120" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
 
 ## 7. Check Node & NPM versions in GitPod
 You will need node 15 and npm 7 or later.
