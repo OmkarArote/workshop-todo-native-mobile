@@ -18,12 +18,6 @@ function TodoTextInput(props) {
     setText(text);
   }
 
-  const handleBlur = () => {
-    if (!newTodo) {
-      onSave(text);
-    }
-  };
-
   return (
     <View style={styles.card}>
       <TextInput style={[Platform.select({
@@ -33,11 +27,11 @@ function TodoTextInput(props) {
       }), styles.newtodo]}
         type="text"
         placeholder={placeholder}
-        //autoFocus={true}
+        autoFocus={true}
         value={text}
-        onBlur={() => handleBlur()}
         onChangeText={text => handleChange(text)}
         onSubmitEditing={() => handleSubmit()}
+        blurOnSubmit={false}
       />
     </View>
   );
