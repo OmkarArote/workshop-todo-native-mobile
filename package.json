@@ -12,7 +12,7 @@
     "@astrajs/collections": "0.0.14",
     "@astrajs/rest": "^0.0.14",
     "@expo-google-fonts/inter": "^0.2.0",
-    "@expo/ngrok": "^2.5.0",
+    "@expo/ngrok": "^4.1.0",
     "@react-native-segmented-control/segmented-control": "2.3.0",
     "anonymous-files": "^1.0.1",
     "babel-plugin-inline-dotenv": "^1.6.0",
