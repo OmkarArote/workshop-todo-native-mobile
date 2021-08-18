@@ -19,7 +19,6 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 400,
       body: JSON.stringify(e),
-      //throw(e);
     };
   }
 };
