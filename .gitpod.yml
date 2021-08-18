@@ -36,17 +36,17 @@ ports:
     onOpen: ignore
     visibility: public
   - port: 19001
-    onOpen: open-browser
+    onOpen: ignore
     visibility: public
   - port: 19002
-    onOpen: open-browser
+    onOpen: ignore
     visibility: public
   - port: 3000
     onOpen: ignore  
   - port: 4040
-    onOpen: open-browser
+    onOpen: ignore
     visibility: public
-  - port: 5555
-    onOpen: open-browser
+  - port: 5037
+    onOpen: ignore
     visibility: public
 
