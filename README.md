@@ -371,7 +371,7 @@ GITPOD="true"
 
 Final output should look like the below:
 
-<img width="494" alt="Screen Shot 2021-08-11 at 11 40 00 AM" src="https://user-images.githubusercontent.com/82838476/129084846-a623d530-c97f-4e29-b55a-07394c090369.png">
+<img width="452" alt="Screen Shot 2021-08-17 at 9 13 21 PM" src="https://user-images.githubusercontent.com/82838476/129835879-135a30f4-b3bc-4ca5-889b-4483176d77f3.png">
 
 ✅  **Step 10d:** Start Netlify and Expo
   * Run the application (Ignore the QR code generated here)
