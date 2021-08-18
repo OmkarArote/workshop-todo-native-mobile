@@ -70,10 +70,11 @@ function Todo(props) {
       renderRightActions={rightAction}
       onSwipeableRightOpen={handleVisible}
       onSwipeableLeftOpen={handleCheck}
-      overshootFriction={0.01}
+      overshootFriction={1}
+      friction={1}
+      containerStyle={{overflow: 'hidden'}}
     >
       <View style={styles.item}>
-        <View style={styles.todos}>
           <CheckBox
             style={styles.toggle}
             checkedIcon='check-circle'
@@ -84,7 +85,6 @@ function Todo(props) {
             iconType={'material'}
           />
           <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
-        </View>
         <TouchableOpacity onPress={handleVisible}><EvilIcons name='trash' size={28} color='#af5b5e'/></TouchableOpacity>
       </View>
     </Swipeable>
@@ -98,22 +98,17 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
     fontSize: 18,
     fontFamily: 'Inter_300Light',
+    flex: 1,
     flexWrap: 'wrap'
   },
   incomplete: {
     fontSize: 18,
     fontFamily: 'Inter_300Light',
-    flex: 0.97,
+    flex: 1,
     flexWrap: 'wrap'
   },
   toggle: {
     flexDirection: 'row',
-    //marginHorizontal: 15,
-  },
-  todos: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   item: {
     flex: 1,
@@ -123,7 +118,6 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     borderColor: '#d0dde2',
     borderWidth: 0.5,
-    height: 53,
     borderRadius: 12,
     backgroundColor: '#fff',
   },
@@ -132,27 +126,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#af5b5e',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 53,
     alignItems: 'flex-end',
     paddingRight: 15,
     fontFamily: 'Inter_300Light',
+    marginBottom: 5,
   },
   leftSwipeComplete: {
     flex: 1,
     backgroundColor: '#3293b3',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 53,
     paddingLeft: 15,
     fontFamily: 'Inter_300Light',
+    marginBottom: 5,
   },
   leftSwipeIncomplete: {
     flex: 1,
     backgroundColor: '#20b286',
     borderRadius: 12,
     justifyContent: 'center',
-    height: 53,
     paddingLeft: 15,
     fontFamily: 'Inter_300Light',
+    marginBottom: 5,
   },
 });
