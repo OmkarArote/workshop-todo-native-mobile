@@ -343,8 +343,7 @@ npm exec astra-setup todos_workshop_db todos
 
 - You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier.
 
-<img width="325" alt="Screen Shot 2021-08-17 at 8 58 50 PM" src="https://user-images.githubusercontent.com/82838476/129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4.png">
-
+<img width="325" alt="129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4" src="https://user-images.githubusercontent.com/82838476/129835623-cd05c0c2-8a07-48ad-a450-945e1f885b42.png">
 
 ✅  **Step 10c:** Add Host URL to .env
 
