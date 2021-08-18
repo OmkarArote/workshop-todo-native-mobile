@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 12,
     backgroundColor: '#fff',
+    paddingVertical: 3,
   },
   rightSwipe: {
     flex: 1,
