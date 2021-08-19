@@ -82,20 +82,16 @@ React Native is an entire platform that enables you to build native, cross-platf
 
 - **HTML Tags vs. React Native Components**: React Native uses native UI components instead of HTML -- here are some examples of translations. Many of these React Native components have more event handlers that require specific calling syntax, which you can read in detail here.
 
+**React vs. React Native:**
+
 ```
-<div> </div>
-<input> </input>
-<li> </li>
+<div> vs <View>
+<input> vs <TextInput>
+<li> vs <FlatList>
 
 ```
 
-```
-<View> </View>
-<TextInput> </TextInput> 
-<FlatList> </FlatList>
-```
-
-- **CSS vs. StyleSheets**: Certain attributes have the same title, except React Native uses camel case instead of hyphens. Some CSS attributes do not have a corresponding equivalent in React Native, so it is best to go through the po. In React, you can create one file that has all the styling for each class, but in React Native, you include it in a StyleSheet component at the end of the file.
+- **CSS vs. StyleSheets**: Certain attributes have the same title, except React Native uses camel case instead of hyphens. Some CSS attributes do not have a corresponding equivalent in React Native, so it is best to go through the [documentation](https://reactnative.dev/docs/components-and-apis) in detail. In React, you can create one file that has all the styling for each class, but in React Native, you include it in a StyleSheet component at the end of the file (if you're not creating a styling theme for the entire app).
 
 **StyleSheet in ReactNative:**
 
@@ -103,10 +99,9 @@ React Native is an entire platform that enables you to build native, cross-platf
 <div className="complete"> </div>
 
 complete: {
-    textDecorationLine: 'line-through',
-    fontSize: 18,
-    fontFamily: 'Inter_300Light',
-    flexWrap: 'wrap'
+    text-decoration: line-through;
+    font-size: 18,
+    font-family: Inter_300Light,
 }
 ```
 
@@ -116,21 +111,23 @@ complete: {
 <View style={styles.complete}> </View>
 
 const styles = StyleSheet.create({
-  complete: {
-    text-decoration: line-through;
-    font-size: 18,
-    font-family: Inter_300Light,
-  }
-});
+    complete: {
 
+        textDecorationLine: 'line-through',
+        fontSize: 18,
+        fontFamily: 'Inter_300Light',
+        flexWrap: 'wrap'
+    }
+  
+});
 ```
 
 ## Conversion Steps
 
-1. Port over files: src, functions, netlify.toml, package.json, .env
-2. Swap HTML tags for React Native UI components
-3. Translate CSS into StyleSheets for each component
-4. Install libraries to support Expo and React Native
+- Port over files: src, functions, netlify.toml, package.json, .env
+- Swap HTML tags for React Native UI components
+- Translate CSS into StyleSheets for each component
+- Install libraries to support Expo and React Native
  
  ## Packages & Libraries
 
@@ -138,43 +135,54 @@ Look at GitPod.yml (gets cloud workspace set up before you start the application
 
 Gitpod.yml:
 
-```
- - npm install -g expo-cli
- - npm install -g netlify-cli
- - npm install astra-setup (To create the .env file during the workshop)
- - npm install whatwg-fetch
- - npm install -g @expo/ngrok
- - npm install @expo/ngrok@4.1.0 
- - npm install react-native-gesture-handler react-native-reanimated (For swipe to delete/complete gesture)
- - npm install @react-native-segmented-control/segmented-control (For filter based on completeness)
- - npm install @expo-google-fonts/inter --legacy-peer-deps (For custom fonts)
- - npm install babel-plugin-inline-dotenv --legacy-peer-deps (For using inline environment variables)
+```tasks:
+  - name: todonativemobileapp
+    before: |
+      cd /workspace/todonativemobileapp
+      nvm install node
+      npm install
+      npm install -g expo-cli (Command line interface for Expo)
+      npm install -g netlify-cli (Command line interface for Netlify)
+      npm install astra-setup (To create the .env file during the workshop)
+      npm install whatwg-fetch
+      npm install -g @expo/ngrok (For tunnels on GitPod)
+      npm install @expo/ngrok@4.1.0
+      npm install react-native-gesture-handler (For swipe to delete/complete gesture)
+      npm install @react-native-segmented-control/segmented-control  (For filter based on completeness)
+      npm install @expo-google-fonts/inter --legacy-peer-deps (For custom fonts)
+      npm install babel-plugin-inline-dotenv --legacy-peer-deps (For using inline environment variables)
  ```
+
+## Native Feature Additions
+
+In this workshop you will also add native features that are not present in the original web application. These include:
+
+- [Segmented Control](https://github.com/react-native-segmented-control/segmented-control): Instead of a filter at the bottom of the list, you will learn how to create a segmented control component that allows you to filter tasks based on their status of All, Active, and Completed.
  
-## Tips and Tricks
+- [Swipe to delete and complete](https://docs.swmansion.com/react-native-gesture-handler/docs/api/components/swipeable/): In addition to being able to click the trash icon for delete and the check box for complete and incomplete, you can also swipe from the right side to expose a drawer and swipe across to the left side to delete, and from the left side to expose a drawer that swaps based on the state of the task (Complete or Incomplete). Swiping across will change its state and the item will close itself.
  
-- Peer Dependency Errors: In case you are getting faulty peer dependency errors, first look at your package.json to see if you can resolve these manually, otherwise you can try re-running the npm command with the legacy peer dependency flag to get around them.
+## UI Enhancements
+
+Expo recommends the following [UI libraries](https://docs.expo.dev/guides/userinterface/) for sleek, native-looking enhancements for your application, depending on the components and functionality you require. Each library has a different set of functionality and appearance, so choose accordingly.
+
+Other additions to the native app include: 
+
+- [flexWrap](https://reactnative.dev/docs/flexbox#flex-wrap): Property needed to prevent horizontal and vertical overflow from a long Todo item -- **flexWrap: 'wrap'**.
+- [Removing border when TextInput is selected on the web](https://github.com/callstack/react-native-paper/issues/1416): Perfect example of a platform specific bug -- on web when the input box is selected, it is highlighted in blue, so you can import Platform to specify platform-related properties.
+- [Custom Fonts](https://docs.expo.dev/guides/using-custom-fonts/): Adding custom fonts from Google Fonts to allow for the same font across platforms
+- [StatusBar](https://docs.expo.dev/guides/configuring-statusbar/) - possible for Android but not iOS. You can change the color behind the StatusBar on Android, but not on iOS
+
+## Tips for Success
+
+- **Platform-Specific Bugs**: Sometimes native behavior is different between platforms - for example, on Android, when you are typing, the current word will be underlined. As a result, it is key to keep all emulators open while developing so that you can catch platform-specific bugs as they happen. For example, since behavior with the onChangeText event handler for the TextInput component was different on Android than on iOS and Web, which was detected by developing and testing on all platforms while we  so t
+
+- **Peer Dependency Errors:** In case you are getting faulty peer dependency errors, first look at your package.json to see if you can resolve these manually, otherwise try re-running the npm command with the legacy peer dependency flag. These appear to occur becuase NPM 7 is more picky about peer dependencies than NPM 6. The legacy peer dependencies flag reverts to NPM 6 standards for peer dependencies.
 
 ```
 npm install @expo-google-fonts/inter --legacy-peer-deps
 ```
- 
-## Native Features
 
-- Segmented Control: https://github.com/react-native-segmented-control/segmented-control
- 
-- Swipe to delete and complete: https://docs.swmansion.com/react-native-gesture-handler/docs/api/components/swipeable/
+- **Finding Additional Features**: Expo and React Native do not all all desired components included in the core set. As a result, it is frequently necessary to look for libraries that contain that functionality in the [React Native Directory](https://reactnative.directory/). For example, there isn't a Checkbox component that works on all platforms, so this directory is helpful to lookup all the options available and assess their community support, as well when they were last updated.
 
-Sometimes behavior is different between platforms - for example, on Android, when you are typing, the current word will be underlined. Similarly, when testing edge cases like very long Todo items that overflow the box size, it so 
- 
-## UI Enhancements
-
-Expo recommends the following UI libraries for easy enhancements for your application, depending on the components and functionality you require. Each library has a different 
- 
-- FlexWrap: needed to prevent horizontal overflow from a long Todo item
-- Removing border around selected TextInput on web: https://github.com/callstack/react-native-paper/issues/1416
-- Font: https://docs.expo.dev/guides/using-custom-fonts/
-- StatusBar - possible for Android but not iOS: https://docs.expo.dev/guides/configuring-statusbar/
- 
-If you are interested in creating a Progressive Web App (PWA), you can read more here https://blog.expo.dev/create-and-deploy-web-apps-and-pwas-with-expo-a286cc35d83c about how easy Expo makes creating
+- **Search for Solutions**: Google, StackOverflow, blogs, and forums are the best teachers; if you're stumped on an issue, it's very probable that another developer has faced the same issue. Search for a solution using keywords and code snippets, and you should be able to find many workarounds for the problem. If all else fails, find the forum for the library you're using and post a question there.
  
