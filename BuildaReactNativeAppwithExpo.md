@@ -33,7 +33,7 @@ This workshop utilizes Expo to build the Todo React Native App - you can read mo
  
 If you are developing a native application from scratch, you should be developing locally, using a physical Android or iPhone, Xcode for the iPhone simulator, Android Studio for the Android Emulator, and a Web Browser so you can view your project on all platforms as you are developing. All three platforms support hot refresh so you can see changes live as you make updates in your IDE. To develop locally, you need the Expo CLI, Watchman, Git, Node.js, an IDE of your choice ( VisualStudio) and ideally, Xcode and Android Studio. You can walk through the entire setup process [here](https://docs.expo.dev/get-started/installation/) and create a empty Expo project. 
 
-When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications.
+When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing expo start --android or a if already running, whereas the iOS simulator works best when it's quit before doing expo start --ios or i if already running. Similarly, a localhost will start 
 
 ```
 expo start
@@ -68,7 +68,9 @@ You will utilize:
 
 ## Differences between React and React Native
 
-React Native is an entire platform that enables you to build native, cross-platform mobile apps, while React is a JavaScript library you use for constructing a high performing UI layer. The browser code in React is rendered through Virtual DOM, while React Native uses Native APIs to render components on mobile. Here are some broad differences between the two frameworks with examples:
+Both React and React Native are open-sourced by Facebook. React Native is a framework that enables you to build native, cross-platform mobile apps, while React is a JavaScript library you use for constructing a high performing UI layer. The browser code in React is rendered through Virtual DOM, while React Native uses Native APIs to render components on mobile. 
+
+Here are some broad differences between the two frameworks with examples:
 
 - **HTML Tags vs. React Native Components**: React Native uses native UI components instead of HTML -- here are some examples of translations. Many of these React Native components have more event handlers that require specific calling syntax, which you can read in detail here.
 
@@ -116,6 +118,8 @@ const styles = StyleSheet.create({
 ```
 import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native';
 ```
+
+- **Layouts, Navigation, Animation and more**: All are done differently in React Native. The [FlexBox algorithm](https://reactnative.dev/docs/flexbox) is a responsive way to arrange components, while [Navigation](https://reactnative.dev/docs/navigation#react-navigation) requires the react-native-navigation library. You can read more about the Animated API and many other available APIs [here](https://reactnative.dev/docs/animated).
 
 ## Conversion Steps
 
