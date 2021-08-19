@@ -45,16 +45,6 @@ In order to get all three platforms to connect to the Expo and Netlify servers s
 
 <img width="372" alt="Screen Shot 2021-08-18 at 3 01 19 PM" src="https://user-images.githubusercontent.com/82838476/129977952-9ee54ccc-8c3b-4db2-ab57-7b8416010669.png">
 
-netlify.toml:
-
-```
-[build]
-command = "expo build:web"
-functions = "functions"
-publish = "web-build"
-targetPort = 8888
-```
-
 **Workshop Requirements**
  
 In this workshop, you will be running the app on the cloud-based IDE, GitPod, which means that you need the Expo Go application installed on your mobile device in order to view the mobile app. You will also need to have specific setup in your .env file, shown below. Additionally, you will need to start the app using **expo start --tunnel**, in which Expo CLI [starts a tunnel using ngrok](https://docs.expo.dev/guides/how-expo-works/), which allows devices outside of your LAN to access the above servers without you needing to change your firewall settings. You will run your app by entering the following in separate terminal windows.
@@ -88,7 +78,6 @@ React Native is an entire platform that enables you to build native, cross-platf
 <div> vs <View>
 <input> vs <TextInput>
 <li> vs <FlatList>
-
 ```
 
 - **CSS vs. StyleSheets**: Certain attributes have the same title, except React Native uses camel case instead of hyphens. Some CSS attributes do not have a corresponding equivalent in React Native, so it is best to go through the [documentation](https://reactnative.dev/docs/components-and-apis) in detail. In React, you can create one file that has all the styling for each class, but in React Native, you include it in a StyleSheet component at the end of the file (if you're not creating a styling theme for the entire app).
@@ -122,12 +111,106 @@ const styles = StyleSheet.create({
 });
 ```
 
+- **Import Statements**: You will now have to specify the import of each component from react-native
+
+```
+import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native';
+```
+
 ## Conversion Steps
 
-- Port over files: src, functions, netlify.toml, package.json, .env
-- Swap HTML tags for React Native UI components
+- Port over the following folders and files: src (Main code changes occur here), functions (keep the same), netlify.toml (Configure for Expo), package.json (run npm install after copying this over), .env
+
+**src/utils/api.js**: Configure fetch path to accomodate environment variables.
+
+Before:
+```
+const response = await fetch(`/.netlify/functions/getRestTodos`);
+```
+
+After: 
+```
+// GENERATE
+const generateEndpoint = () => {
+  const ipAddress = process.env.HOST;
+  const port = process.env.PORT;
+
+  // Netlify deploy
+  if (process.env.IS_PROD === "true") {
+    return ``;
+  }
+  // Running on GitPod
+  else if (process.env.GITPOD === "true") {
+    return ipAddress;
+  }
+  // Local configuration
+  else { 
+    return `http://${ipAddress}:${port}`;
+  }
+}
+
+// Add to Create, Read, Update, and Delete API calls
+const endpoint = generateEndpoint();
+ ...
+const response = await fetch(`${endpoint}/.netlify/functions/...RestTodo`...
+```
+
+**netlify.toml**:
+
+Before:
+
+```
+[build]
+command = "npm run build"
+functions = "functions"
+publish = "build"
+
+```
+
+After:
+
+```
+[build]
+command = "expo build:web"
+functions = "functions"
+publish = "web-build"
+targetPort = 8888
+```
+
+**.env**: Add these lines to the original .env you had
+
+```
+HOST="192.168.86.95" // Add your local IP here or GitPod url
+PORT="8888"
+IS_PROD="false"
+GITPOD="false" // Change to true if on GitPod
+```
+
+- **Move App.js file from within src directory to root directory**: Add universal font, and add try-catch blocks for api calls to resolve unhandled promise rejection warnings.
+
+Before:
+```
+const deleteRestTodo = async (id) => {
+	await api.deleteRestTodo(id);
+	getRestTodos();
+};
+```
+
+After:
+```
+const deleteRestTodo = async (id) => {
+	try {
+		wait api.deleteRestTodo(id);
+		getRestTodos();
+	} catch (error) {
+		console.log(error)
+	}
+};
+```
+
+- Swap HTML tags for React Native UI components, and find the appropriate properties for those components to enable functionality
 - Translate CSS into StyleSheets for each component
-- Install libraries to support Expo and React Native
+- Install additional libraries to support Expo and React Native (Take a look at package.json)
  
  ## Packages & Libraries
 
@@ -155,7 +238,7 @@ Gitpod.yml:
 
 ## Native Feature Additions
 
-In this workshop you will also add native features that are not present in the original web application. These include:
+In this workshop, you will also add native features that are not present in the original web application. These include:
 
 - [Segmented Control](https://github.com/react-native-segmented-control/segmented-control): Instead of a filter at the bottom of the list, you will learn how to create a segmented control component that allows you to filter tasks based on their status of All, Active, and Completed.
  
