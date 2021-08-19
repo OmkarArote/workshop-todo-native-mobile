@@ -45,16 +45,6 @@ In order to get all three platforms to connect to the Expo and Netlify servers s
 
 <img width="372" alt="Screen Shot 2021-08-18 at 3 01 19 PM" src="https://user-images.githubusercontent.com/82838476/129977952-9ee54ccc-8c3b-4db2-ab57-7b8416010669.png">
 
-netlify.toml:
-
-```
-[build]
-command = "expo build:web"
-functions = "functions"
-publish = "web-build"
-targetPort = 8888
-```
-
 **Workshop Requirements**
  
 In this workshop, you will be running the app on the cloud-based IDE, GitPod, which means that you need the Expo Go application installed on your mobile device in order to view the mobile app. You will also need to have specific setup in your .env file, shown below. Additionally, you will need to start the app using **expo start --tunnel**, in which Expo CLI [starts a tunnel using ngrok](https://docs.expo.dev/guides/how-expo-works/), which allows devices outside of your LAN to access the above servers without you needing to change your firewall settings. You will run your app by entering the following in separate terminal windows.
@@ -88,7 +78,6 @@ React Native is an entire platform that enables you to build native, cross-platf
 <div> vs <View>
 <input> vs <TextInput>
 <li> vs <FlatList>
-
 ```
 
 - **CSS vs. StyleSheets**: Certain attributes have the same title, except React Native uses camel case instead of hyphens. Some CSS attributes do not have a corresponding equivalent in React Native, so it is best to go through the [documentation](https://reactnative.dev/docs/components-and-apis) in detail. In React, you can create one file that has all the styling for each class, but in React Native, you include it in a StyleSheet component at the end of the file (if you're not creating a styling theme for the entire app).
@@ -167,6 +156,7 @@ const response = await fetch(`${endpoint}/.netlify/functions/...RestTodo`...
 ```
 
 **netlify.toml**:
+
 Before:
 
 ```
@@ -187,7 +177,7 @@ publish = "web-build"
 targetPort = 8888
 ```
 
-**.env**:
+**.env**: Add these lines to the original .env you had
 
 ```
 HOST="192.168.86.95" // Add your local IP here or GitPod url
@@ -201,20 +191,20 @@ GITPOD="false" // Change to true if on GitPod
 Before:
 ```
 const deleteRestTodo = async (id) => {
-		await api.deleteRestTodo(id);
-		getRestTodos();
+	await api.deleteRestTodo(id);
+	getRestTodos();
 };
 ```
 
 After:
 ```
 const deleteRestTodo = async (id) => {
-		try {
-			await api.deleteRestTodo(id);
-			getRestTodos();
-		} catch (error) {
-			console.log(error)
-		}
+	try {
+		wait api.deleteRestTodo(id);
+		getRestTodos();
+	} catch (error) {
+		console.log(error)
+	}
 };
 ```
 
@@ -248,7 +238,7 @@ Gitpod.yml:
 
 ## Native Feature Additions
 
-In this workshop you will also add native features that are not present in the original web application. These include:
+In this workshop, you will also add native features that are not present in the original web application. These include:
 
 - [Segmented Control](https://github.com/react-native-segmented-control/segmented-control): Instead of a filter at the bottom of the list, you will learn how to create a segmented control component that allows you to filter tasks based on their status of All, Active, and Completed.
  
