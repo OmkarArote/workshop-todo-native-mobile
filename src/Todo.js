@@ -84,7 +84,7 @@ function Todo(props) {
             color={'#3293b3'}
             iconType={'material'}
           />
-          <Text style={todo.completed ? styles.complete : styles.incomplete}>{todo.text}</Text>
+          <Text style={isChecked ? styles.complete : styles.incomplete}>{todo.text}</Text>
         <TouchableOpacity onPress={handleVisible}><EvilIcons name='trash' size={28} color='#af5b5e'/></TouchableOpacity>
       </View>
     </Swipeable>
