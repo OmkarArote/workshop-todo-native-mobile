@@ -158,7 +158,6 @@ const response = await fetch(`${endpoint}/.netlify/functions/...RestTodo`...
 **netlify.toml**:
 
 Before:
-
 ```
 [build]
 command = "npm run build"
@@ -168,7 +167,6 @@ publish = "build"
 ```
 
 After:
-
 ```
 [build]
 command = "expo build:web"
@@ -207,16 +205,16 @@ const deleteRestTodo = async (id) => {
 	}
 };
 ```
-
+**Additional Steps:**
 - Swap HTML tags for React Native UI components, and find the appropriate properties for those components to enable functionality
 - Translate CSS into StyleSheets for each component
 - Install additional libraries to support Expo and React Native (Take a look at package.json)
  
  ## Packages & Libraries
 
-Look at GitPod.yml (gets cloud workspace set up before you start the applications) and package.json to see all the packages and libraries required.
+Look at GitPod.yml (gets cloud workspace set up before you start the application) and package.json to see all the packages and libraries required.
 
-Gitpod.yml:
+**Gitpod.yml:**
 
 ```tasks:
   - name: todonativemobileapp
@@ -257,7 +255,7 @@ Other additions to the native app include:
 
 ## Tips for Success
 
-- **Platform-Specific Bugs**: Sometimes native behavior is different between platforms - for example, on Android, when you are typing, the current word will be underlined. As a result, it is key to keep all emulators open while developing so that you can catch platform-specific bugs as they happen. For example, since behavior with the onChangeText event handler for the TextInput component was different on Android than on iOS and Web, which was detected by developing and testing on all platforms while we  so t
+- **Platform-Specific Bugs**: Sometimes native behavior is different between platforms - for example, on Android, when you are typing, the current word will be underlined. As a result, it is key to keep all emulators open while developing so that you can catch platform-specific bugs as they happen. For example, because all emulators were running as the app was built, it was possible to detect that the behavior with the onChangeText event handler for the TextInput component was different on Android than on iOS and Web, and swap it out accordingly.
 
 - **Peer Dependency Errors:** In case you are getting faulty peer dependency errors, first look at your package.json to see if you can resolve these manually, otherwise try re-running the npm command with the legacy peer dependency flag. These appear to occur becuase NPM 7 is more picky about peer dependencies than NPM 6. The legacy peer dependencies flag reverts to NPM 6 standards for peer dependencies.
 
