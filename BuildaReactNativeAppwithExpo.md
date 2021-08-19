@@ -33,7 +33,7 @@ This workshop utilizes Expo to build the Todo React Native App - you can read mo
  
 If you are developing a native application from scratch, you should be developing locally, using a physical Android or iPhone, Xcode for the iPhone simulator, Android Studio for the Android Emulator, and a Web Browser so you can view your project on all platforms as you are developing. All three platforms support hot refresh so you can see changes live as you make updates in your IDE. To develop locally, you need the Expo CLI, Watchman, Git, Node.js, an IDE of your choice ( VisualStudio) and ideally, Xcode and Android Studio. You can walk through the entire setup process [here](https://docs.expo.dev/get-started/installation/) and create a empty Expo project. 
 
-When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing expo start --android or a if already running, whereas the iOS simulator works best when it's quit before doing expo start --ios or i if already running. Similarly, a localhost will start 
+When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing expo start --android or a if already running, whereas the iOS simulator works best when it's quit before doing expo start --ios or i if already running. Similarly, you can just pay attention to the browser tab with your IP and the port like https:://192.198.62.35/8888 and ignore the others that are launched by Netlify and Expo.
 
 ```
 expo start
@@ -68,9 +68,15 @@ You will utilize:
 
 ## Differences between React and React Native
 
-Both React and React Native are open-sourced by Facebook. React Native is a framework that enables you to build native, cross-platform mobile apps, while React is a JavaScript library you use for constructing a high performing UI layer. The browser code in React is rendered through Virtual DOM, while React Native uses Native APIs to render components on mobile. 
+Both React and React Native are open-sourced by Facebook, and are utilized in applications like Facebook, Instagram, Discord, AirBnB, Pinterest, UberEats, Skype, and SalesForce. 
 
-Here are some broad differences between the two frameworks with examples:
+- React is a framework for building applications using JavaScript. 
+- React Native is a platform that allows you to build native, cross-platform mobile apps
+- React.js is a JavaScript library you use for constructing a high performing UI layer. 
+
+React.js is central to React Native, and is built upon React’s principles and syntax, so converting from one to the other is relatively intuitive. The browser code in React is rendered through Virtual DOM, while React Native uses Native APIs to render components on mobile. React uses HTML and CSS, whereas React Native uses its own components and libraries. You can also use hot reload in React Native so you can see your application's current state while building.
+
+Here are some examples of code differences between the two frameworks with examples:
 
 - **HTML Tags vs. React Native Components**: React Native uses native UI components instead of HTML -- here are some examples of translations. Many of these React Native components have more event handlers that require specific calling syntax, which you can read in detail here.
 
@@ -84,7 +90,7 @@ Here are some broad differences between the two frameworks with examples:
 
 - **CSS vs. StyleSheets**: Certain attributes have the same title, except React Native uses camel case instead of hyphens. Some CSS attributes do not have a corresponding equivalent in React Native, so it is best to go through the [documentation](https://reactnative.dev/docs/components-and-apis) in detail. In React, you can create one file that has all the styling for each class, but in React Native, you include it in a StyleSheet component at the end of the file (if you're not creating a styling theme for the entire app).
 
-**StyleSheet in ReactNative:**
+**CSS in React:**
 
 ```
 <div className="complete"> </div>
@@ -96,7 +102,7 @@ complete: {
 }
 ```
 
-**CSS in React:**
+**StyleSheet in ReactNative:**
 
 ```
 <View style={styles.complete}> </View>
@@ -209,7 +215,9 @@ const deleteRestTodo = async (id) => {
 	}
 };
 ```
+
 **Additional Steps:**
+
 - Swap HTML tags for React Native UI components, and find the appropriate properties for those components to enable functionality
 - Translate CSS into StyleSheets for each component
 - Install additional libraries to support Expo and React Native (Take a look at package.json)
