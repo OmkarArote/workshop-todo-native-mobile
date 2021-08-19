@@ -32,7 +32,7 @@ function Todo(props) {
   }
 
   const leftAction = () => {
-    if (todo.completed) {
+    if (isChecked) {
       return (
         <View style={styles.leftSwipeIncomplete}>
           <Ionicons name="md-radio-button-off-outline" size={26} color='white' style={{ paddingLeft: 20 }} />
