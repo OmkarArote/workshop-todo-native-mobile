@@ -122,12 +122,105 @@ const styles = StyleSheet.create({
 });
 ```
 
+- **Import Statements**: You will now have to specify the import of each component from react-native
+
+```
+import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native';
+```
+
 ## Conversion Steps
 
-- Port over files: src, functions, netlify.toml, package.json, .env
-- Swap HTML tags for React Native UI components
+- Port over the following folders and files: src (Main code changes occur here), functions (keep the same), netlify.toml (Configure for Expo), package.json (run npm install after copying this over), .env
+
+**src/utils/api.js**: Configure fetch path to accomodate environment variables.
+
+Before:
+```
+const response = await fetch(`/.netlify/functions/getRestTodos`);
+```
+
+After: 
+```
+// GENERATE
+const generateEndpoint = () => {
+  const ipAddress = process.env.HOST;
+  const port = process.env.PORT;
+
+  // Netlify deploy
+  if (process.env.IS_PROD === "true") {
+    return ``;
+  }
+  // Running on GitPod
+  else if (process.env.GITPOD === "true") {
+    return ipAddress;
+  }
+  // Local configuration
+  else { 
+    return `http://${ipAddress}:${port}`;
+  }
+}
+
+// Add to Create, Read, Update, and Delete API calls
+const endpoint = generateEndpoint();
+ ...
+const response = await fetch(`${endpoint}/.netlify/functions/...RestTodo`...
+```
+
+**netlify.toml**:
+Before:
+
+```
+[build]
+command = "npm run build"
+functions = "functions"
+publish = "build"
+
+```
+
+After:
+
+```
+[build]
+command = "expo build:web"
+functions = "functions"
+publish = "web-build"
+targetPort = 8888
+```
+
+**.env**:
+
+```
+HOST="192.168.86.95" // Add your local IP here or GitPod url
+PORT="8888"
+IS_PROD="false"
+GITPOD="false" // Change to true if on GitPod
+```
+
+- **Move App.js file from within src directory to root directory**: Add universal font, and add try-catch blocks for api calls to resolve unhandled promise rejection warnings.
+
+Before:
+```
+const deleteRestTodo = async (id) => {
+		await api.deleteRestTodo(id);
+		getRestTodos();
+};
+```
+
+After:
+```
+const deleteRestTodo = async (id) => {
+		try {
+			await api.deleteRestTodo(id);
+			getRestTodos();
+		} catch (error) {
+			console.log(error)
+		}
+};
+```
+
+- Swap HTML tags for React Native UI components, and find the appropriate properties for those components to enable functionality
 - Translate CSS into StyleSheets for each component
-- Install libraries to support Expo and React Native
+- Install additional libraries to support Expo and React Native (Take a look at package.json)
  
  ## Packages & Libraries
 
