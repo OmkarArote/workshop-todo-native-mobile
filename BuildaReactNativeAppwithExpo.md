@@ -27,6 +27,9 @@ Before the advent of frameworks like React Native and Flutter, if you wanted to 
 
 This workshop utilizes Expo to build the Todo React Native App - you can read more [here](https://docs.expo.io/guides/how-expo-works/) about how Expo works. In short, Expo is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase. Using Expo allows you to create a Web app, and native Android and iOS applications from one single codebase, all using React and React Native components. You can also choose to develop using a [bare workflow in Expo](https://docs.expo.dev/bare/exploring-bare-workflow/) or [React Native](https://reactnative.dev/docs/environment-setup), but the convenience of developing using your phone as the emulator shifted the tide in favor of Expo, because it meant that workshop attendees could view their new Todo mobile application without needing to download heavy applications like Xcode and Android Studio and set up the emulators. Expo also has [Snack](https://docs.expo.dev/workflow/snack/), a playground in your browser, on which you can view code snippets in a browser-based emulator.
 
+<img width="828" alt="Expo Snack" src="https://user-images.githubusercontent.com/82838476/130184846-8a113ffb-6059-4efe-83bf-388917611d59.png">
+
+
 ## Getting Started
 
 **Developing Locally**
