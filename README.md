@@ -1,13 +1,8 @@
-# Todo List Native Application
-Build a To-Do List Native App, created for a DataStax workshop, using React Native, JavaScript, Node.js, and DataStax AstraDB.
-
-**Part 1: Create the Database**
-
 <!--- STARTEXCLUDE --->
-# Todo List + AstraDB + Cassandra 📒
-*20 minutes, Beginner, [Start Building](https://github.com/DataStax-Examples/todo-astra-jamstack-netlify#prerequisites)*
+# React Native Todo List + Astra DB + Netlify 📒
+*40 minutes, Beginner*
 
-This is an example React Native To-Do application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
+This is an example React Native Todo application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
 <!--- ENDEXCLUDE --->
 
 **Mobile App on Android:**
@@ -23,14 +18,21 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 <img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ## 🎯 Objectives
-* Create a "from scratch" **React Native ** app using Expo
+* Implement a **React Native** Todo app using Expo
 * Learn about **React Native** components and how they are used to dynamically update the DOM with new information
+* Learn how to convert a React web app to a **React Native** mobile and web app
 * Learn how **state** and **props** changes are used
 * Learn how to use Swagger to interact with the database using a **REST** API 
 * Leverage Netlify and DataStax AstraDB
-* Learn how to convert a React web app to a React Native mobile and web app
 
 ## ℹ️ Frequently asked questions ℹ️ 
+- *Are there any prerequites?*
+> * You will need a [GitHub account](https://github.com/)
+> * You will need to [download Expo Go](https://expo.dev/client) on your mobile phone (if you wish to do that part)
+
+- *What other prerequisites are there?*
+> * You will also need an Astra DB account, but we'll work through that in the exercises
+> * Use **Chrome** or **Firefox** for the best experience. Other browsers are great, but don't work well with the GitPod integration we use a bit later.
 
 - *Can I run the workshop on my computer?*
 > There is nothing preventing you from running the workshop on your own machine.
@@ -41,18 +43,12 @@ This is an example React Native To-Do application using a [DataStax AstraDB](htt
 >
 > You will have to adapt commands and paths based on your environment and install the dependencies by yourself. **We won't provide support** to keep on track with schedule. However, we will do our best to give you the info you need to be successful.
 
-- *What other prerequisites are there?*
-> * You will need a GitHub account and an Expo account
-> * You will also need an Astra DB account, but we'll work through that in the exercises
-> * Use **Chrome** or **Firefox** for the best experience. Other browsers are great, but don't work well with the GitPod integration we use a bit later.
-
 - *Do I need to pay for anything for this workshop?*
 > * **No.** All tools and services we provide here are FREE.
 
 - *Will I get a certificate if I attend this workshop?*
 > Attending the session is not enough. You need to complete the homework detailed below and you will get a nice badge.
 
-**NEED TO UPDATE THE BELOW LINKS**
 ## Materials for the Session
 
 It doesn't matter if you join our workshop live or you prefer to do at your own pace, we have you covered. In this repository, you'll find everything you need for this workshop:
@@ -94,7 +90,7 @@ _Make sure to chose a password with minimum 8 characters, containing upper and l
 **Use the following values when creating the database**
 |Field| Value|
 |---|---|
-|**database name**| `todos_workshop_db` |
+|**database name**| `todos_native_workshop_db` |
 |**keypace**| `todos` |
 |**Cloud Provider**| *Use the one you like, click a cloud provider logo,  pick an Area in the list and finally pick a region.* |
 
@@ -338,7 +334,7 @@ Use the token you previously generated. If you no longer have the token and did 
 In the repository directory run the following command  to set up your Astra environment.  Note that this does require Node 15 and NPM 7 to work.  You can install a node version manager like `nvm` or `n` to use multiple versions on your system.
 
 ```bash
-npm exec astra-setup todos_workshop_db todos
+npm exec astra-setup todos_native_workshop_db todos
 ```
 
 - You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier.
