@@ -25,7 +25,7 @@ After this workshop, you will have a mobile native Todo application that can run
 
 Before the advent of frameworks like React Native and Flutter, if you wanted to build a responsive, native application for mobile and web, you needed to build the same application, in three different languages, on three different platforms: for example, in Swift for iOS in Xcode, in Java or Kotlin for Android in Android Studio, and in JavaScript for Web in a range of IDEs. This resulted in the need to be fluent in all three platforms and languages, and building the same application three times. Since we started with a React-based web application in JavaScript, we chose to use React Native and Expo for converting the application to native, since Flutter would require converting the entire infrastructure to Dart.
 
-This workshop utilizes Expo to build the Todo React Native App - you can read more [here](https://docs.expo.io/guides/how-expo-works/) about how Expo works. In short, Expo is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase. Using Expo allows you to create a Web app, and native Android and iOS applications from one single codebase, all using React and React Native components. You can also choose to develop using a [bare workflow in Expo](https://docs.expo.dev/bare/exploring-bare-workflow/) or [React Native](https://reactnative.dev/docs/environment-setup), but the convenience of developing using your phone as the emulator shifted the tide in favor of Expo, because it meant that workshop attendees could view their new Todo mobile application without needing to download heavy applications like Xcode and Android Studio and set up the emulators. Expo also has [Snack](https://docs.expo.dev/workflow/snack/), a playground in your browser, on which you can view code snippets in a browser-based emulator.
+This workshop utilizes Expo to build the Todo React Native App - you can read more [here](https://docs.expo.io/guides/how-expo-works/) about how Expo works. In short, Expo is a set of tools and services built around React Native and native platforms that help you develop, build, deploy, and quickly iterate on iOS, Android, and web apps from the same JavaScript/TypeScript codebase. Using Expo allows you to create a Web app, and native Android and iOS applications from one single codebase, all using React and React Native components. You can also choose to develop using a [bare workflow in Expo](https://docs.expo.dev/bare/exploring-bare-workflow/) or [React Native](https://reactnative.dev/docs/environment-setup), but the convenience of developing using your phone as the emulator shifted the tide in favor of Expo, because it meant that workshop attendees could view their new Todo mobile application without needing to download heavy applications like Xcode and Android Studio and set up the emulators. Expo also has [Snack](https://docs.expo.dev/workflow/snack/), a playground in your browser, on which you can view code snippets in a browser-based emulator, and even run complete Expo projects in the browser, no download required.
 
 <img width="828" alt="Expo Snack" src="https://user-images.githubusercontent.com/82838476/130184846-8a113ffb-6059-4efe-83bf-388917611d59.png">
 
@@ -68,6 +68,22 @@ You will utilize:
 - Astra DB as our free, serverless database
 - astrajs/collections, which is a library called to interact with a document-oriented database
 - Netlify to deploy the app across a global content delivery network (CDN)
+
+## Networking with Expo, Netlify, and GitPod
+
+One of the biggest challenges when developing locally is configuring the emulators to all run at the same time. We found that if iOS and Web were running, the Android simulator would not connect, and vice versa, which made simultaneous development challenging. To put it simply, it all came down to configuring networking. The iOS (using loopback) and [Android] emulators(https://developer.android.com/studio/run/emulator-networking) had different IP addresses, and both Expo and Netlify were serving different ports. Expo looks for the lowest unused port starting at 19000. 
+
+How Expo Works:
+<img width="45%" alt="Screen Shot 2021-08-20 at 4 37 52 PM" src="https://user-images.githubusercontent.com/82838476/130302720-639e10e7-e85e-466f-ad2d-eb47a7a13d31.png">
+
+In the netlify.toml, we can specify the port to which Netlify will listen (port 8888).
+
+How Netlify Works:
+<img width="45%" alt="Screen Shot 2021-08-20 at 4 37 52 PM" src="https://user-images.githubusercontent.com/82838476/130302820-b7f95276-6873-4093-8e25-6db0b4622bce.png">
+
+What is [Netlify Dev](https://cli.netlify.com/netlify-dev/)? In short, ```shell netlify dev``` "runs Netlify's production routing engine in a local dev server to make all redirects, proxy rules, function routes or add-on routes available locally and injects the correct environment variables from your site environment, installed add-ons or your netlify.toml file into your build and function environment."
+
+The end solution was hard-coding in your local private IP so all three could work at the same time, and specifying the port as well so all three were tuning into the same IP.
 
 ## Differences between React and React Native
 
@@ -299,4 +315,6 @@ npm install @expo-google-fonts/inter --legacy-peer-deps
 - **Finding Additional Features**: Expo and React Native may not include all the components and extended functionality you may need. As a result, it is frequently necessary to look for libraries that contain that feature in the [React Native Directory](https://reactnative.directory/). For example, there isn't a in-built React Native Checkbox component that works on all platforms, so this directory is helpful to lookup all the options available and assess their community support, as well when they were last updated.
 
 - **Search for Solutions**: Google, StackOverflow, blogs, and forums are the best teachers; if you're stumped on an issue, it's very probable that another developer has faced the same issue. Search for a solution using keywords and code snippets, and you should be able to find many workarounds for the problem. If all else fails, find the forum for the library you're using and post a question there.
+
+- Create a PWA, [Progressive Web App](https://docs.expo.dev/guides/progressive-web-apps/): Expo is automatically set up to build a PWS should you want to have one. You can follow the steps [here](https://blog.expo.dev/create-and-deploy-web-apps-and-pwas-with-expo-a286cc35d83c) to make one in under five minutes!
  
