@@ -100,8 +100,8 @@ Here are some examples of code differences between the two frameworks with examp
 
 complete: {
     text-decoration: line-through;
-    font-size: 18,
-    font-family: Inter_300Light,
+    font-size: 18;
+    font-family: Inter_300Light;
 }
 ```
 
@@ -112,7 +112,6 @@ complete: {
 
 const styles = StyleSheet.create({
     complete: {
-
         textDecorationLine: 'line-through',
         fontSize: 18,
         fontFamily: 'Inter_300Light',
