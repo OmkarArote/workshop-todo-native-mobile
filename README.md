@@ -22,7 +22,6 @@ This is an example React Native Todo application using a [DataStax AstraDB](http
 * Learn about **React Native** components and how they are used to dynamically update the DOM with new information
 * Learn how to convert a React web app to a **React Native** mobile and web app
 * Learn how **state** and **props** changes are used
-* Learn how to use Swagger to interact with the database using a **REST** API 
 * Leverage Netlify and DataStax AstraDB
 
 ## ℹ️ Frequently asked questions ℹ️ 
@@ -63,15 +62,12 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 1. [Login or Register to AstraDB and create database](#1-login-or-register-to-astradb-and-create-database)
 2. [Create a security token](#2-create-a-security-token)
-3. [Create a table with REST API using Swagger](#3-create-a-table-with-rest-api-using-swagger)
-4. [Insert data in the Table with the REST API using Swagger](#4-insert-data-in-the-table-with-the-rest-api-using-swagger)
-5. [Retrieving values](#5-retrieving-values)
-6. [Launch GitPod IDE](#6-launch-gitpod-ide)
-7. [Check Node & NPM versions in GitPod](#7-check-node-&-NPM-versions-in-GitPod)
-8. [Register for an Expo Account](#8-register-for-an-expo-account)
-9. [Install Expo mobile application on your phone](#9-install-expo-mobile-application-on-your-phone)
-10. [Launch the To-Do app](#10-launch-the-to-do-app)
-11. [View Finished Products](#11-view-finished-product)
+3. [Launch GitPod IDE](#6-launch-gitpod-ide)
+4. [Check Node & NPM versions in GitPod](#7-check-node-&-NPM-versions-in-GitPod)
+5. [Register for an Expo Account](#8-register-for-an-expo-account)
+6. [Install Expo mobile application on your phone](#9-install-expo-mobile-application-on-your-phone)
+7. [Launch the To-Do app](#10-launch-the-to-do-app)
+8. [View Finished Products](#11-view-finished-product)
 
 **Part 1: Create the Database**
 
@@ -117,155 +113,18 @@ The status will change to `Active` when the database is ready, this will only ta
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 3. Create a table with REST API using Swagger
-
-✅  **Step 3a:** Open **Swagger** by 
-1. Click on your active database
-2. Click `Connect` TAB
-3. Click `REST API`
-4. Click link to your Swagger endpoint.
-
-*As shown on the picture below.*
-![image](https://user-images.githubusercontent.com/23346205/124656913-d28b1b00-de6f-11eb-9712-e7629f5b8867.png?raw=true)
-
-✅  **Step 3b:** Navigate to the **create a table** section
-
-1. Once **Swagger** is launched, scroll down and navigate to the **schemas** section
-
-![image](https://user-images.githubusercontent.com/23346205/124658644-ffd8c880-de71-11eb-8064-c26a2979b66f.png?raw=true)
-
-2. Then, within the **schemas** section, navigate to **Create a table** and click on it to open the section. 
-- Take particular note of the REST URI **/api/rest/v2/schemas/keyspaces/{keyspaceName}/tables**. 
-- Also, take note that this is using a **POST** command.
-
-![image](https://user-images.githubusercontent.com/23346205/124658990-71187b80-de72-11eb-8d25-01e6c6216aa5.png?raw=true)
-
-3. Click the "Try it out" button
-
-![image](https://user-images.githubusercontent.com/23346205/124659185-ae7d0900-de72-11eb-9108-1595c3306bb3.png?raw=true)
-
-✅  **Step 3c:** Create table **restfromreadme_by_id**
-
-1. Enter your **Astra token _(X-Cassandra-Token)_**
-2. Enter the **keyspaceName** `todos`
-
-![image](https://github.com/datastaxdevs/appdev-week1-todolist/blob/main/images/3c2_create-table.png?raw=true)
-
-3. Finally, copy the create table statement using the code below into the **body** field
-```json
-{
-  "name": "restfromreadme_by_id",
-  "ifNotExists": true,
-  "columnDefinitions": [
-    {
-      "name": "id",
-      "typeDefinition": "uuid",
-      "static": false
-    },
-    {
-      "name": "text",
-      "typeDefinition": "text",
-      "static": false
-    },
-    {
-      "name": "key",
-      "typeDefinition": "text",
-      "static": false
-    },
-        {
-          "name": "completed",
-          "typeDefinition": "boolean"
-        }
-  ],
-  "primaryKey": {
-    "partitionKey": [
-      "id"
-    ]
-  }
-}
-```
-
-4. And click **execute** to apply the command and create the table
-
-![image](https://user-images.githubusercontent.com/23346205/124660673-84c4e180-de74-11eb-89a9-55dfb017bb8f.png?raw=true)
-
-You should see a **201** response telling you it correctly created the "restfromreadme_by_id" table.
-
-Again, take a note of the Request URL that was used to create the table. This comes into play later when we take a look at the code in `astraRestClient.js` used to create our TODO application table.
-
-![image](https://user-images.githubusercontent.com/23346205/124663337-f05c7e00-de77-11eb-8daa-856d15f0d223.png?raw=true)
-
-[🏠 Back to Table of Contents](#table-of-contents)
-
-## 4. Insert data in the Table with the REST API using Swagger
-Now that we have a table to use, let's insert a row of data into the table, again using REST to do so.
-
-✅  **Step 4a:** Navigate to **Add row** section
-
-1. Scroll down and navigate to the **data** section
-2. Then find **Add row** and click it to open the section
-  - Also take note this is using a **POST** command.
-3. Click **Try it out** just like we did previously
-
-![image](https://user-images.githubusercontent.com/23346205/124664268-2fd79a00-de79-11eb-8902-1d6636e986fb.png?raw=true)
-
-✅  **Step 4b:** Fill in values and add a row
-
-1. Add your Astra token
-2. Add the keyspaceName `todos`
-3. Add the tableName `restfromreadme_by_id`. Note, this is the table we created in the earlier step
-
-![image](https://github.com/datastaxdevs/appdev-week1-todolist/blob/main/images/4b3_insert-row.png?raw=true)
-
-4. Copy the following JSON into the **body**
-
-```json
-{"id":"57dbd260-d905-11eb-b985-c522859819b9","completed":false,"text":"TODO FROM README","key":"none"}
-```
-
-5. Click **Execute**. You should see code **201** in the response telling you it was a success and displaying the id of the row you just created.
-
-[🏠 Back to Table of Contents](#table-of-contents)
-
-## 5. Retrieving values
-Finally, now that we created a table and inserted a row of data let's **GET** the data back out.
-
-✅  **Step 5a:** Navigate to **Retrieve all rows** section
-
-1. Scroll up within the **data** section
-2. Then find **Retrieve all rows** and click it to open the section
-  - Take note this is using a **GET** command.
-3. Click **Try it out** just like we did previously
-
-![image](https://user-images.githubusercontent.com/23346205/124666300-d6bd3580-de7b-11eb-8bf6-aeeb0487962b.png?raw=true)
-
-✅  **Step 5b:** Execute the command to display the data
-
-1. Enter your **Astra token _(X-Cassandra-Token)_**
-2. Enter the **keyspaceName** `todos`
-3. Enter the **tableName** `restfromreadme_by_id`
-
-![image](https://github.com/datastaxdevs/appdev-week1-todolist/blob/main/images/5b3_retrieve-rows.png?raw=true)
-
-4. Click **Execute**
-5. View the end result data that should be exactly what we created in the previous step
-
-![image](https://user-images.githubusercontent.com/23346205/124666847-9d38fa00-de7c-11eb-8673-84f421ff9282.png?raw=true)
-
-[🏠 Back to Table of Contents](#table-of-contents)
-
 **Part 2: Launch the Native Application**
 
-## 6. Launch GitPod IDE
+## 3. Launch GitPod IDE
 
-✅  **Step 6a:**
+✅  **Step 3a:**
 - Click the button to launch the GitPod IDE.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
-✅  **Step 6b:**
+✅  **Step 3b:**
 - Create split terminals
 
 **Click on the double-panel icon:**
@@ -276,7 +135,7 @@ Finally, now that we created a table and inserted a row of data let's **GET** th
 
 <img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
 
-## 7. Check Node & NPM versions in GitPod
+## 4. Check Node & NPM versions in GitPod
 You will need node 15 and npm 7 or later.
 
 ```bash
@@ -297,7 +156,7 @@ npm install
 nvm install node
 ```
 
-## 8. Register for an Expo Account in GitPod
+## 5. Register for an Expo Account in GitPod
 
 If you don't have an account:
 
@@ -317,17 +176,17 @@ Double check that you are logged in.
 expo whoami 
 ```
 
-## 9. Install Expo mobile application on your phone
+## 6. Install Expo mobile application on your phone
 
 Download the Expo App from the Android Play Store or iOS App Store.
 
-## 10. Launch the To-Do app
+## 7. Launch the To-Do app
 
-✅  **Step 10a:** Retrieve application token to securely connect to the database
+✅  **Step 7a:** Retrieve application token to securely connect to the database
 
 Use the token you previously generated. If you no longer have the token and did not download a .csv, you can generate a new token using [the instructions above](#2-create-a-security-token)
 
-✅  **Step 10b:** Configure Environment Variables and Install Dependencies
+✅  **Step 7b:** Configure Environment Variables and Install Dependencies
 
 1. Set up your Astra Environment
 
@@ -341,7 +200,7 @@ npm exec astra-setup todos_native_workshop_db todos
 
 <img width="325" alt="129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4" src="https://user-images.githubusercontent.com/82838476/129835623-cd05c0c2-8a07-48ad-a450-945e1f885b42.png">
 
-✅  **Step 10c:** Add Host URL to .env
+✅  **Step 7c:** Add Host URL to .env
 
 Get workspace URL:
 
@@ -357,7 +216,7 @@ Example:
 HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
 ```
 
-✅  **Step 10d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
+✅  **Step 7d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
 
 ```
 PORT="8888"
@@ -369,7 +228,7 @@ Final output should look like the below:
 
 <img width="452" alt="Screen Shot 2021-08-17 at 9 13 21 PM" src="https://user-images.githubusercontent.com/82838476/129835879-135a30f4-b3bc-4ca5-889b-4483176d77f3.png">
 
-✅  **Step 10d:** Start Netlify and Expo
+✅  **Step 7e:** Start Netlify and Expo
   * Run the application (Ignore the QR code generated here)
  
   ```
@@ -390,7 +249,7 @@ Final output should look like the below:
   
   <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
  
-✅  **Step 10e:** Launch your app in the web browser
+✅  **Step 7f:** Launch your app in the web browser
   
 Open your web application at the URL specified in the HOST line above in a new tab in your browser.
 
@@ -398,7 +257,7 @@ Open your web application at the URL specified in the HOST line above in a new t
 
 <img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
-✅  **Step 10f:** Launch your app on your mobile device
+✅  **Step 7g:** Launch your app on your mobile device
 
 **Scan the QR code** with your phone camera to open your application in the Expo App!
 
@@ -406,7 +265,7 @@ The QR code in the terminal will look like this:
 
 <img width="542" alt="QRImage" src="https://user-images.githubusercontent.com/82838476/127718324-1f7b5f78-8048-4d55-8fe8-5d1141eea26e.png">
 
-## 11. View Mobile App
+## 8. View Mobile App
 
 See examples of what your finished product should look like:
 
