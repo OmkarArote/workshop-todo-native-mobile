@@ -7,15 +7,15 @@ Previously, the web application looked like the following:
 
 <img width="1276" alt="68747470733a2f2f6d6f6e6f736e61702e636f6d2f696d6167652f4676307950417a6e62654e4a443376596c51667a744d4536796f677a4654" src="https://user-images.githubusercontent.com/82838476/129938665-3d3c1841-7ac6-4279-866f-165f69dd2de2.png">
 
-After this workshop, you will have an Todo native application that can run on Android, iOS, and Web. See the below images for the final product.
+After this workshop, you will have a mobile native Todo application that can run on Android, iOS, and Web. See the below images for the final product.
 
 **Mobile App on Android:**
 
-<img width="422" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+<img width="25%" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
 
 **Mobile App on iOS:**
 
-<img width="437" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+<img width="25%" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
 **Web Application in Chrome:**
 
@@ -36,9 +36,9 @@ This workshop utilizes Expo to build the Todo React Native App - you can read mo
  
 If you are developing a native application from scratch, you should be developing locally, using a physical Android or iPhone, Xcode for the iPhone simulator, Android Studio for the Android Emulator, and a Web Browser so you can view your project on all platforms as you are developing. All three platforms support hot refresh so you can see changes live as you make updates in your IDE. To develop locally, you need the Expo CLI, Watchman, Git, Node.js, an IDE of your choice ( VisualStudio) and ideally, Xcode and Android Studio. You can walk through the entire setup process [here](https://docs.expo.dev/get-started/installation/) and create a empty Expo project. 
 
-When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing expo start --android or a if already running, whereas the iOS simulator works best when it's quit before doing expo start --ios or i if already running. Similarly, you can just pay attention to the browser tab with your IP and the port like https:://192.198.62.35/8888 and ignore the others that are launched by Netlify and Expo.
+When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing `expo start --android` or a if already running, whereas the iOS simulator works best when it's quit before doing `expo start --ios` or i if already running. Similarly, you can just pay attention to the browser tab with your IP and the port like https:://192.198.62.35/8888 and ignore the others that are launched by Netlify and Expo.
 
-```
+```shell
 expo start
 expo start --ios
 expo start --android
@@ -50,9 +50,9 @@ In order to get all three platforms to connect to the Expo and Netlify servers s
 
 **Workshop Requirements**
  
-In this workshop, you will be running the app on the cloud-based IDE, GitPod, which means that you need the Expo Go application installed on your mobile device in order to view the mobile app. You will also need to have specific setup in your .env file, shown below. Additionally, you will need to start the app using **expo start --tunnel**, in which Expo CLI [starts a tunnel using ngrok](https://docs.expo.dev/guides/how-expo-works/), which allows devices outside of your LAN to access the above servers without you needing to change your firewall settings. You will run your app by entering the following in separate terminal windows.
+In this workshop, you will be running the app on the cloud-based IDE, GitPod, which means that you need the Expo Go application installed on your mobile device in order to view the mobile app. You will also need to have specific setup in your .env file, shown below. Additionally, you will need to start the app using **`expo start --tunnel`**, in which Expo CLI [starts a tunnel using ngrok](https://docs.expo.dev/guides/how-expo-works/), which allows devices outside of your LAN to access the above servers without you needing to change your firewall settings. You will run your app by entering the following in separate terminal windows.
 
-```
+```shell
 netlify dev
 
 expo start --tunnel
@@ -65,7 +65,7 @@ You will utilize:
 - React & React Native to develop the user interface
 - Expo to help us build web and mobile apps from the same JS codebase
 - Node.js as our runtime environment 
-- AstraDB as our free, serverless database
+- Astra DB as our free, serverless database
 - astrajs/collections, which is a library called to interact with a document-oriented database
 - Netlify to deploy the app across a global content delivery network (CDN)
 
@@ -85,7 +85,7 @@ Here are some examples of code differences between the two frameworks with examp
 
 **React vs. React Native:**
 
-```
+```html
 <div> vs <View>
 <input> vs <TextInput>
 <li> vs <FlatList>
@@ -95,7 +95,7 @@ Here are some examples of code differences between the two frameworks with examp
 
 **CSS in React:**
 
-```
+```html
 <div className="complete"> </div>
 
 complete: {
@@ -107,7 +107,7 @@ complete: {
 
 **StyleSheet in ReactNative:**
 
-```
+```html
 <View style={styles.complete}> </View>
 
 const styles = StyleSheet.create({
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
 
 - **Import Statements**: You will now have to specify the import of each component from react-native
 
-```
+```js
 import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native';
 ```
 
@@ -136,12 +136,12 @@ import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native'
 **src/utils/api.js**: Configure fetch path to accomodate environment variables.
 
 Before:
-```
+```js
 const response = await fetch(`/.netlify/functions/getRestTodos`);
 ```
 
 After: 
-```
+```js
 // GENERATE
 const generateEndpoint = () => {
   const ipAddress = process.env.HOST;
@@ -170,7 +170,7 @@ const response = await fetch(`${endpoint}/.netlify/functions/...RestTodo`...
 **netlify.toml**:
 
 Before:
-```
+```shell
 [build]
 command = "npm run build"
 functions = "functions"
@@ -179,7 +179,7 @@ publish = "build"
 ```
 
 After:
-```
+```shell
 [build]
 command = "expo build:web"
 functions = "functions"
@@ -189,7 +189,7 @@ targetPort = 8888
 
 **.env**: Add these lines to the original .env you had
 
-```
+```shell
 HOST="192.168.86.95" // Add your local IP here or GitPod url
 PORT="8888"
 IS_PROD="false"
@@ -199,7 +199,7 @@ GITPOD="false" // Change to true if on GitPod
 - **Move App.js file from within src directory to root directory**: Add universal font, and add try-catch blocks for api calls to resolve unhandled promise rejection warnings.
 
 Before:
-```
+```js
 const deleteRestTodo = async (id) => {
 	await api.deleteRestTodo(id);
 	getRestTodos();
@@ -207,7 +207,7 @@ const deleteRestTodo = async (id) => {
 ```
 
 After:
-```
+```js
 const deleteRestTodo = async (id) => {
 	try {
 		wait api.deleteRestTodo(id);
@@ -230,7 +230,8 @@ Look at GitPod.yml (gets cloud workspace set up before you start the application
 
 **Gitpod.yml:**
 
-```tasks:
+```shell
+tasks:
   - name: todonativemobileapp
     before: |
       cd /workspace/todonativemobileapp
@@ -273,7 +274,7 @@ Other additions to the native app include:
 
 - **Peer Dependency Errors:** In case you are getting faulty peer dependency errors, first look at your package.json to see if you can resolve these manually, otherwise try re-running the npm command with the legacy peer dependency flag. These appear to occur becuase NPM 7 is more picky about peer dependencies than NPM 6. The legacy peer dependencies flag reverts to NPM 6 standards for peer dependencies.
 
-```
+```shell
 npm install @expo-google-fonts/inter --legacy-peer-deps
 ```
 
