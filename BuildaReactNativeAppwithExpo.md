@@ -34,7 +34,7 @@ This workshop utilizes Expo to build the Todo React Native App - you can read mo
 
 **Developing Locally**
  
-If you are developing a native application from scratch, you should be developing locally, using a physical Android or iPhone, Xcode for the iPhone simulator, Android Studio for the Android Emulator, and a Web Browser so you can view your project on all platforms as you are developing. All three platforms support hot refresh so you can see changes live as you make updates in your IDE. To develop locally, you need the Expo CLI, Watchman, Git, Node.js, an IDE of your choice ( VisualStudio) and ideally, Xcode and Android Studio. You can walk through the entire setup process [here](https://docs.expo.dev/get-started/installation/) and create a empty Expo project. 
+If you are developing a native application from scratch, you should be developing locally, using a physical Android or iPhone, Xcode for the iPhone simulator, Android Studio for the Android emulator, and a Web Browser so you can view your project on all platforms as you are developing. Alternatively, for speed and simplicity, you can just use the Expo mobile app on your phone. Of course, if you have an iPhone, you may want to have Android Studio and vice versa so you can see your app on all platforms. All three platforms support hot refresh so you can see changes live as you make updates in your IDE. To develop locally, you need the Expo CLI, Watchman, Git, Node.js, an IDE of your choice ( VisualStudio) and ideally, Xcode and Android Studio. You can walk through the entire setup process [here](https://docs.expo.dev/get-started/installation/) and create a empty Expo project. 
 
 When you are ready to test your project, you will start your project in debugging mode with the command: **expo start**. This will bring up a QR code you can scan with your phone camera to bring up the app, and give you shortcut commands to run the Android, iOS, and web applications. The simulators can be a little tricky, so they work best when you have the Android emulator running already before doing `expo start --android` or a if already running, whereas the iOS simulator works best when it's quit before doing `expo start --ios` or i if already running. Similarly, you can just pay attention to the browser tab with your IP and the port like https:://192.198.62.35/8888 and ignore the others that are launched by Netlify and Expo.
 
@@ -218,6 +218,24 @@ const deleteRestTodo = async (id) => {
 };
 ```
 
+**State Changes for Delete and Complete**: Props are used to pass data, whereas state is for managing data. We're updating the state of the Checkbox and the state of the Todo item, and then conducting the API call to update it in Astra DB. This makes the interaction snappier and appear more native.
+
+```js
+const [isChecked, setIsChecked] = React.useState(todo.completed);
+
+  const [isVisible, setIsVisible] = React.useState(true);
+
+  const handleCheck = () => {
+    setIsChecked(!isChecked);
+    completeRestTodo(todo.id, todo.text, todo.completed);
+  }
+
+  const handleVisible = () => {
+    setIsVisible(!isVisible);
+    deleteRestTodo(todo.id);
+  }
+```
+
 **Additional Steps:**
 
 - Swap HTML tags for React Native UI components, and find the appropriate properties for those components to enable functionality
@@ -278,7 +296,7 @@ Other additions to the native app include:
 npm install @expo-google-fonts/inter --legacy-peer-deps
 ```
 
-- **Finding Additional Features**: Expo and React Native do not all all desired components included in the core set. As a result, it is frequently necessary to look for libraries that contain that functionality in the [React Native Directory](https://reactnative.directory/). For example, there isn't a Checkbox component that works on all platforms, so this directory is helpful to lookup all the options available and assess their community support, as well when they were last updated.
+- **Finding Additional Features**: Expo and React Native may not include all the components and extended functionality you may need. As a result, it is frequently necessary to look for libraries that contain that feature in the [React Native Directory](https://reactnative.directory/). For example, there isn't a in-built React Native Checkbox component that works on all platforms, so this directory is helpful to lookup all the options available and assess their community support, as well when they were last updated.
 
 - **Search for Solutions**: Google, StackOverflow, blogs, and forums are the best teachers; if you're stumped on an issue, it's very probable that another developer has faced the same issue. Search for a solution using keywords and code snippets, and you should be able to find many workarounds for the problem. If all else fails, find the forum for the library you're using and post a question there.
  
