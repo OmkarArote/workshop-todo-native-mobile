@@ -250,23 +250,7 @@ npm exec astra-setup todos_native_workshop_db todos
 Get workspace URL:
 
 ```bash
-gp url 8888
-```
-
-Take the output of the previous command and replace line 6 in your .env file:
-
-Example:
-
-```
-HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
-```
-
-✅  **Step 8d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
-
-```
-PORT="8888"
-IS_PROD="false"
-GITPOD="true"
+bash hostURL.sh
 ```
 
 Final output should look like the below:
