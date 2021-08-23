@@ -5,6 +5,6 @@ IS_PROD="false"
 GITPOD="true"
 
 echo -e "\nHOST=$URL" >> .env
-echo "PORT=$PORT" >> .env
-echo "IS_PROD=$IS_PROD" >> .env
-echo "GITPOD=$GITPOD" >> .env
+echo "PORT=\"$PORT\"" >> .env
+echo "IS_PROD=\"$IS_PROD\"" >> .env
+echo "GITPOD=\"$GITPOD\"" >> .env
