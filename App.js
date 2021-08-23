@@ -119,12 +119,10 @@ const styles = StyleSheet.create({
 	},
 	statusBar: {
 		backgroundColor: '#e8f4f8',
-		//backgroundColor: '#F5F5F5',
 	},
 	todos: {
 		flex: 1,
 		backgroundColor: '#e8f4f8',
-		//backgroundColor: '#F5F5F5',
 	},
 });
 

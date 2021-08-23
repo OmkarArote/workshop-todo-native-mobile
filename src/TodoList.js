@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
   filter: {
     paddingHorizontal: 10,
     paddingBottom: 10,
-    //fontFamily: 'Inter_300Light',
   },
 });
 
