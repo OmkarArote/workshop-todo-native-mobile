@@ -5,11 +5,11 @@ const generateEndpoint = () => {
   const port = process.env.PORT;
 
   // Netlify deploy
-  if (process.env.IS_PROD === "true") {
+  if (process.env.IS_PROD == "true") {
     return ``;
   }
   // Running on GitPod
-  else if (process.env.GITPOD === "true") {
+  else if (process.env.GITPOD == "true") {
     return ipAddress;
   }
   // Local configuration
@@ -33,7 +33,6 @@ const addRestTodo = async (todo) => {
 // READ
 const getRestTodos = async () => {
   const endpoint = generateEndpoint();
-  //console.log("endpoint: ", endpoint);
   const response = await fetch(`${endpoint}/.netlify/functions/getRestTodos`);
   let todos = await response.json();
 
@@ -43,7 +42,6 @@ const getRestTodos = async () => {
 // UPDATE
 const updateRestTodo = async (todo) => {
   const endpoint = generateEndpoint();
-  //console.log("endpoint: ", endpoint);
   const stringifiedBody = JSON.stringify(todo);
   const response = await fetch(`${endpoint}/.netlify/functions/updateRestTodo`, {
     body: stringifiedBody,
@@ -57,7 +55,6 @@ const updateRestTodo = async (todo) => {
 // DELETE
 const deleteRestTodo = async (id) => {
   const endpoint = generateEndpoint();
-  //console.log("endpoint: ", endpoint);
   const stringifiedBody = JSON.stringify({ id });
   const response = await fetch(`${endpoint}/.netlify/functions/deleteRestTodo`, {
     body: stringifiedBody,
