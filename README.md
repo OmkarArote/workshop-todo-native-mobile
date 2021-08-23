@@ -63,13 +63,14 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 ## Table of contents
 
 1. [Login or Register to AstraDB and create database](#1-login-or-register-to-astradb-and-create-database)
-2. [Create a security token](#2-create-a-security-token)
-3. [Launch GitPod IDE](#6-launch-gitpod-ide)
-4. [Check Node & NPM versions in GitPod](#7-check-node-&-NPM-versions-in-GitPod)
-5. [Register for an Expo Account](#8-register-for-an-expo-account)
-6. [Install Expo mobile application on your phone](#9-install-expo-mobile-application-on-your-phone)
-7. [Launch the To-Do app](#10-launch-the-to-do-app)
-8. [View Finished Products](#11-view-finished-product)
+2. [Deploy to Netlify](#2-deploy-to-netlify)
+3. [Create a security token](#3-create-a-security-token)
+4. [Launch GitPod IDE](#4-launch-gitpod-ide)
+5. [Check Node & NPM versions in GitPod](#5-check-node-&-NPM-versions-in-GitPod)
+6. [Register for an Expo Account](#6-register-for-an-expo-account)
+7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
+8. [Launch the To-Do app](#8-launch-the-to-do-app)
+9. [View Finished Products](#9-view-finished-product)
 
 **Part 1: Create the Database**
 
@@ -102,11 +103,53 @@ The status will change to `Active` when the database is ready, this will only ta
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 2. Create a security token
+## 2. Deploy to Netlify
+- <details><summary> What does the netlify deploy button do?</summary>The Netlify deploy button will:<ul>
+    <li>Create a new repository for you on Github</li>
+    <li>Create a site on Netlify</li>
+    <li>Link the two together.</li></ul>
+</details>
 
-✅  **Step 2a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
+- Click the button to deploy
 
-✅  **Step 2b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in your clipboard and save the CSV, this value would not be provided afterward.
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://https://github.com/datastaxdevs/workshop-todo-native-mobile)
+ * <details><summary>Show me!</summary>
+    <img src="tutorial/images/deploy-to-netlify.gif?raw=true" />
+    </details>
+
+This will take a few minutes.
+
+  * Click on `Site deploy in progress` within the Netlify UI, 
+    <details>
+    <summary>Show me! </summary>
+    <img src="tutorial/images/deploy-1.png" />
+    </details>
+
+  * Click the top deploy link to see the build process.
+    <details>
+    <summary>Show me! </summary>
+    <img src="tutorial/images/deploy-2.png" />
+    </details>
+
+  * Wait until the build complete `Netlify Build Complete`,  **When you see Pushing to repository** you're ready to move on.
+    <details>
+    <summary>Show me! </summary>
+    <img src="tutorial/images/deploy-3.png" />
+    </details>
+
+  * Scroll up to the top and click on the site name (it'll be after {yourlogin}'s Team next to the Netlify button).
+    <details>
+    <summary>Show me! </summary>
+    <img src="tutorial/images/deploy-4.png" />
+    </details>
+    
+[🏠 Back to Table of Contents](#table-of-contents)
+
+## 3. Create a security token
+
+✅  **Step 3a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
+
+✅  **Step 3b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in your clipboard and save the CSV, this value would not be provided afterward.
 
 **👁️ Expected output**
 - <details><summary>Show me!</summary>
@@ -117,16 +160,16 @@ The status will change to `Active` when the database is ready, this will only ta
 
 **Part 2: Launch the Native Application**
 
-## 3. Launch GitPod IDE
+## 4. Launch GitPod IDE
 
-✅  **Step 3a:**
+✅  **Step 4a:**
 - Click the button to launch the GitPod IDE.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
-✅  **Step 3b:**
+✅  **Step 4b:**
 - Create split terminals
 
 **Click on the double-panel icon:**
@@ -137,7 +180,7 @@ The status will change to `Active` when the database is ready, this will only ta
 
 <img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
 
-## 4. Check Node & NPM versions in GitPod
+## 5. Check Node & NPM versions in GitPod
 You will need node 15 and npm 7 or later.
 
 ```bash
@@ -158,7 +201,7 @@ npm install
 nvm install node
 ```
 
-## 5. Register for an Expo Account in GitPod
+## 6. Register for an Expo Account in GitPod
 
 If you don't have an account:
 
@@ -178,17 +221,17 @@ Double check that you are logged in.
 expo whoami 
 ```
 
-## 6. Install Expo mobile application on your phone
+## 7. Install Expo mobile application on your phone
 
 Download the Expo App from the Android Play Store or iOS App Store.
 
-## 7. Launch the To-Do app
+## 8. Launch the To-Do app
 
-✅  **Step 7a:** Retrieve application token to securely connect to the database
+✅  **Step 8a:** Retrieve application token to securely connect to the database
 
 Use the token you previously generated. If you no longer have the token and did not download a .csv, you can generate a new token using [the instructions above](#2-create-a-security-token)
 
-✅  **Step 7b:** Configure Environment Variables and Install Dependencies
+✅  **Step 8b:** Configure Environment Variables and Install Dependencies
 
 1. Set up your Astra Environment
 
@@ -202,7 +245,7 @@ npm exec astra-setup todos_native_workshop_db todos
 
 <img width="325" alt="129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4" src="https://user-images.githubusercontent.com/82838476/129835623-cd05c0c2-8a07-48ad-a450-945e1f885b42.png">
 
-✅  **Step 7c:** Add Host URL to .env
+✅  **Step 8c:** Add Host URL to .env
 
 Get workspace URL:
 
@@ -218,7 +261,7 @@ Example:
 HOST="https://8888-pink-jasmine-vdeak5gt.ws-us13.gitpod.io"
 ```
 
-✅  **Step 7d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
+✅  **Step 8d:** Add PORT, IS_PROD, and GITPOD environment variables to .env
 
 ```
 PORT="8888"
@@ -230,7 +273,7 @@ Final output should look like the below:
 
 <img width="452" alt="Screen Shot 2021-08-17 at 9 13 21 PM" src="https://user-images.githubusercontent.com/82838476/129835879-135a30f4-b3bc-4ca5-889b-4483176d77f3.png">
 
-✅  **Step 7e:** Start Netlify and Expo
+✅  **Step 8e:** Start Netlify and Expo
   * Run the application (Ignore the QR code generated here)
  
   ```
@@ -251,7 +294,7 @@ Final output should look like the below:
   
   <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
  
-✅  **Step 7f:** Launch your app in the web browser
+✅  **Step 8f:** Launch your app in the web browser
   
 Open your web application at the URL specified in the HOST line above in a new tab in your browser.
 
@@ -259,7 +302,7 @@ Open your web application at the URL specified in the HOST line above in a new t
 
 <img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
-✅  **Step 7g:** Launch your app on your mobile device
+✅  **Step 8g:** Launch your app on your mobile device
 
 **Scan the QR code** with your phone camera to open your application in the Expo App!
 
@@ -267,7 +310,7 @@ The QR code in the terminal will look like this:
 
 <img width="542" alt="QRImage" src="https://user-images.githubusercontent.com/82838476/127718324-1f7b5f78-8048-4d55-8fe8-5d1141eea26e.png">
 
-## 8. View Mobile App
+## 9. View Mobile App
 
 See examples of what your finished product should look like:
 
