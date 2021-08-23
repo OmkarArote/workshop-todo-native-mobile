@@ -261,7 +261,7 @@ Final output should look like the below:
   * Run the application (Ignore the QR code generated here)
  
   ```
-  netlify dev
+  netlify dev ; gp preview $(gp url 8888)
   ```
   
   In a new terminal window: (or have a split terminal)
