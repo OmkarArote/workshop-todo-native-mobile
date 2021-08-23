@@ -345,7 +345,7 @@ Execute each of the commands below to link your code to your Netlify deployment.
   netlify link
   ```
   
-  * Update environment variables in your .env file:
+  * Update the environment variables in your .env file - this will make the api have the correct endpoint (See generateEndpoint function in api.js).
   ```
   IS_PROD="true"
   GITPOD="false"
