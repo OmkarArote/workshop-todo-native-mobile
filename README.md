@@ -66,11 +66,11 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 2. [Deploy to Netlify](#2-deploy-to-netlify)
 3. [Create a security token](#3-create-a-security-token)
 4. [Launch GitPod IDE](#4-launch-gitpod-ide)
-5. [Check Node & NPM versions in GitPod](#5-check-node-&-NPM-versions-in-GitPod)
-6. [Register for an Expo Account](#6-register-for-an-expo-account)
+5. [Check Node & NPM versions in GitPod](#5-check-node-&-npm-versions-in-gitpod)
+6. [Register for an Expo Account in GitPod](#6-register-for-an-expo-account-in-gitpod)
 7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
-8. [Launch the To-Do app](#8-launch-the-to-do-app)
-9. [View Finished Products](#9-view-finished-product)
+8. [Launch the Todo app](#8-launch-the-todo-app)
+9. [View Mobile App](#9-view-mobile-app)
 
 **Part 1: Create the Database**
 
@@ -225,7 +225,7 @@ expo whoami
 
 Download the Expo App from the Android Play Store or iOS App Store.
 
-## 8. Launch the To-Do app
+## 8. Launch the Todo app
 
 ✅  **Step 8a:** Retrieve application token to securely connect to the database
 
