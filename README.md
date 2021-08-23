@@ -66,11 +66,13 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 2. [Deploy to Netlify](#2-deploy-to-netlify)
 3. [Create a security token](#3-create-a-security-token)
 4. [Launch GitPod IDE](#4-launch-gitpod-ide)
-5. [Check Node & NPM versions in GitPod](5-check-node--npm-versions-in-gitpod)
+5. [Check Node and NPM versions in GitPod](5-check-node-and-npm-versions-in-gitpod)
 6. [Register for an Expo Account in GitPod](#6-register-for-an-expo-account-in-gitpod)
 7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
 8. [Launch the Todo app](#8-launch-the-todo-app)
 9. [View Mobile App](#9-view-mobile-app)
+10. [Link to and Configure Netlify](#10-link-to-and-configure-netlify)
+11. [Deploy to production](#11-deploy-to-production)
 
 **Part 1: Create the Database**
 
@@ -180,7 +182,7 @@ This will take a few minutes.
 
 <img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
 
-## 5. Check Node & NPM versions in GitPod
+## 5. Check Node and NPM versions in GitPod
 You will need node 15 and npm 7 or later.
 
 ```bash
@@ -307,6 +309,53 @@ See examples of what your finished product should look like:
 <img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
 [🏠 Back to Table of Contents](#table-of-contents)
+
+## 10. Link to and Configure Netlify
+Execute each of the commands below to link your code to your Netlify deployment.
+  * First thing, we'll need to **STOP** the `netlify dev` command we issued a moment ago. In the terminal where you executed the netlify command issue a `CTRL-C` (control key + the C key) in order to stop the process.
+  * Then continue with the following commands
+  * This will pop up a browser to authenticate with netlify
+  ```
+  netlify login
+  ```
+  _Note, when using GitPod the preview pane will not display this properly. You must click the "open in a new window" button in the very top right of the preview pane._
+
+  * This will link your workspace to the associated site
+  ```
+  netlify link
+  ```
+
+  * This will take the .env file created by astra-setup and upload it to netlify
+  ```
+  netlify env:import .env
+  ```
+
+<!--
+  * Will be used to allow you to execute `netlify open`
+  ```
+  netlify sites:list
+  ```
+-->
+
+### 11. Deploy to production
+Now that you've hooked everything up, time to deploy to production.
+
+  * Run
+  ```
+  netlify build
+  ```
+
+  * Then run
+  ```
+  netlify deploy --prod
+  ```
+
+  * Then finally run
+  ```
+  netlify open:site
+  ```
+  
+  You've deployed your app to Netlify!
 
 # Need a refresher on React Basics?
 <details><summary>Take me to the React stuff</summary>
