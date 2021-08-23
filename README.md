@@ -344,6 +344,12 @@ Execute each of the commands below to link your code to your Netlify deployment.
   ```
   netlify link
   ```
+  
+  * Update environment variables in your .env file:
+  ```
+  IS_PROD="true"
+  GITPOD="false"
+  ```
 
   * This will take the .env file created by astra-setup and upload it to netlify
   ```
