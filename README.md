@@ -63,9 +63,9 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 ## Table of contents
 
 1. [Login or Register to AstraDB and create database](#1-login-or-register-to-astradb-and-create-database)
-2. [Deploy to Netlify](#2-deploy-to-netlify)
-3. [Create a security token](#3-create-a-security-token)
-4. [Launch GitPod IDE](#4-launch-gitpod-ide)
+2. [Create a security token](#2-create-a-security-token)
+3. [Deploy to Netlify](#3-deploy-to-netlify)
+4. [Access your GitHub repository and Launch GitPod IDE](#4-access-your-github-repository-and-launch-gitpod-ide)
 5. [Check Node and NPM versions in GitPod](#5-check-node-and-npm-versions-in-gitpod)
 6. [Register for an Expo Account in GitPod](#6-register-for-an-expo-account-in-gitpod)
 7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
@@ -105,7 +105,20 @@ The status will change to `Active` when the database is ready, this will only ta
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 2. Deploy to Netlify
+## 2. Create a security token
+
+✅  **Step 2a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
+
+✅  **Step 2b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in your clipboard and save the CSV, this value would not be provided afterward.
+
+**👁️ Expected output**
+- <details><summary>Show me!</summary>
+    <img src="https://github.com/datastaxdevs/workshop-graphql-netflix/blob/main/tutorial/images/astra-create-token.gif?raw=true" />
+</details>
+
+[🏠 Back to Table of Contents](#table-of-contents)
+
+## 3. Deploy to Netlify
 - <details><summary> What does the netlify deploy button do?</summary>The Netlify deploy button will:<ul>
     <li>Create a new repository for you on Github</li>
     <li>Create a site on Netlify</li>
@@ -116,7 +129,7 @@ The status will change to `Active` when the database is ready, this will only ta
 
   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/datastaxdevs/workshop-todo-native-mobile)
  * <details><summary>Show me!</summary>
-    <img src="tutorial/images/deploy-to-netlify.gif?raw=true" />
+    <img src="https://github.com/datastaxdevs/appdev-week2-tiktok/blob/master/tutorial/images/deploy-to-netlify.gif?raw=true" />
     </details>
 
 This will take a few minutes.
@@ -124,54 +137,61 @@ This will take a few minutes.
   * Click on `Site deploy in progress` within the Netlify UI, 
     <details>
     <summary>Show me! </summary>
-    <img src="tutorial/images/deploy-1.png" />
+    <img src="https://github.com/datastaxdevs/appdev-week2-tiktok/blob/master/tutorial/images/deploy-1.png" />
     </details>
 
   * Click the top deploy link to see the build process.
     <details>
     <summary>Show me! </summary>
-    <img src="tutorial/images/deploy-2.png" />
+    <img src="https://github.com/datastaxdevs/appdev-week2-tiktok/blob/master/tutorial/images/deploy-2.png" />
     </details>
 
   * Wait until the build complete `Netlify Build Complete`,  **When you see Pushing to repository** you're ready to move on.
     <details>
     <summary>Show me! </summary>
-    <img src="tutorial/images/deploy-3.png" />
+    <img src="https://github.com/datastaxdevs/appdev-week2-tiktok/blob/master/tutorial/images/deploy-3.png" />
     </details>
 
   * Scroll up to the top and click on the site name (it'll be after {yourlogin}'s Team next to the Netlify button).
     <details>
     <summary>Show me! </summary>
-    <img src="tutorial/images/deploy-4.png" />
+    <img src="https://github.com/datastaxdevs/appdev-week2-tiktok/blob/master/tutorial/images/deploy-4.png" />
     </details>
     
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 3. Create a security token
-
-✅  **Step 3a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
-
-✅  **Step 3b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in your clipboard and save the CSV, this value would not be provided afterward.
-
-**👁️ Expected output**
-- <details><summary>Show me!</summary>
-    <img src="https://github.com/datastaxdevs/workshop-graphql-netflix/blob/main/tutorial/images/astra-create-token.gif?raw=true" />
-</details>
-
-[🏠 Back to Table of Contents](#table-of-contents)
-
 **Part 2: Launch the Native Application**
 
-## 4. Launch GitPod IDE
+## 4. Access your GitHub repository and Launch GitPod IDE
 
 ✅  **Step 4a:**
-- Click the button to launch the GitPod IDE.
+  * Click on the `GitHub` in `Deploys from GitHub` to get back to your new repository.  Scroll to where you were in the README.
+    <img src="https://github.com/datastaxdevs/appdev-week3-graphql/blob/main/tutorial/images/deploy-5.png?raw=true" />
+
+✅  **Step 4b:**
+- Click the button to launch the GitPod IDE from **YOUR** repository.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
+#### WAIT! Before moving on ensure you are working out of YOUR repository, not the datastaxdevs repository.
+* From your GitPod terminal execute the following command
+```
+git remote -v
+```
+
+If you are still using the `datastaxdevs` repo please ensure to follow the previous step, [step3](#3-deploy-to-netlify) to get to your repo.
+
+ℹ️ _It may take minutes (approx. 3-5) for GitPod to fully initialize._
+
+> (_Note_: if the Gitpod button does not work, for example you are using Safari, don't despair!
+> You can manually build the URL you need and open it in a new tab like this: `https://gitpod.io/#<YOUR REPO FULL URL>`,
+> pasting in it the full address of **your** GitHub repository. For example,
+> `https://gitpod.io/#https://github.com/JohnSmith/my-netflix.clone`, assuming your are "JohnSmith"
+> on Github and your repo is "my-netflix-clone").
+
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
-✅  **Step 4b:**
+✅  **Step 4c:**
 - Create split terminals
 
 **Click on the double-panel icon:**
