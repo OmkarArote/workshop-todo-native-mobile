@@ -11,7 +11,6 @@ import {
 	Inter_800ExtraBold,
 	Inter_900Black,
 } from '@expo-google-fonts/inter';
-import { setCustomText } from 'react-native-global-props';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import React, { useEffect } from 'react';
 import Header from './src/Header.js';
@@ -33,14 +32,6 @@ function App() {
 		Inter_800ExtraBold,
 		Inter_900Black,
 	});
-
-	const customTextProps = {
-		style: {
-			fontFamily: 'Inter_300Light'
-		}
-	};
-
-	setCustomText(customTextProps);
 
 	const [restTodos, setRestTodos] = React.useState([]);
 
