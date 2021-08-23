@@ -66,7 +66,7 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 2. [Deploy to Netlify](#2-deploy-to-netlify)
 3. [Create a security token](#3-create-a-security-token)
 4. [Launch GitPod IDE](#4-launch-gitpod-ide)
-5. [Check Node & NPM versions in GitPod](#5-check-node-&-npm-versions-in-gitpod)
+5. [Check Node & NPM versions in GitPod](5-check-node--npm-versions-in-gitpod)
 6. [Register for an Expo Account in GitPod](#6-register-for-an-expo-account-in-gitpod)
 7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
 8. [Launch the Todo app](#8-launch-the-todo-app)
