@@ -1,6 +1,6 @@
 <!--- STARTEXCLUDE --->
 # React Native Todo List + Astra DB + Netlify 📒
-*40 minutes, Beginner*
+*40 minutes, Beginner/Intermediate*
 
 In this workshop, you will learn how to convert the Todo web application from a previous [DataStaxDevs workshop](https://github.com/datastaxdevs/appdev-week1-todolist) into a React Native mobile and web application. We will actually be using the same database setup as before, so if you've already created it during the prior workshop, you can skip the Database setup section of this workshop.
 
