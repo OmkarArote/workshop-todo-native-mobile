@@ -202,7 +202,7 @@ If you are still using the `datastaxdevs` repo please ensure to follow the previ
 
 **End Result:**
 
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/130680540-601d7a0c-b30f-4d4a-8ec7-32d930157cec.png">
 
 ✅  **Step 5b:**
 You will need node 15 and npm 7 or later in both terminals.
@@ -247,7 +247,7 @@ expo whoami
 
 You should see:
 
-<img width="498" alt="Screen Shot 2021-08-24 at 12 13 06" src="https://user-images.githubusercontent.com/82838476/130650964-56d83149-36e7-45d4-a711-45641e55f2e0.png">
+<img width="45%" alt="Screen Shot 2021-08-24 at 12 13 06" src="https://user-images.githubusercontent.com/82838476/130679489-1d241537-e5d4-4084-b922-ae716ed398b6.png">
 
 ## 7. Install Expo Mobile Application on Your Phone
 
@@ -315,7 +315,9 @@ You can see the output of the .env file by running ```cat .env```.
   
   Enter 'y' for yes when asked to use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you run netlify dev.)
   
-  <img width="495" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
+  <img width="45%" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
+  
+  
  
 ✅  **Step 8e:** Launch your app in the web browser
   
@@ -331,7 +333,7 @@ Open your web application at the URL specified in the HOST line of your .env fil
 
 Scanning in the Expo Go App:
 
-<img width="15%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
+<img width="45%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
 
 ## 9. View Mobile App
 
@@ -339,7 +341,8 @@ Scanning in the Expo Go App:
 
 You may see this screen for a while -- Expo Go is loading the application.
 
-<img width="15%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130679108-b6e0ef6f-e9b2-4571-a89b-35f5b98162d4.jpg">
+<img width="<img width="427" alt="Screen Shot 2021-08-24 at 12 41 00 PM" src="https://user-images.githubusercontent.com/82838476/130679435-ea46b61a-b7b1-48da-a578-ab84f0a665fe.png">
+5%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130679108-b6e0ef6f-e9b2-4571-a89b-35f5b98162d4.jpg">
 
 Add some items to your Todo list (type in the 'What needs to be done?' input and hit enter)! These get stored in Astra DB.
 
