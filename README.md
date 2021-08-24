@@ -109,7 +109,7 @@ The status will change to `Active` when the database is ready, this will only ta
 
 ✅  **Step 2a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
 
-✅  **Step 2b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c....`) in your clipboard and save the CSV, this value would not be provided afterward.
+✅  **Step 2b:**  Copy the token value (eg `AstraCS:KDfdKeNREyWQvDpDrBqwBsUB:ec80667c...`) in your clipboard and save the CSV, this value would not be provided afterward.
 
 **👁️ Expected output**
 - <details><summary>Show me!</summary>
@@ -181,28 +181,19 @@ git remote -v
 
 If you are still using the `datastaxdevs` repo please ensure to follow the previous step, [step3](#3-deploy-to-netlify) to get to your repo.
 
-ℹ️ _It may take minutes (approx. 3-5) for GitPod to fully initialize._
+ℹ️ _It may take 3-5 minutes for GitPod to fully initialize._
 
 > (_Note_: if the Gitpod button does not work, for example you are using Safari, don't despair!
 > You can manually build the URL you need and open it in a new tab like this: `https://gitpod.io/#<YOUR REPO FULL URL>`,
 > pasting in it the full address of **your** GitHub repository. For example,
-> `https://gitpod.io/#https://github.com/JohnSmith/my-netflix.clone`, assuming your are "JohnSmith"
-> on Github and your repo is "my-netflix-clone").
+> `https://gitpod.io/#https://github.com/JohnSmith/workshop-todo-native-mobile`, assuming your are "JohnSmith"
+> on Github and your repo is "workshop-todo-native-mobile").
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
 
-✅  **Step 4c:**
-- Create split terminals
-
-**Click on the double-panel icon:**
-
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
-
-**End Result:**
-
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
-
 ## 5. Check Node and NPM versions in GitPod
+
+✅  **Step 5a:**
 You will need node 15 and npm 7 or later.
 
 ```bash
@@ -216,12 +207,23 @@ node -v
 If either are not updated, run the following commands respectively.
 
 ```bash
-npm install
+nvm install node
 ```
 
 ```bash
-nvm install node
+npm install
 ```
+
+✅  **Step 5b:**
+- Create split terminals
+
+**Click on the double-panel icon:**
+
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
+
+**End Result:**
+
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
 
 ## 6. Register for an Expo Account in GitPod
 
@@ -230,6 +232,8 @@ If you don't have an account:
 ```bash
 expo register
 ```
+
+Open https://expo.dev/signup in a new tab.
 
 If you already have an account:
 
@@ -243,9 +247,18 @@ Double check that you are logged in.
 expo whoami 
 ```
 
+You should see:
+<img width="498" alt="Screen Shot 2021-08-24 at 12 13 06" src="https://user-images.githubusercontent.com/82838476/130650964-56d83149-36e7-45d4-a711-45641e55f2e0.png">
+
 ## 7. Install Expo Mobile Application on Your Phone
 
 Download the Expo App from the Android Play Store or iOS App Store.
+
+**Android:**
+<img width="45%" alt="PlayStore" src="https://user-images.githubusercontent.com/82838476/130651174-ed432081-811f-48f9-a161-1175c64a8680.jpg">
+
+**iOS:**
+<img width="45%" alt="AppStore" src="https://user-images.githubusercontent.com/82838476/130651399-649bdc12-5fd4-4760-81a7-5871846091e4.png">
 
 ## 8. Launch the Todo app
 
@@ -263,9 +276,9 @@ In the repository directory run the following command  to set up your Astra envi
 npm exec astra-setup todos_native_workshop_db todos
 ```
 
-- You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier, and hit enter.
+- You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier, and hit enter. It will start with AstraCSAstraCS:cvdPRONUrUUT:...
 
-<img width="325" alt="129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4" src="https://user-images.githubusercontent.com/82838476/129835623-cd05c0c2-8a07-48ad-a450-945e1f885b42.png">
+<img width="738" alt="Screen Shot 2021-08-24 at 12 17 57" src="https://user-images.githubusercontent.com/82838476/130652258-5a8a5da0-b2a4-4acf-9d1c-3b3a98a97d6a.png">
 
 ✅  **Step 8c:** Add Host URL to .env
 
@@ -279,11 +292,18 @@ Final output should look like the below:
 
 <img width="452" alt="Screen Shot 2021-08-17 at 9 13 21 PM" src="https://user-images.githubusercontent.com/82838476/129835879-135a30f4-b3bc-4ca5-889b-4483176d77f3.png">
 
-✅  **Step 8e:** Start Netlify and Expo
+You can see the output of the .env file by running ```cat .env```.
+
+✅  **Step 8d:** Start Netlify and Expo
   * Run the application (Ignore the QR code generated here)
  
   ```
   netlify dev ; gp preview $(gp url 8888)
+  ```
+  
+  If this doesn't open in the right port (for example, 19003) - swap the port number to 8888. You will get the right url by running:
+  ```
+  gp url 8888
   ```
   
   In a new terminal window: (or have a split terminal)
@@ -300,7 +320,7 @@ Final output should look like the below:
   
   <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
  
-✅  **Step 8f:** Launch your app in the web browser
+✅  **Step 8e:** Launch your app in the web browser
   
 Open your web application at the URL specified in the HOST line above in a new tab in your browser.
 
@@ -308,15 +328,18 @@ Open your web application at the URL specified in the HOST line above in a new t
 
 <img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
-✅  **Step 8g:** Launch your app on your mobile device
+✅  **Step 8f:** Launch your app on your mobile device
 
-**Scan the QR code** with your phone camera to open your application in the Expo App!
+**Scan the QR code** with your phone camera to open your application in the Expo App! You may need to resize the terminal to make the QR code render properly. You can also scan the QR code from within the Expo Go app.
 
-The QR code in the terminal will look like this:
-
-<img width="542" alt="QRImage" src="https://user-images.githubusercontent.com/82838476/127718324-1f7b5f78-8048-4d55-8fe8-5d1141eea26e.png">
+Scanning in the Expo Go App:
+<img width="45%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
 
 ## 9. View Mobile App
+
+✅  **Step 9a:** Launch your app on your mobile device
+
+Add some items to your Todo list (type in the 'What needs to be done?' input and hit enter)! These get stored in Astra DB.
 
 See examples of what your finished product should look like:
 
@@ -327,6 +350,17 @@ See examples of what your finished product should look like:
 **Mobile App on iOS:**
 
 <img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+
+✅  **Step 9b:** See your Todos in Astra DB.
+
+- Navigate to the Dashboard in Astra DB and click on the todos_native_workshop_db. 
+<img width="45%" alt="Screen Shot 2021-08-24 at 9 49 13 AM" src="https://user-images.githubusercontent.com/82838476/130657937-b25aed15-c14a-4e88-b065-b930c475c998.png">
+
+- Then click on the CQL tab.
+<img width="45%" alt="Screen Shot 2021-08-24 at 9 49 28 AM" src="https://user-images.githubusercontent.com/82838476/130657954-32d9840b-2fff-4783-b171-7ca013cd8062.png">
+
+Finally, run the following commands: 
+<img width="45%" alt="Screen Shot 2021-08-24 at 12 33 32" src="https://user-images.githubusercontent.com/82838476/130656955-253b9857-7200-4414-a309-b6acff53cbc8.png">
 
 ## 10. Link to and Configure Netlify
 Execute each of the commands below to link your code to your Netlify deployment.
@@ -343,7 +377,15 @@ Execute each of the commands below to link your code to your Netlify deployment.
   netlify link
   ```
   
-  * Update the environment variables in your .env file - this will make the api have the correct endpoint (See generateEndpoint function in api.js).
+  * Update the environment variables in your .env file - (See generateEndpoint function in api.js to see why we do this).
+
+Before:
+  ```
+  IS_PROD="false"
+  GITPOD="true"
+  ```
+
+After:
   ```
   IS_PROD="true"
   GITPOD="false"
