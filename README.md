@@ -233,6 +233,8 @@ Open https://expo.dev/signup **in a new tab**.
 
 _Note, when using GitPod the preview pane will not display this properly. You must click the "open in a new window" button in the very top right of the preview pane._
 
+Login to your account in the terminal:
+
 ```bash
 expo login
 ```
@@ -244,6 +246,7 @@ expo whoami
 ```
 
 You should see:
+
 <img width="498" alt="Screen Shot 2021-08-24 at 12 13 06" src="https://user-images.githubusercontent.com/82838476/130650964-56d83149-36e7-45d4-a711-45641e55f2e0.png">
 
 ## 7. Install Expo Mobile Application on Your Phone
@@ -327,7 +330,8 @@ Open your web application at the URL specified in the HOST line of your .env fil
 **Scan the QR code** with your phone camera to open your application in the Expo App! You may need to resize the terminal to make the QR code render properly. You can also scan the QR code from within the Expo Go app. Once the QR code is scanned, it may take a few minutes for the app to be loaded and run on your phone.
 
 Scanning in the Expo Go App:
-<img width="45%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
+
+<img width="15%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
 
 ## 9. View Mobile App
 
@@ -335,8 +339,7 @@ Scanning in the Expo Go App:
 
 You may see this screen for a while -- Expo Go is loading the application.
 
-![Screenshot_2021-08-24-12-32-16-912_host exp exponent](https://user-images.githubusercontent.com/82838476/130664699-7b110a9c-429b-4f21-a82f-b0810915bbf9.jpg)
-
+<img width="15%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130679108-b6e0ef6f-e9b2-4571-a89b-35f5b98162d4.jpg">
 
 Add some items to your Todo list (type in the 'What needs to be done?' input and hit enter)! These get stored in Astra DB.
 
