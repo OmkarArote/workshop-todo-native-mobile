@@ -71,19 +71,21 @@ You will utilize:
 
 ## Networking with Expo, Netlify, and GitPod
 
-One of the biggest challenges when developing locally is configuring the emulators to all run at the same time. We found that if iOS and Web were running, the Android simulator would not connect, and vice versa, which made simultaneous development challenging. To put it simply, it all came down to configuring networking. The iOS (using loopback) and [Android] emulators(https://developer.android.com/studio/run/emulator-networking) had different IP addresses, and both Expo and Netlify were serving different ports. Expo looks for the lowest unused port starting at 19000. 
+One of the biggest challenges when developing locally is configuring the emulators to all run at the same time. We found that if iOS and Web were running, the Android simulator would not connect, and vice versa, which made simultaneous development challenging. To put it simply, it all came down to configuring networking. The iOS (using localhost) and [Android](https://developer.android.com/studio/run/emulator-networking) (using its own loopback interface) emulators had different IP addresses, and both Expo and Netlify were serving different ports. Expo looks for the lowest unused port starting at 19000, while Netlify defaults to port 8888. To handle this - in the netlify.toml, we specified the port to which Netlify will listen (port 8888), and added a PORT environment variable in our .env file.
 
-How Expo Works:
+**How Expo Works:**
+
 <img width="45%" alt="Screen Shot 2021-08-20 at 4 37 52 PM" src="https://user-images.githubusercontent.com/82838476/130302720-639e10e7-e85e-466f-ad2d-eb47a7a13d31.png">
 
-In the netlify.toml, we can specify the port to which Netlify will listen (port 8888).
+When you start an app with Expo CLI, using ```expo start```, you're running the Expo Development Server and Metro bundler. When you start an app with Expo CLI, you're running the Expo Development Server and Metro bundler. The Dev Server is the endpoint that you hit first when you type the URL into the Expo app. Its purpose is to serve the Expo Manifest and provide a communication layer between Expo CLI and the Expo app on your phone or simulator. The Metro Bundler is the first is to serve your app JavaScript compiled into a single file and translate any JavaScript code that you wrote which isn't compatible with your phone's JavaScript engine, as well as serve the assets.
 
-How Netlify Works:
+**How Netlify Works:**
+
 <img width="45%" alt="Screen Shot 2021-08-20 at 4 37 52 PM" src="https://user-images.githubusercontent.com/82838476/130302820-b7f95276-6873-4093-8e25-6db0b4622bce.png">
 
-What is [Netlify Dev](https://cli.netlify.com/netlify-dev/)? In short, ```shell netlify dev``` "runs Netlify's production routing engine in a local dev server to make all redirects, proxy rules, function routes or add-on routes available locally and injects the correct environment variables from your site environment, installed add-ons or your netlify.toml file into your build and function environment."
+The command we use to run Netlify, [netlify dev](https://cli.netlify.com/netlify-dev/) runs Netlify's production routing engine in a local dev server to make all redirects, proxy rules, function routes or add-on routes available locally and injects the correct environment variables from your site environment, installed add-ons or your netlify.toml file into your build and function environment."
 
-The end solution was hard-coding in your local private IP so all three could work at the same time, and specifying the port as well so all three were tuning into the same IP.
+To get all platform simulators firing simultaneously, the solution was to set the path to your local private IP (or GitPod url for cloud development) and specify the port as well, so all three platforms could work at the same time.
 
 ## Differences between React and React Native
 
