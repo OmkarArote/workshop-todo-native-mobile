@@ -194,7 +194,18 @@ If you are still using the `datastaxdevs` repo please ensure to follow the previ
 ## 5. Check Node and NPM versions in GitPod
 
 ✅  **Step 5a:**
-You will need node 15 and npm 7 or later.
+- Create split terminals
+
+**Click on the double-panel icon:**
+
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
+
+**End Result:**
+
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
+
+✅  **Step 5b:**
+You will need node 15 and npm 7 or later in both terminals.
 
 ```bash
 npm -v
@@ -210,21 +221,6 @@ If either are not updated, run the following commands respectively.
 nvm install node
 ```
 
-```bash
-npm install
-```
-
-✅  **Step 5b:**
-- Create split terminals
-
-**Click on the double-panel icon:**
-
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
-
-**End Result:**
-
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/129800644-f09bd58e-c8e8-4a33-b58e-d3d9d017ecaf.png">
-
 ## 6. Register for an Expo Account in GitPod
 
 If you don't have an account:
@@ -233,9 +229,9 @@ If you don't have an account:
 expo register
 ```
 
-Open https://expo.dev/signup in a new tab.
+Open https://expo.dev/signup **in a new tab**.
 
-If you already have an account:
+_Note, when using GitPod the preview pane will not display this properly. You must click the "open in a new window" button in the very top right of the preview pane._
 
 ```bash
 expo login
@@ -255,9 +251,11 @@ You should see:
 Download the Expo App from the Android Play Store or iOS App Store.
 
 **Android:**
+
 <img width="45%" alt="PlayStore" src="https://user-images.githubusercontent.com/82838476/130651174-ed432081-811f-48f9-a161-1175c64a8680.jpg">
 
 **iOS:**
+
 <img width="45%" alt="AppStore" src="https://user-images.githubusercontent.com/82838476/130651399-649bdc12-5fd4-4760-81a7-5871846091e4.png">
 
 ## 8. Launch the Todo app
@@ -312,17 +310,13 @@ You can see the output of the .env file by running ```cat .env```.
   expo start --tunnel
   ```
   
-  Enter 'y' for yes when asked too use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you run netlify dev.)
+  Enter 'y' for yes when asked to use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you run netlify dev.)
   
   <img width="495" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
-  
-  **Note:** if you get a message saying that Tunnel is reverting to LAN because of ngrok - Press **y** to continue.
-  
-  <img width="605" alt="Tunnel ngrok update" src="https://user-images.githubusercontent.com/82838476/129105648-8c0e9c26-5ca4-42a5-a305-673c0d2b1789.png">
  
 ✅  **Step 8e:** Launch your app in the web browser
   
-Open your web application at the URL specified in the HOST line above in a new tab in your browser.
+Open your web application at the URL specified in the HOST line of your .env file in a new tab in your browser.
 
 **Web Application in Chrome:**
 
@@ -330,7 +324,7 @@ Open your web application at the URL specified in the HOST line above in a new t
 
 ✅  **Step 8f:** Launch your app on your mobile device
 
-**Scan the QR code** with your phone camera to open your application in the Expo App! You may need to resize the terminal to make the QR code render properly. You can also scan the QR code from within the Expo Go app.
+**Scan the QR code** with your phone camera to open your application in the Expo App! You may need to resize the terminal to make the QR code render properly. You can also scan the QR code from within the Expo Go app. Once the QR code is scanned, it may take a few minutes for the app to be loaded and run on your phone.
 
 Scanning in the Expo Go App:
 <img width="45%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130652900-fbdf3874-b014-445d-ba9b-c3a2996defef.jpg">
@@ -338,6 +332,11 @@ Scanning in the Expo Go App:
 ## 9. View Mobile App
 
 ✅  **Step 9a:** Launch your app on your mobile device
+
+You may see this screen for a while -- Expo Go is loading the application.
+
+![Screenshot_2021-08-24-12-32-16-912_host exp exponent](https://user-images.githubusercontent.com/82838476/130664699-7b110a9c-429b-4f21-a82f-b0810915bbf9.jpg)
+
 
 Add some items to your Todo list (type in the 'What needs to be done?' input and hit enter)! These get stored in Astra DB.
 
@@ -364,7 +363,7 @@ Finally, run the following commands:
 
 ## 10. Link to and Configure Netlify
 Execute each of the commands below to link your code to your Netlify deployment.
-  * First thing, we'll need to **STOP** the `netlify dev` command we issued a moment ago. In the terminal where you executed the netlify command issue a `CTRL-C` (control key + the C key) in order to stop the process.
+  * First thing, we'll need to **STOP** both programs running: the `netlify dev` command we issued a moment ago, as well as the expo start --tunnel command. In the terminal where you executed the netlify command issue a `CTRL-C` (control key + the C key) in order to stop the process. From here on, you will only need one console.
   * Then continue with the following commands
   * This will pop up a browser to authenticate with netlify
   ```
