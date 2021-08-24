@@ -151,6 +151,9 @@ import { SafeAreaView, StyleSheet, View, TextInput, Button } from 'react-native'
 
 - Port over the following folders and files: src (Main code changes occur here), functions (keep the same), netlify.toml (Configure for Expo), package.json (run npm install after copying this over), .env
 
+- **Move App.js file from within src directory to root directory**: root component for your app
+
+
 **src/utils/api.js**: Configure fetch path to accomodate environment variables.
 
 Before:
@@ -212,28 +215,6 @@ HOST="192.168.86.95" // Add your local IP here or GitPod url
 PORT="8888"
 IS_PROD="false"
 GITPOD="false" // Change to true if on GitPod
-```
-
-- **Move App.js file from within src directory to root directory**: Add universal font, and add try-catch blocks for api calls to resolve unhandled promise rejection warnings.
-
-Before:
-```js
-const deleteRestTodo = async (id) => {
-	await api.deleteRestTodo(id);
-	getRestTodos();
-};
-```
-
-After:
-```js
-const deleteRestTodo = async (id) => {
-	try {
-		wait api.deleteRestTodo(id);
-		getRestTodos();
-	} catch (error) {
-		console.log(error)
-	}
-};
 ```
 
 **State Changes for Delete and Complete**: Props are used to pass data, whereas state is for managing data. We're updating the state of the Checkbox and the state of the Todo item, and then conducting the API call to update it in Astra DB. This makes the interaction snappier and appear more native.
