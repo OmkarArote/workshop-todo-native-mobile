@@ -305,7 +305,7 @@ You can see the output of the .env file by running ```cat .env```.
   
   If this doesn't open in the right port (for example, 19003) - swap the port number to 8888. You will get the right url by running:
   ```
-  gp url 8888
+  gp preview $(gp url 8888)
   ```
   
   and opening that in a new tab in your browser.
@@ -368,6 +368,20 @@ See examples of what your finished product should look like:
 
 Finally, run the following commands: 
 
+```
+use todos;
+```
+
+```
+describe tables;
+```
+
+```
+select * from rest;
+```
+
+The output should look like the following:
+
 <img width="45%" alt="Screen Shot 2021-08-24 at 12 33 32" src="https://user-images.githubusercontent.com/82838476/130656955-253b9857-7200-4414-a309-b6acff53cbc8.png">
 
 ## 10. Link to and Configure Netlify
@@ -411,7 +425,7 @@ After:
   ```
 -->
 
-### 11. Deploy to Production
+## 11. Deploy to Production
 Now that you've hooked everything up, time to deploy to production.
 
   * Run
