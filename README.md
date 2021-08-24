@@ -187,7 +187,7 @@ If you are still using the `datastaxdevs` repo please ensure to follow the previ
 > (_Note_: if the Gitpod button does not work, for example you are using Safari, don't despair!
 > You can manually build the URL you need and open it in a new tab like this: `https://gitpod.io/#<YOUR REPO FULL URL>`,
 > pasting in it the full address of **your** GitHub repository. For example,
-> `https://gitpod.io/#https://github.com/JohnSmith/workshop-todo-native-mobile`, assuming your are "JohnSmith"
+> `https://gitpod.io/#https://github.com/JohnSmith/workshop-todo-native-mobile`, assuming you are "JohnSmith"
 > on Github and your repo is "workshop-todo-native-mobile").
 
 - Check out the **.gitpod.yml** file to see the environment setup. We've installed the Expo CLI, the Netlify CLI, and updated Node and NPM for you already.
@@ -199,11 +199,11 @@ If you are still using the `datastaxdevs` repo please ensure to follow the previ
 
 **Click on the double-panel icon:**
 
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 09 PM" src="https://user-images.githubusercontent.com/82838476/129800660-d3381bc7-4ed0-45c7-b547-18e3f7ea6248.png">
+<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/130680540-601d7a0c-b30f-4d4a-8ec7-32d930157cec.png">
 
 **End Result:**
 
-<img width="567" alt="Screen Shot 2021-08-17 at 2 06 26 PM" src="https://user-images.githubusercontent.com/82838476/130680540-601d7a0c-b30f-4d4a-8ec7-32d930157cec.png">
+ <img width="1223" alt="Screen Shot 2021-08-24 at 2 39 22 PM" src="https://user-images.githubusercontent.com/82838476/130693619-655e8e6f-9e10-4a6e-969d-b0461a5d77c7.png">
 
 ✅  **Step 5b:**
 You will need node 15 and npm 7 or later in both terminals.
@@ -307,8 +307,6 @@ You can see the output of the .env file by running ```cat .env```.
   ```
   gp preview $(gp url 8888)
   ```
-  
-  and opening that in a new tab in your browser.
   
   In a new terminal window: (or have a split terminal)
   
