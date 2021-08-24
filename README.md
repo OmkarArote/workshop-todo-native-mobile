@@ -308,6 +308,8 @@ You can see the output of the .env file by running ```cat .env```.
   gp url 8888
   ```
   
+  and opening that in a new tab in your browser.
+  
   In a new terminal window: (or have a split terminal)
   
   ```
