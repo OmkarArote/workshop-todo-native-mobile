@@ -62,17 +62,17 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 
 ## Table of contents
 
-1. [Login or Register to AstraDB and create database](#1-login-or-register-to-astradb-and-create-database)
-2. [Create a security token](#2-create-a-security-token)
+1. [Login or Register to AstraDB and Create Database](#1-login-or-register-to-astradb-and-create-database)
+2. [Create a Security Token](#2-create-a-security-token)
 3. [Deploy to Netlify](#3-deploy-to-netlify)
 4. [Access your GitHub repository and Launch GitPod IDE](#4-access-your-github-repository-and-launch-gitpod-ide)
 5. [Check Node and NPM versions in GitPod](#5-check-node-and-npm-versions-in-gitpod)
 6. [Register for an Expo Account in GitPod](#6-register-for-an-expo-account-in-gitpod)
-7. [Install Expo mobile application on your phone](#7-install-expo-mobile-application-on-your-phone)
+7. [Install Expo Mobile Application on Your Phone](#7-install-expo-mobile-application-on-your-phone)
 8. [Launch the Todo app](#8-launch-the-todo-app)
 9. [View Mobile App](#9-view-mobile-app)
 10. [Link to and Configure Netlify](#10-link-to-and-configure-netlify)
-11. [Deploy to production](#11-deploy-to-production)
+11. [Deploy to Production](#11-deploy-to-production)
 
 **Part 1: Create the Database**
 
@@ -105,7 +105,7 @@ The status will change to `Active` when the database is ready, this will only ta
 
 [🏠 Back to Table of Contents](#table-of-contents)
 
-## 2. Create a security token
+## 2. Create a Security Token
 
 ✅  **Step 2a:**  [Create a token for your app](https://docs.datastax.com/en/astra/docs/manage-application-tokens.html) to use in the settings screen. Use "Database Administrator" permission.
 
@@ -243,7 +243,7 @@ Double check that you are logged in.
 expo whoami 
 ```
 
-## 7. Install Expo mobile application on your phone
+## 7. Install Expo Mobile Application on Your Phone
 
 Download the Expo App from the Android Play Store or iOS App Store.
 
@@ -263,7 +263,7 @@ In the repository directory run the following command  to set up your Astra envi
 npm exec astra-setup todos_native_workshop_db todos
 ```
 
-- You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier.
+- You will be asked to: **Please paste the Database Admin Token here** so copy over the Token you saved earlier, and hit enter.
 
 <img width="325" alt="129834750-287322eb-c4bb-4656-ad60-8b4e0acfd0d4" src="https://user-images.githubusercontent.com/82838476/129835623-cd05c0c2-8a07-48ad-a450-945e1f885b42.png">
 
@@ -292,7 +292,7 @@ Final output should look like the below:
   expo start --tunnel
   ```
   
-  Enter 'y' for yes when asked too use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you start do netlify dev.)
+  Enter 'y' for yes when asked too use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you run netlify dev.)
   
   <img width="495" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
   
@@ -328,8 +328,6 @@ See examples of what your finished product should look like:
 
 <img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
 
-[🏠 Back to Table of Contents](#table-of-contents)
-
 ## 10. Link to and Configure Netlify
 Execute each of the commands below to link your code to your Netlify deployment.
   * First thing, we'll need to **STOP** the `netlify dev` command we issued a moment ago. In the terminal where you executed the netlify command issue a `CTRL-C` (control key + the C key) in order to stop the process.
@@ -363,7 +361,7 @@ Execute each of the commands below to link your code to your Netlify deployment.
   ```
 -->
 
-### 11. Deploy to production
+### 11. Deploy to Production
 Now that you've hooked everything up, time to deploy to production.
 
   * Run
@@ -382,6 +380,8 @@ Now that you've hooked everything up, time to deploy to production.
   ```
   
   You've deployed your app to Netlify!
+  
+  [🏠 Back to Table of Contents](#table-of-contents)
 
 # Need a refresher on React Basics?
 <details><summary>Take me to the React stuff</summary>
