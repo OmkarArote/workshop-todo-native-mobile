@@ -18,7 +18,7 @@ This is an example React Native Todo application using a [DataStax AstraDB](http
 
 **Web Application in Chrome:**
 
-<img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ## 🎯 Objectives
 * Implement a **React Native** Todo app using Expo
@@ -248,7 +248,7 @@ expo whoami
 
 You should see:
 
-<img width="45%" alt="Screen Shot 2021-08-24 at 12 13 06" src="https://user-images.githubusercontent.com/82838476/130679489-1d241537-e5d4-4084-b922-ae716ed398b6.png">
+<img width="427" alt="Screen Shot 2021-08-24 at 12 41 00 PM" src="https://user-images.githubusercontent.com/82838476/130679435-ea46b61a-b7b1-48da-a578-ab84f0a665fe.png">
 
 ## 7. Install Expo Mobile Application on Your Phone
 
@@ -317,8 +317,6 @@ You can see the output of the .env file by running ```cat .env```.
   Enter 'y' for yes when asked to use another port. Port 19000 is being used for the web app launched with netlify dev, that starts the web app with expo start --web (This opens when you run netlify dev.)
   
   <img width="45%" alt="Screen Shot 2021-08-08 at 11 44 25 PM" src="https://user-images.githubusercontent.com/82838476/128941524-db4b7c9a-d21f-41e8-bc6d-729b189d6325.png">
-  
-  
  
 ✅  **Step 8e:** Launch your app in the web browser
   
@@ -326,7 +324,7 @@ Open your web application at the URL specified in the HOST line of your .env fil
 
 **Web Application in Chrome:**
 
-<img width="1680" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
+<img width="1680" alt="WebBrowserToDoApp" src="https://user-images.githubusercontent.com/82838476/129105493-4668143d-a923-437c-b19d-809fa7c55066.png">
 
 ✅  **Step 8f:** Launch your app on your mobile device
 
@@ -342,8 +340,7 @@ Scanning in the Expo Go App:
 
 You may see this screen for a while -- Expo Go is loading the application.
 
-<img width="<img width="427" alt="Screen Shot 2021-08-24 at 12 41 00 PM" src="https://user-images.githubusercontent.com/82838476/130679435-ea46b61a-b7b1-48da-a578-ab84f0a665fe.png">
-5%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130679108-b6e0ef6f-e9b2-4571-a89b-35f5b98162d4.jpg">
+<img width="45%" alt="WebBrowserTodoApp" src="https://user-images.githubusercontent.com/82838476/130679108-b6e0ef6f-e9b2-4571-a89b-35f5b98162d4.jpg">
 
 Add some items to your Todo list (type in the 'What needs to be done?' input and hit enter)! These get stored in Astra DB.
 
@@ -351,21 +348,24 @@ See examples of what your finished product should look like:
 
 **Mobile App on Android:**
 
-<img width="422" alt="AndroidTodoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+<img width="45%" alt="AndroidTodoApp" src="https://user-images.githubusercontent.com/82838476/130680926-3cb3732a-e3ef-4167-8f09-0a25bf8732e5.png">
 
 **Mobile App on iOS:**
 
-<img width="437" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+<img width="45%" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/130680807-a7108e00-55a2-42c5-a5f0-3f258b6d9d39.png">
 
 ✅  **Step 9b:** See your Todos in Astra DB.
 
 - Navigate to the Dashboard in Astra DB and click on the todos_native_workshop_db. 
+
 <img width="45%" alt="Screen Shot 2021-08-24 at 9 49 13 AM" src="https://user-images.githubusercontent.com/82838476/130657937-b25aed15-c14a-4e88-b065-b930c475c998.png">
 
 - Then click on the CQL tab.
+
 <img width="45%" alt="Screen Shot 2021-08-24 at 9 49 28 AM" src="https://user-images.githubusercontent.com/82838476/130657954-32d9840b-2fff-4783-b171-7ca013cd8062.png">
 
 Finally, run the following commands: 
+
 <img width="45%" alt="Screen Shot 2021-08-24 at 12 33 32" src="https://user-images.githubusercontent.com/82838476/130656955-253b9857-7200-4414-a309-b6acff53cbc8.png">
 
 ## 10. Link to and Configure Netlify
