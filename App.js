@@ -36,39 +36,27 @@ function App() {
 	const [restTodos, setRestTodos] = React.useState([]);
 
 	const addRestTodo = async (text) => {
-		try {
-			await api.addRestTodo({
-				id: uuid.v1(),
-				completed: false,
-				text: text,
-				key: 'rest',
-			});
-			getRestTodos();
-		} catch (error) {
-			console.log(error)
-		}
+		await api.addRestTodo({
+			id: uuid.v1(),
+			completed: false,
+			text: text,
+			key: 'rest',
+		});
+		getRestTodos();
 	};
 
 	const deleteRestTodo = async (id) => {
-		try {
-			await api.deleteRestTodo(id);
-			getRestTodos();
-		} catch (error) {
-			console.log(error)
-		}
+		await api.deleteRestTodo(id);
+		getRestTodos();
 	};
 
 	const completeRestTodo = async (id, text, completed) => {
-		try {
-			await api.updateRestTodo({
-				id,
-				text,
-				completed: !completed,
-			});
-			getRestTodos();
-		} catch (error) {
-			console.log(error)
-		}
+		await api.updateRestTodo({
+			id,
+			text,
+			completed: !completed,
+		});
+		getRestTodos();
 	};
 
 	useEffect(() => {
