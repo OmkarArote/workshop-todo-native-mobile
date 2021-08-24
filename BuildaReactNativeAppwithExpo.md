@@ -11,11 +11,11 @@ After this workshop, you will have a mobile native Todo application that can run
 
 **Mobile App on Android:**
 
-<img width="25%" alt="AndroidToDoApp" src="https://user-images.githubusercontent.com/82838476/129105380-1b2f4ec5-c4d4-414a-bc8d-907d19bcf7d0.png">
+<img width="45%" alt="AndroidTodoApp" src="https://user-images.githubusercontent.com/82838476/130680926-3cb3732a-e3ef-4167-8f09-0a25bf8732e5.png">
 
 **Mobile App on iOS:**
 
-<img width="25%" alt="iPhoneToDoApp" src="https://user-images.githubusercontent.com/82838476/129105390-6c91eba2-7f20-438d-a6d0-2914ce727257.png">
+<img width="45%" alt="iPhoneTodoApp" src="https://user-images.githubusercontent.com/82838476/130680807-a7108e00-55a2-42c5-a5f0-3f258b6d9d39.png">
 
 **Web Application in Chrome:**
 
