@@ -5,6 +5,8 @@
 
 In this workshop, you will learn how to convert the Todo web application from a previous [DataStaxDevs workshop](https://github.com/datastaxdevs/appdev-week1-todolist) into a React Native mobile and web application. We will actually be using the same database setup as before, so if you've already created it during the prior workshop, you can skip the Database setup section of this workshop.
 
+Before going all React Native, if you would like to learn more about React and create your first React app take a look at our previous Todo app workshop. [HERE](https://github.com/datastaxdevs/appdev-week1-todolist).
+
 This is an example React Native Todo application using a [DataStax AstraDB](https://dtsx.io/appdev-7-7) free tier database.
 <!--- ENDEXCLUDE --->
 
