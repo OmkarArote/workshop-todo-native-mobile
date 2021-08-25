@@ -59,7 +59,20 @@ It doesn't matter if you join our workshop live or you prefer to do at your own 
 - [Discord chat](https://bit.ly/cassandra-workshop)
 - [Questions and Answers](https://community.datastax.com/)
   
-# Let's start!
+## Homework
+
+<img src="tutorial/images/react-badge.png?raw=true" width="200" align="right" />
+
+Don't forget to complete your upgrade and get your verified skill badge! Finish and submit your homework!
+
+1. Complete your mobile app deployment by completing the practice steps below **THROUGH STEP 9** by launching the app in GitPod and viewing it in Expo Go
+2. A single image of the working mobile app with some fun todo items deployed on your phone is fine (if you cannot do this on your phone a screen of the web app is just fine)
+3. Extra credit to fully deploy this up on Netlify and access from your mobile device using steps 10 and 11
+4. Submit your homework [here](https://github.com/datastaxdevs/workshop-todo-native-mobile/issues/new?assignees=HadesArchitect%2C+SonicDMG%2C+RyanWelford&labels=homework%2C+wait+for+review&template=homework-assignment.md&title=%5BHW%5D+%3CNAME%3E)
+
+That's it, you are done! Expect an email next week!
+  
+# Let's start
 
 ## Table of contents
 
