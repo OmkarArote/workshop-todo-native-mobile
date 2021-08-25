@@ -15,4 +15,4 @@ Attach the homework screenshot below:
 Just a single image of your deployed app on your mobile device via Expo Go or in a browser is fine (note, using Expo Go is the fun way)
 -----------------------------------------
 
-<SCREENSHOTS>
+<SCREENSHOT>
