@@ -150,6 +150,12 @@ The status will change to `Active` when the database is ready, this will only ta
 
 This will take a few minutes.
 
+  * If there is a pre-existing account in Netlify, make sure the Netlify account settings show that it's connected to the appropriate git repository (and you can ignore the error),
+    <details>
+    <summary>Show me! </summary>
+    <img src="tutorial/images/netlify-connect-01.png" />
+    </details>
+    
   * Click on `Site deploy in progress` within the Netlify UI, 
     <details>
     <summary>Show me! </summary>
